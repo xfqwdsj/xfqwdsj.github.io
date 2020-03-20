@@ -6,6 +6,7 @@
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 4.2.0">
 
+<script type="text/javascript" src="/jquery.js"></script>
 <script type="text/javascript" src="/cookie.js"></script>
 <script type="text/javascript" src="/av-min.js"></script>
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/favicon.ico">
@@ -32,8 +33,8 @@
 <meta property="og:site_name" content="小番茄我的世界">
 <meta property="og:description" content="$(function() {      AV.init({         appId: &quot;&quot;,         appKey: &quot;&quot;,         serverURLs: &quot;&quot;     })      var currentUser &#x3D; AV.User.current()     if(currentUser) {         window.location &#x3D; &quot;&#x2F;mword&#x2F;mw">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-20T01:26:03.601Z">
-<meta property="article:modified_time" content="2020-03-20T01:26:03.601Z">
+<meta property="article:published_time" content="2020-03-20T09:50:58.336Z">
+<meta property="article:modified_time" content="2020-03-20T09:50:58.336Z">
 <meta property="article:author" content="xfqwdsj">
 <meta name="twitter:card" content="summary">
 
@@ -221,9 +222,9 @@
 $(function() {
 
     AV.init({
-        appId: "",
-        appKey: "",
-        serverURLs: ""
+        appId: "<%= site.data.mwordLC.appId %>",
+        appKey: "<%= site.data.mwordLC.appKey %>",
+        serverURLs: "<%= site.data.mwordLC.sURL %>"
     })
 
     var currentUser = AV.User.current()
