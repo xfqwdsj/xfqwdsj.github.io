@@ -52,7 +52,7 @@ $(function() {
 			if(confirm(count)) {
 				if(currentUser) {
 					if(upload == false) {
-						MwordsResult = AV.Object.extend("MwordsResult")
+						MwordsResult = MW.Object.extend("MwordsResult")
 						mwordsresult = new MwordsResult()
 						mwordsresult.set("unit", $("#unit").val())
 						mwordsresult.set("timer", timeresult)
