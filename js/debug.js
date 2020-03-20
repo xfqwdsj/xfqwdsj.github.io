@@ -63,7 +63,7 @@ $(function() {
 							window.open("result.html?id=" + saveresult.id, '_blank').location
 							upload = true
 						}, function (error) {
-							alert("存储异常：\n" + error)
+							alert(error)
 						})
 					}
 				} else {
@@ -222,7 +222,7 @@ $(function() {
 					}
 					index = null
 				}) 
-				words.sort(randomsort)  
+				words.sort(randomsort)
 				allcount = words.length
 				$("#hint").html(words[words_index].notice)
 				$("#result").html(rightcount + "/" + allcount)
