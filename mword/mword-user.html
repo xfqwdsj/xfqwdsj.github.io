@@ -33,8 +33,8 @@
 <meta property="og:site_name" content="小番茄我的世界">
 <meta property="og:description" content="var currentUser &#x3D; MW.User.current()  $(function() {     if(!currentUser) {         window.location &#x3D; &quot;&#x2F;mword&#x2F;mword-login.html&quot;     } else {         $(&quot;#username&quot;).html(&quot;用户名 &quot; + currentUser._serverDa">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-20T11:57:13.417Z">
-<meta property="article:modified_time" content="2020-03-20T11:57:13.417Z">
+<meta property="article:published_time" content="2020-03-20T12:30:39.295Z">
+<meta property="article:modified_time" content="2020-03-20T12:30:39.295Z">
 <meta property="article:author" content="xfqwdsj">
 <meta name="twitter:card" content="summary">
 
@@ -212,38 +212,16 @@ $(function() {
         if(currentUser._serverData.mobilePhoneNumber)
             $("#mobilePhoneNumber").html("手机号 " + currentUser._serverData.mobilePhoneNumber)
         else
-            $("#mobilePhoneNumber").html("手机号 " + currentUser._serverData.mobilePhoneNumber + " <a href='https://wpa.qq.com/msgrd?v=3&uin=2996681473&config=qq&menu=yes' target="_blank" rel="noopener">添加（暂时只对特别用户开放直接添加手机号服务）</a>")
+            $("#mobilePhoneNumber").html("手机号 " + currentUser._serverData.mobilePhoneNumber + ' <a href="https://wpa.qq.com/msgrd?v=3&uin=2996681473&config=qq&menu=yes" target="_blank" rel="noopener">添加（暂时只对特别用户开放直接添加手机号服务）</a>')
     }
 })
 
-$.verifyEmail = function() {
-    if(currentUser._serverData.email != undefined)
-        MW.User.requestEmailVerify(currentUser._serverData.email)
-}
 </script>
 <p id="username"></p>
 <p id="nickname"></p>
 <p id="email"></p>
 <p id="mobilePhoneNumber"></p>
 <p><a href="javascript:MW.User.logOut(); window.location.href = ''">注销</a> <a href="/mword/#%E4%BC%A0%E9%80%81%E9%97%A8">背单词</a></p>
-<style type="text/css">
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-    }
-    input[type="number"] {
-        -moz-appearance: textfield;
-    }
-    input {
-        outline: none;
-        text-align: center; 
-        border-bottom: 2px solid #EEEEEE; 
-        border-top: none; 
-        border-left: none;
-        border-right: none;
-        background-color: rgba(0, 0, 0, 0);
-    }
-</style>
       </div>
       
       
