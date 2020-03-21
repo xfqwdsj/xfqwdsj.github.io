@@ -19974,7 +19974,7 @@ function (_AnnotationElement2) {
       image.style.height = this.container.style.height;
       image.style.width = this.container.style.width;
       image.src = this.imageResourcesPath + 'annotation-' + this.data.name.toLowerCase() + '.svg';
-      image.alt = '[{{type}} Annotation]';
+      image.alt = '[ Annotation]';
       image.dataset.l10nId = 'text_annotation_type';
       image.dataset.l10nArgs = JSON.stringify({
         type: this.data.name
@@ -20342,7 +20342,7 @@ function () {
 
       if (dateObject) {
         var modificationDate = document.createElement('span');
-        modificationDate.textContent = '{{date}}, {{time}}';
+        modificationDate.textContent = '1584765182289, ';
         modificationDate.dataset.l10nId = 'annotation_date_string';
         modificationDate.dataset.l10nArgs = JSON.stringify({
           date: dateObject.toLocaleDateString(),
