@@ -4,8 +4,7 @@ $(function() {
 		定义变量 - 开始
 	*/
 	
-	var version = "1.2.5"  
-	var versionS = "debug"
+	var version = "1.2.5"
 	var complete = false
 	var allcount, helpcount, correct, name, notice, rightcount, trans, unit_xml, words, words_index, time, timer, timeresultM, timeresultS, timeresult, timecount, diyhelp, count, name, MwordsResult, mwordsresult, upload
 	
@@ -16,8 +15,8 @@ $(function() {
 	*/
 	
 	memorize_words()
-	$("#version").html(versionS + " " +version)  
-	version = versionS = null
+	$("#version").html("版本 " + version)  
+	version =  null
 	
 	/*
 		初始化 - 结束
