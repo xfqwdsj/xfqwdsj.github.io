@@ -33,8 +33,8 @@
 <meta property="og:site_name" content="小番茄我的世界">
 <meta property="og:description" content="$(function() {     function getQueryString(name) {         var reg &#x3D; new RegExp(&quot;(^|&amp;)&quot; + name + &quot;&#x3D;([^&amp;]*)(&amp;|$)&quot;)         var r &#x3D; window.location.search.substr(1).match(reg)         if(r !&#x3D; null) {">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-21T10:16:02.348Z">
-<meta property="article:modified_time" content="2020-03-21T10:16:02.348Z">
+<meta property="article:published_time" content="2020-03-21T11:48:04.715Z">
+<meta property="article:modified_time" content="2020-03-21T11:48:04.715Z">
 <meta property="article:author" content="xfqwdsj">
 <meta name="twitter:card" content="summary">
 
@@ -230,13 +230,17 @@ $(function() {
         var user = new MW.Query("_User")
         query.get(getQueryString("id")).then(function(res) {
             var id = res.get("userid")
+            var diyhelp = res.get("diyhelp")
+            if(diyhelp == 0) {
+                diyhelp = "全部"
+            }
             user.get(id).then(function(userres) {
                 $("#result").html("我是" + userres.get("nickname") 
                                 + " 我的唯一用户名是" + userres.get("username")
                                 + " 我在" + res.createdAt.toLocaleString()
                                 + " 默写了" + res.get("unit") + "的单词" 
                                 + " 用时" + getMSSTime(res.get("timer"))
-                                + " 使用提示字数" + res.get("diyhelp") 
+                                + " 使用提示字数" + diyhelp
                                 + " 提示了" + res.get("help") + "次")
                 $("#result2").html("数据更新于" + res.updatedAt.toLocaleString())
                 $("#result3").html("\n\n数据ID " + res.id)
