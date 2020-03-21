@@ -6400,7 +6400,7 @@ function () {
                 return _context3.abrupt("return", this.l10n.get('document_properties_date_string', {
                   date: dateObject.toLocaleDateString(),
                   time: dateObject.toLocaleTimeString()
-                }, '1584768517259, '));
+                }, '1584774039622, '));
 
               case 4:
               case "end":

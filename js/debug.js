@@ -67,7 +67,7 @@ $(function() {
 						})
 					}
 				} else {
-					window.location.href = "/mword/mword-login.html"
+					window.location = "/mword/mword-login.html"
 				}
 				MwordsResult = mwordsresult = name = null
 				diyhelp = "全部"
