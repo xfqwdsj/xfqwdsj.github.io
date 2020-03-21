@@ -33,8 +33,8 @@
 <meta property="og:site_name" content="小番茄我的世界">
 <meta property="og:description" content="$(function() {     function getQueryString(name) {         var reg &#x3D; new RegExp(&quot;(^|&amp;)&quot; + name + &quot;&#x3D;([^&amp;]*)(&amp;|$)&quot;)         var r &#x3D; window.location.search.substr(1).match(reg)         if(r !&#x3D; null) {">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-20T11:57:41.340Z">
-<meta property="article:modified_time" content="2020-03-20T11:57:41.340Z">
+<meta property="article:published_time" content="2020-03-21T10:16:02.348Z">
+<meta property="article:modified_time" content="2020-03-21T10:16:02.348Z">
 <meta property="article:author" content="xfqwdsj">
 <meta name="twitter:card" content="summary">
 
@@ -212,8 +212,18 @@ $(function() {
             return unescape(r[2])
         }
     }
-    function getLocalTime(nS) {
-        return new Date(parseInt(nS) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ').replace(/(^\s*)|(\s*$)/g, "")
+    function getMSSTime(s) {
+        var timeresultM = 0, timeresultS = 0
+        while(s >= 60) {
+            s = s - 60
+            timeresultM++
+        }
+        if(s < 10) {
+            timeresultS = "0" + s
+        } else if(s >= 10) {
+            timeresultS = s
+        } 
+        return timeresultM + ":" + timeresultS
     }
     if(getQueryString("id") != null) {
         var query = new MW.Query("MwordsResult")
@@ -225,7 +235,7 @@ $(function() {
                                 + " 我的唯一用户名是" + userres.get("username")
                                 + " 我在" + res.createdAt.toLocaleString()
                                 + " 默写了" + res.get("unit") + "的单词" 
-                                + " 用时" + res.get("timer") 
+                                + " 用时" + getMSSTime(res.get("timer"))
                                 + " 使用提示字数" + res.get("diyhelp") 
                                 + " 提示了" + res.get("help") + "次")
                 $("#result2").html("数据更新于" + res.updatedAt.toLocaleString())
@@ -254,6 +264,7 @@ $(function() {
     <div id="progress" class="progress"></div>
 </div>
 -->
+<p id="note"></p>
 <p id="result"></p>
 <p id="result2"></p>
 <p id="result3"></p>

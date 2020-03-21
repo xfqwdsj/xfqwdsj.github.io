@@ -54,7 +54,7 @@ $(function() {
 						MwordsResult = MW.Object.extend("MwordsResult")
 						mwordsresult = new MwordsResult()
 						mwordsresult.set("unit", $("#unit").val())
-						mwordsresult.set("timer", timeresult)
+						mwordsresult.set("timer", timecount)
 						mwordsresult.set("diyhelp", diyhelp)
 						mwordsresult.set("help", helpcount)
 						mwordsresult.set("userid", currentUser.id)
@@ -135,12 +135,13 @@ $(function() {
 								timeresultS = timecount
 							} 
 							timeresult = timeresultM + ":" + timeresultS
-							timeresultM = timeresultS = timecount = 0
+							timeresultM = timeresultS = 0
+							if(diyhelp == 0) {
+								diyhelp = "全部"
+							}
+							count = "共默写" + allcount + "个单词 共提示" + helpcount + "次 使用提示字数" + diyhelp + " 用时" + timeresult + "\n获取分享链接？"
+							timeresult = "获取失败"
 						}
-						if(diyhelp == 0) {
-							diyhelp = "全部"
-						}
-						count = "共默写" + allcount + "个单词 共提示" + helpcount + "次 使用提示字数" + diyhelp + " 用时" + timeresult + "\n获取分享链接？"
 					} else {
 						update()
 					}
