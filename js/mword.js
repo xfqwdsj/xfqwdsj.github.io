@@ -126,14 +126,13 @@ $(function() {
 						$("#hint").html("<font color='green'>恭喜你 默写完成</font>")
 						complete = true
 						if(timeresult == "获取失败") {
-							while(timecount >= 60) {
-								timecount = timecount - 60
+							timeresultS = timecount
+							while(timeresultS >= 60) {
+								timeresultS = timeresultS - 60
 								timeresultM++
 							}
-							if(timecount < 10) {
-								timeresultS = "0" + timecount
-							} else if(timecount >= 10) {
-								timeresultS = timecount
+							if(timeresultS < 10) {
+								timeresultS = "0" + timeresultS
 							} 
 							timeresult = timeresultM + ":" + timeresultS
 							timeresultM = timeresultS = 0
