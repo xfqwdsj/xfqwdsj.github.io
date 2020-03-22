@@ -32,8 +32,8 @@
 <meta property="og:site_name" content="小番茄我的世界">
 <meta property="og:description" content="$(function() {     function getQueryString(name) {         var reg &#x3D; new RegExp(&quot;(^|&amp;)&quot; + name + &quot;&#x3D;([^&amp;]*)(&amp;|$)&quot;)         var r &#x3D; window.location.search.substr(1).match(reg)         if(r !&#x3D; null) {">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-22T07:55:47.455Z">
-<meta property="article:modified_time" content="2020-03-22T07:55:47.455Z">
+<meta property="article:published_time" content="2020-03-22T07:59:06.000Z">
+<meta property="article:modified_time" content="2020-03-22T07:59:06.000Z">
 <meta property="article:author" content="xfqwdsj">
 <meta name="twitter:card" content="summary">
 
@@ -274,14 +274,14 @@ $(function() {
                         speed.reverse()
                         speed.slice(0, 1)
                         oobject.push(new Array(username, speed))
+                        $(oobject).each(function(index) {
+                            if (index == oobject.length - 1) {
+                                $("#leader").html($("#leader").html() + oobject[index][0] + " " + oobject[index][1] + "个单词/秒")
+                            } else {
+                                $("#leader").html($("#leader").html() + oobject[index][0] + " " + oobject[index][1] + "个单词/秒<br />")
+                            }
+                        })
                     })
-                })
-                $(oobject).each(function(index) {
-                    if (index == oobject.length - 1) {
-                        $("#leader").html($("#leader").html() + oobject[index][0] + " " + oobject[index][1] + "个单词/秒")
-                    } else {
-                        $("#leader").html($("#leader").html() + oobject[index][0] + " " + oobject[index][1] + "个单词/秒<br />")
-                    }
                 })
                 /*
                 $(object).each(function(index) {
