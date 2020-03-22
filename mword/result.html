@@ -32,8 +32,8 @@
 <meta property="og:site_name" content="小番茄我的世界">
 <meta property="og:description" content="$(function() {     function getQueryString(name) {         var reg &#x3D; new RegExp(&quot;(^|&amp;)&quot; + name + &quot;&#x3D;([^&amp;]*)(&amp;|$)&quot;)         var r &#x3D; window.location.search.substr(1).match(reg)         if(r !&#x3D; null) {">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-22T03:53:18.292Z">
-<meta property="article:modified_time" content="2020-03-22T03:53:18.292Z">
+<meta property="article:published_time" content="2020-03-22T04:13:33.222Z">
+<meta property="article:modified_time" content="2020-03-22T04:13:33.222Z">
 <meta property="article:author" content="xfqwdsj">
 <meta name="twitter:card" content="summary">
 
@@ -233,6 +233,7 @@ $(function() {
         return y[1] - x[1]
     }
     if(getQueryString("id") != null) {
+        $(".result").css("visibility", "visible")
         var query = new MW.Query("MwordsResult")
         var user = new MW.Query("_User")
         query.get(getQueryString("id")).then(function(res) {
@@ -290,6 +291,14 @@ $(function() {
                 $("#result3").html("\n\n数据ID " + res.id)
             })
         })
+    } else {
+        $(".search").css("visibility", "visible")
+        $(".myInput").off("keydown").on("keydown",
+        function(e) {
+            if(e.keyCode == 13) {
+                window.location = "?id=" + $(".myInput").val()
+            }
+        })
     }
 })
 </script>
@@ -316,20 +325,46 @@ $(function() {
         max-height: 200px;
         overflow: auto;
     }
+    .result {
+        visibility: hidden;
+    }
+    .search {
+        text-align: center;
+        visibility: hidden;
+    }
+    .myInput {
+        margin-bottom: 5px;
+        transition: 0.5s;
+        outline: none;
+        text-align: center; 
+        border-bottom: 2px solid #EEEEEE; 
+        border-top: none; 
+        border-left: none;
+        border-right: none;
+        background-color: rgba(0, 0, 0, 0);
+        width: 100%;
+    }
+    .myInput:focus {
+        border-bottom: 3px solid #FF7070; 
+    }
 </style>
 <!-- div class="back">
     <div id="progress" class="progress"></div>
 </div -->
-
-<div class="card">
-    <p>排行榜（提示数为先决条件）</p>
-    <span id="leader"></span>
+<div class="result">
+    <div class="card">
+        <p>排行榜（提示数为先决条件）</p>
+        <span id="leader"></span>
+    </div>
+    <p id="note"></p>
+    <p id="result"></p>
+    <p id="result2"></p>
+    <p id="result3"></p>
+    <a href="/mword/#%E4%BC%A0%E9%80%81%E9%97%A8">我也试一试！</a>
 </div>
-<p id="note"></p>
-<p id="result"></p>
-<p id="result2"></p>
-<p id="result3"></p>
-<a href="/mword/#%E4%BC%A0%E9%80%81%E9%97%A8">我也试一试！</a>
+<div class="search">
+    <input class="myInput" placeholder="数据ID">
+</div>
       </div>
       
       
