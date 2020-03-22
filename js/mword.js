@@ -4,7 +4,7 @@ $(function() {
 		定义变量 - 开始
 	*/
 	
-	var version = "1.2.5"
+	var version = "1.2.6"
 	var complete = false
 	var allcount, helpcount, correct, name, notice, rightcount, trans, unit_xml, words, words_index, time, timer, timeresultM, timeresultS, timeresult, timecount, diyhelp, count, name, MwordsResult, mwordsresult, upload, twh
 	
@@ -59,6 +59,7 @@ $(function() {
 						mwordsresult.set("help", helpcount)
 						mwordsresult.set("userid", currentUser.id)
 						mwordsresult.set("allcount", allcount)
+						mwordsresult.set("speed", allcount / timecount)
 						mwordsresult.save().then(function (saveresult) {
 							window.open("result.html?id=" + saveresult.id, '_blank').location
 							upload = true
