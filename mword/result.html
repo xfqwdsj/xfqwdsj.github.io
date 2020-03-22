@@ -32,8 +32,8 @@
 <meta property="og:site_name" content="小番茄我的世界">
 <meta property="og:description" content="$(function() {     function getQueryString(name) {         var reg &#x3D; new RegExp(&quot;(^|&amp;)&quot; + name + &quot;&#x3D;([^&amp;]*)(&amp;|$)&quot;)         var r &#x3D; window.location.search.substr(1).match(reg)         if(r !&#x3D; null) {">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-22T07:26:24.372Z">
-<meta property="article:modified_time" content="2020-03-22T07:26:24.372Z">
+<meta property="article:published_time" content="2020-03-22T07:30:45.562Z">
+<meta property="article:modified_time" content="2020-03-22T07:30:45.562Z">
 <meta property="article:author" content="xfqwdsj">
 <meta name="twitter:card" content="summary">
 
@@ -281,7 +281,7 @@ $(function() {
                             speeds.push(object[idx]._serverData.speed)
                         }
                     })
-                    speeds.sort(descend)
+                    speeds.sort()
                     oobject.push(new Array(ouser[index], speeds))
                 })
                 console.log(oobject)
