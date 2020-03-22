@@ -4,7 +4,7 @@ $(function() {
 		定义变量 - 开始
 	*/
 	
-	var version = "1.2.6"
+	var version = "1.2.7"
 	var complete = false
 	var allcount, helpcount, correct, name, notice, rightcount, trans, unit_xml, words, words_index, time, timer, timeresultM, timeresultS, timeresult, timecount, diyhelp, count, name, MwordsResult, mwordsresult, upload, twh
 	
@@ -58,7 +58,6 @@ $(function() {
 						mwordsresult.set("diyhelp", diyhelp)
 						mwordsresult.set("help", helpcount)
 						mwordsresult.set("userid", currentUser.id)
-						mwordsresult.set("allcount", allcount)
 						mwordsresult.set("speed", allcount / timecount)
 						mwordsresult.save().then(function (saveresult) {
 							window.open("result.html?id=" + saveresult.id, '_blank').location
@@ -139,7 +138,7 @@ $(function() {
 							if(diyhelp == 0) {
 								diyhelp = "全部"
 							}
-							count = "共默写" + allcount + "个单词 共提示" + helpcount + "次 使用提示字数" + diyhelp + " 用时" + timeresult + "\n获取分享链接？"
+							count = "共默写" + allcount + "个单词 共提示" + helpcount + "次 使用提示字数" + diyhelp + " 用时" + timeresult + "\n上传到服务器？"
 							if(diyhelp == "全部") {
 								diyhelp = parseInt(0)
 							}
