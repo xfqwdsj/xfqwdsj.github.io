@@ -32,8 +32,8 @@
 <meta property="og:site_name" content="小番茄我的世界">
 <meta property="og:description" content="$(function() {     function getQueryString(name) {         var reg &#x3D; new RegExp(&quot;(^|&amp;)&quot; + name + &quot;&#x3D;([^&amp;]*)(&amp;|$)&quot;)         var r &#x3D; window.location.search.substr(1).match(reg)         if(r !&#x3D; null) {">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-22T08:37:02.298Z">
-<meta property="article:modified_time" content="2020-03-22T08:37:02.298Z">
+<meta property="article:published_time" content="2020-03-22T08:54:43.436Z">
+<meta property="article:modified_time" content="2020-03-22T08:54:43.436Z">
 <meta property="article:author" content="xfqwdsj">
 <meta name="twitter:card" content="summary">
 
@@ -213,7 +213,7 @@ $(function() {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)")
         var r = window.location.search.substr(1).match(reg)
         if(r != null) {
-            return unescape(r[2])
+            return decodeURI(r[2])
         }
     }
     function getMSSTime(s) {
@@ -278,7 +278,7 @@ $(function() {
                             speed = speed.slice(0, 1)
                             oobject.push(new Array(username, speed))
                         } else {
-                            setTimeout(wait, 500)
+                            setTimeout(wait, 100)
                         }
                     }
                     wait()
@@ -294,38 +294,10 @@ $(function() {
                             }
                         })
                     } else {
-                        setTimeout(wait, 500)
+                        setTimeout(wait, 100)
                     }
                 }
                 wait()
-                /*
-                $(object).each(function(index) {
-                    user.get(oobject[index]._serverData.userid).then(function(userres) {
-                        query.equalTo("userid", ouser[index])
-                        query.descending("speed")
-                        query.first().then(function(object) {
-                            ouser[index] = userres.get("username")
-                            lb.push(new Array(ouser[index], object._serverData.speed))
-                            if (index == ouser.length - 1) {
-                                while(true) {
-                                    if(ouser.length == lb.length) {
-                                        lb.sort(descend)
-                                        lb.slice(0, 5)
-                                        $(lb).each(function(idx) {
-                                            if (idx == lb.length - 1) {
-                                                $("#leader").html($("#leader").html() + lb[idx][0] + " " + lb[idx][1] + "个单词/秒")
-                                            } else {
-                                                $("#leader").html($("#leader").html() + lb[idx][0] + " " + lb[idx][1] + "个单词/秒<br />")
-                                            }
-                                        })
-                                        break
-                                    } 
-                                }
-                            }
-                        })
-                    })
-                })
-                */
             })
             user.get(id).then(function(userres) {
                 $("#result").html("我是" + userres.get("nickname") 
@@ -336,7 +308,7 @@ $(function() {
                                 + " 使用提示字数" + diyhelp
                                 + " 提示了" + res.get("help") + "次")
                 $("#result2").html("数据更新于" + res.updatedAt.toLocaleString())
-                $("#result3").html("数据ID " + res.id)
+                $("#result3").html("妥善保管数据ID " + res.id)
             })
         })
     } else {

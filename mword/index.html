@@ -25,15 +25,15 @@
     var CONFIG = {"hostname":"xfqwdsj.github.io","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":"trues","style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"livere","storage":true,"lazyload":false,"nav":null,"activeClass":"livere"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":5,"unescape":true,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-	<meta name="description" content="背单词 不分家 更新日志123456789101112131415161718  版本 1.2.7 我的成果新版 更新内容- 优化逻辑- 公测排行榜  版本 1.2.5 我的成果2.0 更新内容- 成果完全上传到服务器 2020&#x2F;3&#x2F;20 9:45 前数据将全部失效- 完全使用用户验证制  版本 1.2.3.13 更新内容- 修改样式代码以适应新增加的夜间模式(需要从系统设置中">
+	<meta name="description" content="var currentUser &#x3D; MW.User.current() $(function() {     if(currentUser) {         $(&quot;#user&quot;).html(&quot;您已登录：&quot; + currentUser._serverData.username + &quot;&quot;)     }     else {         $(&quot;#user&quot;).html(&quot;请登录 或刷新&quot;)">
 <meta property="og:type" content="website">
 <meta property="og:title" content="背单词">
 <meta property="og:url" content="https://xfqwdsj.github.io/mword/index.html">
 <meta property="og:site_name" content="小番茄我的世界">
-<meta property="og:description" content="背单词 不分家 更新日志123456789101112131415161718  版本 1.2.7 我的成果新版 更新内容- 优化逻辑- 公测排行榜  版本 1.2.5 我的成果2.0 更新内容- 成果完全上传到服务器 2020&#x2F;3&#x2F;20 9:45 前数据将全部失效- 完全使用用户验证制  版本 1.2.3.13 更新内容- 修改样式代码以适应新增加的夜间模式(需要从系统设置中">
+<meta property="og:description" content="var currentUser &#x3D; MW.User.current() $(function() {     if(currentUser) {         $(&quot;#user&quot;).html(&quot;您已登录：&quot; + currentUser._serverData.username + &quot;&quot;)     }     else {         $(&quot;#user&quot;).html(&quot;请登录 或刷新&quot;)">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-22T03:59:44.246Z">
-<meta property="article:modified_time" content="2020-03-22T03:59:44.246Z">
+<meta property="article:published_time" content="2020-03-22T08:52:28.733Z">
+<meta property="article:modified_time" content="2020-03-22T08:52:28.733Z">
 <meta property="article:author" content="xfqwdsj">
 <meta name="twitter:card" content="summary">
 
@@ -206,9 +206,24 @@ var MW = AV
       
       
       <div class="post-body">
-          <p><strong>背单词 不分家</strong></p>
+          <script type="text/javascript">
+var currentUser = MW.User.current()
+$(function() {
+    if(currentUser) {
+        $("#user").html("您已登录：<a href='/mword/mword-user.html'>" + currentUser._serverData.username + "</a>")
+    }
+    else {
+        $("#user").html("请<a href='/mword/mword-login.html'>登录</a> 或<a href=''>刷新</a>")
+    }
+})
+</script>
+<div style="text-align: center;">
+    <p id="user"></p>
+</div>
+
+<p><strong>即将开放查询功能 敬请期待！</strong></p>
 <h2 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">  版本 1.2.7 我的成果新版 更新内容</span><br><span class="line">- 优化逻辑</span><br><span class="line">- 公测排行榜</span><br><span class="line">  版本 1.2.5 我的成果2.0 更新内容</span><br><span class="line">- 成果完全上传到服务器 2020&#x2F;3&#x2F;20 9:45 前数据将全部失效</span><br><span class="line">- 完全使用用户验证制</span><br><span class="line">  版本 1.2.3.13 更新内容</span><br><span class="line">- 修改样式代码以适应新增加的夜间模式(需要从系统设置中打开)</span><br><span class="line">- 优化部分逻辑</span><br><span class="line">- 优化自定义提示的触发方法并修复由此产生的计时器BUG</span><br><span class="line">  版本 1.2.3.9 更新内容</span><br><span class="line">- 优化代码</span><br><span class="line">- 优化布局</span><br><span class="line">- 做了一些我自己也不知道什么的改动 反正是修复了BUG</span><br><span class="line">- 修复获取分享链接功能</span><br><span class="line">- 分享链接加密方案再次升级</span><br><span class="line">- 支持增加名字</span><br><span class="line">- 优化界面</span><br></pre></td></tr></table></figure>
-<h2 id="传送门"><a href="#传送门" class="headerlink" title="传送门"></a>传送门</h2><p><a href="mword.html">开始背单词</a> | <a href="https://github.com/xfqwdsj/MemorizeWords" target="_blank" rel="noopener">GitHub项目主页（可下载源代码）</a></p>
+<h2 id="传送门"><a href="#传送门" class="headerlink" title="传送门"></a>传送门</h2><p><a href="mword.html">开始背单词</a> | <a href="result.html">根据ID查询结果</a> | <a href="https://github.com/xfqwdsj/MemorizeWords" target="_blank" rel="noopener">GitHub项目主页（可下载源代码）</a></p>
 
       </div>
       
