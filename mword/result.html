@@ -33,8 +33,8 @@
 <meta property="og:site_name" content="小番茄我的世界">
 <meta property="og:description" content="$(function() {     function getQueryString(name) {         var reg &#x3D; new RegExp(&quot;(^|&amp;)&quot; + name + &quot;&#x3D;([^&amp;]*)(&amp;|$)&quot;)         var r &#x3D; window.location.search.substr(1).match(reg)         if(r !&#x3D; null) {">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-22T02:15:42.187Z">
-<meta property="article:modified_time" content="2020-03-22T02:15:42.187Z">
+<meta property="article:published_time" content="2020-03-22T02:22:57.527Z">
+<meta property="article:modified_time" content="2020-03-22T02:22:57.527Z">
 <meta property="article:author" content="xfqwdsj">
 <meta name="twitter:card" content="summary">
 
@@ -242,17 +242,20 @@ $(function() {
                 $(object).each(function(index) {
                     var nononly = false
                     $(ouser).each(function(idx) {
-                        if (ouser[idx] == object[index]._serverData.username) {
+                        if (ouser[idx] == object[index]._serverData.userid) {
                             nononly = true
                         }
                     })
                     if (nononly == false) {
-                        ouser.push(object[index]._serverData.username)
+                        ouser.push(object[index]._serverData.userid)
                     }
                 })
             })
             var lb = new Array()
             $(ouser).each(function(index) {
+                user.get(ouser[index]).then(function(userres) {
+                    ouser[index] = userres.get("username")
+                })
                 query.equalTo("userid", ouser[index])
                 query.ascending("diyhelp")
                 query.first().then(function (object) {
