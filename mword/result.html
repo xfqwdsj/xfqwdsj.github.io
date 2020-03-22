@@ -32,8 +32,8 @@
 <meta property="og:site_name" content="小番茄我的世界">
 <meta property="og:description" content="$(function() {     function getQueryString(name) {         var reg &#x3D; new RegExp(&quot;(^|&amp;)&quot; + name + &quot;&#x3D;([^&amp;]*)(&amp;|$)&quot;)         var r &#x3D; window.location.search.substr(1).match(reg)         if(r !&#x3D; null) {">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-22T04:13:33.222Z">
-<meta property="article:modified_time" content="2020-03-22T04:13:33.222Z">
+<meta property="article:published_time" content="2020-03-22T04:28:55.543Z">
+<meta property="article:modified_time" content="2020-03-22T04:28:55.543Z">
 <meta property="article:author" content="xfqwdsj">
 <meta name="twitter:card" content="summary">
 
@@ -232,7 +232,7 @@ $(function() {
     function descend(x, y){
         return y[1] - x[1]
     }
-    if(getQueryString("id") != null) {
+    if(getQueryString("id") != "") {
         $(".result").css("visibility", "visible")
         var query = new MW.Query("MwordsResult")
         var user = new MW.Query("_User")
@@ -268,15 +268,15 @@ $(function() {
                             lb.push(new Array(ouser[index], object._serverData.speed))
                             lb.sort(descend)
                             lb.slice(0, 5)
-                            $(lb).each(function(index) {
-                                if (index == lb.length - 1) {
-                                    $("#leader").html($("#leader").html() + lb[index][0] + " " + lb[index][1] + "个单词/秒")
-                                } else {
-                                    $("#leader").html($("#leader").html() + lb[index][0] + " " + lb[index][1] + "个单词/秒\n")
-                                }
-                            })
                         })
                     })
+                })
+                $(lb).each(function(index) {
+                    if (index == lb.length - 1) {
+                        $("#leader").html($("#leader").html() + lb[index][0] + " " + lb[index][1] + "个单词/秒")
+                    } else {
+                        $("#leader").html($("#leader").html() + lb[index][0] + " " + lb[index][1] + "个单词/秒\n")
+                    }
                 })
             })
             user.get(id).then(function(userres) {
