@@ -52,14 +52,13 @@ $(function() {
 				if(currentUser) {
 					if(upload == false) {
 						MwordsResult = MW.Object.extend("MwordsResult")
-						twh = (timecount + (helpcount / timecount)) / allcount
 						mwordsresult = new MwordsResult()
 						mwordsresult.set("unit", $("#unit").val())
 						mwordsresult.set("timer", timecount)
 						mwordsresult.set("diyhelp", diyhelp)
 						mwordsresult.set("help", helpcount)
 						mwordsresult.set("userid", currentUser.id)
-						mwordsresult.set("twh", twh)
+						mwordsresult.set("allcount", allcount)
 						mwordsresult.save().then(function (saveresult) {
 							window.open("result.html?id=" + saveresult.id, '_blank').location
 							upload = true

@@ -33,8 +33,8 @@
 <meta property="og:site_name" content="小番茄我的世界">
 <meta property="og:description" content="$(function() {     function getQueryString(name) {         var reg &#x3D; new RegExp(&quot;(^|&amp;)&quot; + name + &quot;&#x3D;([^&amp;]*)(&amp;|$)&quot;)         var r &#x3D; window.location.search.substr(1).match(reg)         if(r !&#x3D; null) {">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-21T11:48:04.715Z">
-<meta property="article:modified_time" content="2020-03-21T11:48:04.715Z">
+<meta property="article:published_time" content="2020-03-22T02:15:42.187Z">
+<meta property="article:modified_time" content="2020-03-22T02:15:42.187Z">
 <meta property="article:author" content="xfqwdsj">
 <meta name="twitter:card" content="summary">
 
@@ -225,6 +225,9 @@ $(function() {
         } 
         return timeresultM + ":" + timeresultS
     }
+    function descend(x, y){
+        return y[1] - x[1]
+    }
     if(getQueryString("id") != null) {
         var query = new MW.Query("MwordsResult")
         var user = new MW.Query("_User")
@@ -234,6 +237,36 @@ $(function() {
             if(diyhelp == 0) {
                 diyhelp = "全部"
             }
+            var ouser = new Array()
+            query.find().then(function (object) {
+                $(object).each(function(index) {
+                    var nononly = false
+                    $(ouser).each(function(idx) {
+                        if (ouser[idx] == object[index]._serverData.username) {
+                            nononly = true
+                        }
+                    })
+                    if (nononly == false) {
+                        ouser.push(object[index]._serverData.username)
+                    }
+                })
+            })
+            var lb = new Array()
+            $(ouser).each(function(index) {
+                query.equalTo("userid", ouser[index])
+                query.ascending("diyhelp")
+                query.first().then(function (object) {
+                    lb.push(new Array(ouser[index], object._serverData.allcount / object._serverData.timer))
+                })
+            })
+            lb.sort(descend)
+            $(lb).each(function(index) {
+                if (index == lb.length - 1) {
+                    $("#leader").html($("#leader").html() + lb[index][0] + " " + lb[index][1] + "个单词/秒")
+                } else {
+                    $("#leader").html($("#leader").html() + lb[index][0] + " " + lb[index][1] + "个单词/秒\n")
+                }
+            })
             user.get(id).then(function(userres) {
                 $("#result").html("我是" + userres.get("nickname") 
                                 + " 我的唯一用户名是" + userres.get("username")
@@ -249,8 +282,9 @@ $(function() {
     }
 })
 </script>
-<!--
+
 <style type="text/css">
+    /*
     .back {
         background-color: #FF0000;
         height: 2px;
@@ -263,11 +297,22 @@ $(function() {
         height: 100%;
         transition: 1.5s;
     }
+    */
+    .card {
+        text-align: center;
+        border:1px solid;
+        border-radius:5px;
+        box-shadow: 1px 1px 5px #888888;
+    }
 </style>
-<div class="back">
+<!-- div class="back">
     <div id="progress" class="progress"></div>
+</div -->
+
+<div class="card">
+    <p>排行榜（提示数为先决条件）</p>
+    <span id="leader"></span>
 </div>
--->
 <p id="note"></p>
 <p id="result"></p>
 <p id="result2"></p>
