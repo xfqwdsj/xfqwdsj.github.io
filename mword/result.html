@@ -32,8 +32,8 @@
 <meta property="og:site_name" content="小番茄我的世界">
 <meta property="og:description" content="$(function() {     function getQueryString(name) {         var reg &#x3D; new RegExp(&quot;(^|&amp;)&quot; + name + &quot;&#x3D;([^&amp;]*)(&amp;|$)&quot;)         var r &#x3D; window.location.search.substr(1).match(reg)         if(r !&#x3D; null) {">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-22T08:27:13.743Z">
-<meta property="article:modified_time" content="2020-03-22T08:27:13.743Z">
+<meta property="article:published_time" content="2020-03-22T08:37:02.298Z">
+<meta property="article:modified_time" content="2020-03-22T08:37:02.298Z">
 <meta property="article:author" content="xfqwdsj">
 <meta name="twitter:card" content="summary">
 
@@ -283,14 +283,21 @@ $(function() {
                     }
                     wait()
                 })
-                $(oobject).each(function(index) {
-                    oobject = oobject.slice(0, 5)
-                    if (index == oobject.length - 1) {
-                        $("#leader").html($("#leader").html() + oobject[index][0] + " " + oobject[index][1] + "个单词/秒")
+                var wait = function() {
+                    if(oobject.length == ouser.length) {
+                        $(oobject).each(function(index) {
+                            oobject = oobject.slice(0, 5)
+                            if (index == oobject.length - 1) {
+                                $("#leader").html($("#leader").html() + oobject[index][0] + " " + oobject[index][1] + "个单词/秒")
+                            } else {
+                                $("#leader").html($("#leader").html() + oobject[index][0] + " " + oobject[index][1] + "个单词/秒<br />")
+                            }
+                        })
                     } else {
-                        $("#leader").html($("#leader").html() + oobject[index][0] + " " + oobject[index][1] + "个单词/秒<br />")
+                        setTimeout(wait, 500)
                     }
-                })
+                }
+                wait()
                 /*
                 $(object).each(function(index) {
                     user.get(oobject[index]._serverData.userid).then(function(userres) {
