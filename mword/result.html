@@ -32,8 +32,8 @@
 <meta property="og:site_name" content="小番茄我的世界">
 <meta property="og:description" content="$(function() {     function getQueryString(name) {         var reg &#x3D; new RegExp(&quot;(^|&amp;)&quot; + name + &quot;&#x3D;([^&amp;]*)(&amp;|$)&quot;)         var r &#x3D; window.location.search.substr(1).match(reg)         if(r !&#x3D; null) {">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-22T09:37:32.908Z">
-<meta property="article:modified_time" content="2020-03-22T09:37:32.908Z">
+<meta property="article:published_time" content="2020-03-22T09:45:46.190Z">
+<meta property="article:modified_time" content="2020-03-22T09:45:46.190Z">
 <meta property="article:author" content="xfqwdsj">
 <meta name="twitter:card" content="summary">
 
@@ -275,6 +275,14 @@ $(function() {
                                     $("#leader").html("错误：" + e)
                             }
                         })
+                    }, function(e) {
+                        switch(e.code) {
+                            case 429: 
+                                alert("请求超限 请过一会再试")
+                                break
+                            default: 
+                                alert("错误：" + e)
+                        }
                     })
                     var wait = function() {
                         if(username) {
@@ -309,6 +317,14 @@ $(function() {
                     }
                 }
                 wait()
+            }, function(e) {
+                switch(e.code) {
+                    case 429: 
+                        alert("请求超限 请过一会再试")
+                        break
+                    default: 
+                        alert("错误：" + e)
+                }
             })
             user.get(id).then(function(userres) {
                 $("#result").html("我是" + userres.get("nickname") 
@@ -320,7 +336,23 @@ $(function() {
                                 + " 提示了" + res.get("help") + "次")
                 $("#result2").html("数据更新于" + res.updatedAt.toLocaleString())
                 $("#result3").html("妥善保管数据ID " + res.id)
+            }, function(e) {
+                switch(e.code) {
+                    case 429: 
+                        alert("请求超限 请过一会再试")
+                        break
+                    default: 
+                        alert("错误：" + e)
+                }
             })
+        }, function(e) {
+            switch(e.code) {
+                case 429: 
+                    alert("请求超限 请过一会再试")
+                    break
+                default: 
+                    alert("错误：" + e)
+            }
         })
     } else {
         $(".search").css("visibility", "visible")
