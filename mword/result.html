@@ -32,8 +32,8 @@
 <meta property="og:site_name" content="小番茄我的世界">
 <meta property="og:description" content="$(function() {     function getQueryString(name) {         var reg &#x3D; new RegExp(&quot;(^|&amp;)&quot; + name + &quot;&#x3D;([^&amp;]*)(&amp;|$)&quot;)         var r &#x3D; window.location.search.substr(1).match(reg)         if(r !&#x3D; null) {">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-23T07:08:55.127Z">
-<meta property="article:modified_time" content="2020-03-23T07:08:55.127Z">
+<meta property="article:published_time" content="2020-03-23T08:05:45.146Z">
+<meta property="article:modified_time" content="2020-03-23T08:05:45.146Z">
 <meta property="article:author" content="xfqwdsj">
 <meta name="twitter:card" content="summary">
 
@@ -239,6 +239,7 @@ $(function() {
         var user = new MW.Query("_User")
         var oobject = new Array()
         var unit
+        var nuidx = new Array()
         query.descending("diyhelp")
         query.find().then(function(object) {
             $(object).each(function(index) {
@@ -246,12 +247,15 @@ $(function() {
                     unit = object[index].get("unit")
                 }
             })
-            var i = 0
             $(object).each(function(index) {
                 if(object[index].get("unit") != unit) {
-                    object.splice(index - i, 1)
-                    i++
+                    nuidx.push(index)
                 }
+            })
+            var i = 0
+            $(nuidx).each(function(index) {
+                object.splice(nuidx[index] - i, 1)
+                i++
             })
             i = null
             user.find().then(function(users) {
