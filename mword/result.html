@@ -32,8 +32,8 @@
 <meta property="og:site_name" content="小番茄我的世界">
 <meta property="og:description" content="$(function() {     function getQueryString(name) {         var reg &#x3D; new RegExp(&quot;(^|&amp;)&quot; + name + &quot;&#x3D;([^&amp;]*)(&amp;|$)&quot;)         var r &#x3D; window.location.search.substr(1).match(reg)         if(r !&#x3D; null) {">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-23T03:38:47.660Z">
-<meta property="article:modified_time" content="2020-03-23T03:38:47.660Z">
+<meta property="article:published_time" content="2020-03-23T04:02:15.763Z">
+<meta property="article:modified_time" content="2020-03-23T04:02:15.763Z">
 <meta property="article:author" content="xfqwdsj">
 <meta name="twitter:card" content="summary">
 
@@ -275,17 +275,6 @@ $(function() {
                         speed.reverse()
                         speed = speed.slice(0, 1)
                         oobject.push(new Array(username, speed))
-                        if(users[index].get("userid") == id) {
-                            $("#result").html("我是" + users[index].get("nickname") 
-                                            + " 我的唯一用户名是" + users[index].get("username")
-                                            + " 我在" + res.createdAt.toLocaleString()
-                                            + " 默写了" + unit + "的单词" 
-                                            + " 用时" + getMSSTime(res.get("timer"))
-                                            + " 使用提示字数" + diyhelp
-                                            + " 提示了" + res.get("help") + "次")
-                            $("#result2").html("数据更新于" + res.updatedAt.toLocaleString())
-                            $("#result3").html("妥善保管数据ID " + res.id)
-                        }
                         /*
                         user.get(ouser[index]).then(function(userres) {
                             username = userres.get("username").then(function(res) {
@@ -325,6 +314,19 @@ $(function() {
                             break
                         default: 
                             alert("错误：" + e)
+                    }
+                })
+                $(object).each(function(index) {
+                    if(object[index].id == getQueryString("id")) {
+                        $("#result").html("我是" + users[index].get("nickname") 
+                                        + " 我的唯一用户名是" + users[index].get("username")
+                                        + " 我在" + res.createdAt.toLocaleString()
+                                        + " 默写了" + unit + "的单词" 
+                                        + " 用时" + getMSSTime(res.get("timer"))
+                                        + " 使用提示字数" + diyhelp
+                                        + " 提示了" + res.get("help") + "次")
+                        $("#result2").html("数据更新于" + res.updatedAt.toLocaleString())
+                        $("#result3").html("妥善保管数据ID " + res.id)
                     }
                 })
                 var wait = function() {
