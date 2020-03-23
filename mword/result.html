@@ -32,8 +32,8 @@
 <meta property="og:site_name" content="小番茄我的世界">
 <meta property="og:description" content="$(function() {     function getQueryString(name) {         var reg &#x3D; new RegExp(&quot;(^|&amp;)&quot; + name + &quot;&#x3D;([^&amp;]*)(&amp;|$)&quot;)         var r &#x3D; window.location.search.substr(1).match(reg)         if(r !&#x3D; null) {">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-23T09:32:49.186Z">
-<meta property="article:modified_time" content="2020-03-23T09:32:49.186Z">
+<meta property="article:published_time" content="2020-03-23T09:39:09.723Z">
+<meta property="article:modified_time" content="2020-03-23T09:39:09.723Z">
 <meta property="article:author" content="xfqwdsj">
 <meta name="twitter:card" content="summary">
 
@@ -260,13 +260,7 @@ $(function() {
             })
             i = null
             $(object).each(function(index) {
-                var nononly = false
-                $(ouser).each(function(idx) {
-                    if(ouser[idx] == object[index].get("userid")) {
-                        nononly = true
-                    }
-                })
-                if(nononly == false) {
+                if(ouser.indexOf(object[index].get("userid")) < 0) {
                     ouser.push(object[index].get("userid"))
                 }
             })
@@ -536,7 +530,6 @@ $(function() {
 	</div>
 
 	
-  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
