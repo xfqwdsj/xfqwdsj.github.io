@@ -32,8 +32,8 @@
 <meta property="og:site_name" content="小番茄我的世界">
 <meta property="og:description" content="$(function() {     function getQueryString(name) {         var reg &#x3D; new RegExp(&quot;(^|&amp;)&quot; + name + &quot;&#x3D;([^&amp;]*)(&amp;|$)&quot;)         var r &#x3D; window.location.search.substr(1).match(reg)         if(r !&#x3D; null) {">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-22T09:45:46.190Z">
-<meta property="article:modified_time" content="2020-03-22T09:45:46.190Z">
+<meta property="article:published_time" content="2020-03-23T03:38:47.660Z">
+<meta property="article:modified_time" content="2020-03-23T03:38:47.660Z">
 <meta property="article:author" content="xfqwdsj">
 <meta name="twitter:card" content="summary">
 
@@ -248,7 +248,8 @@ $(function() {
             var unit = res.get("unit")
             query.descending("diyhelp")
             query.equalTo("unit", unit)
-            query.find().then(function (object) {
+            query.find().then(function(object) {
+                /*
                 $(object).each(function(index) {
                     var nononly = false
                     $(ouser).each(function(idx) {
@@ -260,49 +261,74 @@ $(function() {
                         ouser.push(object[index]._serverData.userid)
                     }
                 })
-                $(ouser).each(function(index) {
-                    var speed = new Array()
-                    var username
-                    user.get(ouser[index]).then(function(userres) {
-                        username = userres.get("username").then(function(res) {
+                */
+                user.find().then(function(users) {
+                    $(users).each(function(index) {
+                        var speed = new Array()
+                        var username = users[index].get("username")
+                        $(object).each(function(idx) {
+                            if(object[idx].get("userid") == users[index].get("userid")) {
+                                speed.push(object[idx].get("speed"))
+                            }
+                        })
+                        speed.sort()
+                        speed.reverse()
+                        speed = speed.slice(0, 1)
+                        oobject.push(new Array(username, speed))
+                        if(users[index].get("userid") == id) {
+                            $("#result").html("我是" + users[index].get("nickname") 
+                                            + " 我的唯一用户名是" + users[index].get("username")
+                                            + " 我在" + res.createdAt.toLocaleString()
+                                            + " 默写了" + unit + "的单词" 
+                                            + " 用时" + getMSSTime(res.get("timer"))
+                                            + " 使用提示字数" + diyhelp
+                                            + " 提示了" + res.get("help") + "次")
+                            $("#result2").html("数据更新于" + res.updatedAt.toLocaleString())
+                            $("#result3").html("妥善保管数据ID " + res.id)
+                        }
+                        /*
+                        user.get(ouser[index]).then(function(userres) {
+                            username = userres.get("username").then(function(res) {
 
+                            }, function(e) {
+                                switch(e.code) {
+                                    case 429: 
+                                        $("#leader").html("请求超限 请过一会再试")
+                                        break
+                                    default: 
+                                        $("#leader").html("错误：" + e)
+                                }
+                            })
                         }, function(e) {
                             switch(e.code) {
                                 case 429: 
-                                    $("#leader").html("请求超限 请过一会再试")
+                                    alert("请求超限 请过一会再试")
                                     break
                                 default: 
-                                    $("#leader").html("错误：" + e)
+                                    alert("错误：" + e)
                             }
                         })
-                    }, function(e) {
-                        switch(e.code) {
-                            case 429: 
-                                alert("请求超限 请过一会再试")
-                                break
-                            default: 
-                                alert("错误：" + e)
+                        var wait = function() {
+                            if(username) {
+
+                            } else {
+                                setTimeout(wait, 500)
+                            }
                         }
+                        wait()
+                        */
                     })
-                    var wait = function() {
-                        if(username) {
-                            $(object).each(function(idx) {
-                                if(object[idx]._serverData.userid == ouser[index]) {
-                                    speed.push(object[idx]._serverData.speed)
-                                }
-                            })
-                            speed.sort()
-                            speed.reverse()
-                            speed = speed.slice(0, 1)
-                            oobject.push(new Array(username, speed))
-                        } else {
-                            setTimeout(wait, 500)
-                        }
+                }, function(e) {
+                    switch(e.code) {
+                        case 429: 
+                            alert("请求超限 请过一会再试")
+                            break
+                        default: 
+                            alert("错误：" + e)
                     }
-                    wait()
                 })
                 var wait = function() {
-                    if(oobject.length == ouser.length) {
+                    if(oobject.length == users.length) {
                         oobject.sort(descend)
                         $(oobject).each(function(index) {
                             oobject = oobject.slice(0, 5)
@@ -317,25 +343,6 @@ $(function() {
                     }
                 }
                 wait()
-            }, function(e) {
-                switch(e.code) {
-                    case 429: 
-                        alert("请求超限 请过一会再试")
-                        break
-                    default: 
-                        alert("错误：" + e)
-                }
-            })
-            user.get(id).then(function(userres) {
-                $("#result").html("我是" + userres.get("nickname") 
-                                + " 我的唯一用户名是" + userres.get("username")
-                                + " 我在" + res.createdAt.toLocaleString()
-                                + " 默写了" + unit + "的单词" 
-                                + " 用时" + getMSSTime(res.get("timer"))
-                                + " 使用提示字数" + diyhelp
-                                + " 提示了" + res.get("help") + "次")
-                $("#result2").html("数据更新于" + res.updatedAt.toLocaleString())
-                $("#result3").html("妥善保管数据ID " + res.id)
             }, function(e) {
                 switch(e.code) {
                     case 429: 
