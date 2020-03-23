@@ -32,8 +32,8 @@
 <meta property="og:site_name" content="小番茄我的世界">
 <meta property="og:description" content="$(function() {     function getQueryString(name) {         var reg &#x3D; new RegExp(&quot;(^|&amp;)&quot; + name + &quot;&#x3D;([^&amp;]*)(&amp;|$)&quot;)         var r &#x3D; window.location.search.substr(1).match(reg)         if(r !&#x3D; null) {">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-23T04:02:15.763Z">
-<meta property="article:modified_time" content="2020-03-23T04:02:15.763Z">
+<meta property="article:published_time" content="2020-03-23T04:15:41.389Z">
+<meta property="article:modified_time" content="2020-03-23T04:15:41.389Z">
 <meta property="article:author" content="xfqwdsj">
 <meta name="twitter:card" content="summary">
 
@@ -237,11 +237,6 @@ $(function() {
         var query = new MW.Query("MwordsResult")
         var user = new MW.Query("_User")
         query.get(getQueryString("id")).then(function(res) {
-            var id = res.get("userid")
-            var diyhelp = res.get("diyhelp")
-            if(diyhelp == 0) {
-                diyhelp = "全部"
-            }
             var ouser = new Array()
             var oobject = new Array()
             var lb = new Array()
@@ -267,7 +262,7 @@ $(function() {
                         var speed = new Array()
                         var username = users[index].get("username")
                         $(object).each(function(idx) {
-                            if(object[idx].get("userid") == users[index].get("userid")) {
+                            if(object[idx].get("userid") == users[index].id) {
                                 speed.push(object[idx].get("speed"))
                             }
                         })
@@ -275,6 +270,23 @@ $(function() {
                         speed.reverse()
                         speed = speed.slice(0, 1)
                         oobject.push(new Array(username, speed))
+                        $(object).each(function(idx) {
+                            if(object[idx].id == getQueryString("id") && object[idx].get("userid") == users[index].id) {
+                                var diyhelp = object[idx].get("diyhelp")
+                                if(diyhelp == 0) {
+                                    diyhelp = "全部"
+                                }
+                                $("#result").html("我是" + users[index].get("nickname") 
+                                                + " 我的唯一用户名是" + users[index].get("username")
+                                                + " 我在" + object[idx].createdAt.toLocaleString()
+                                                + " 默写了" + unit + "的单词" 
+                                                + " 用时" + getMSSTime(object[idx].get("timer"))
+                                                + " 使用提示字数" + diyhelp
+                                                + " 提示了" + object[idx].get("help") + "次")
+                                $("#result2").html("数据更新于" + object[idx].updatedAt.toLocaleString())
+                                $("#result3").html("妥善保管数据ID " + object[idx].id)
+                            }
+                        })
                         /*
                         user.get(ouser[index]).then(function(userres) {
                             username = userres.get("username").then(function(res) {
@@ -314,19 +326,6 @@ $(function() {
                             break
                         default: 
                             alert("错误：" + e)
-                    }
-                })
-                $(object).each(function(index) {
-                    if(object[index].id == getQueryString("id")) {
-                        $("#result").html("我是" + users[index].get("nickname") 
-                                        + " 我的唯一用户名是" + users[index].get("username")
-                                        + " 我在" + res.createdAt.toLocaleString()
-                                        + " 默写了" + unit + "的单词" 
-                                        + " 用时" + getMSSTime(res.get("timer"))
-                                        + " 使用提示字数" + diyhelp
-                                        + " 提示了" + res.get("help") + "次")
-                        $("#result2").html("数据更新于" + res.updatedAt.toLocaleString())
-                        $("#result3").html("妥善保管数据ID " + res.id)
                     }
                 })
                 var wait = function() {
