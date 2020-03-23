@@ -32,8 +32,8 @@
 <meta property="og:site_name" content="小番茄我的世界">
 <meta property="og:description" content="$(function() {     function getQueryString(name) {         var reg &#x3D; new RegExp(&quot;(^|&amp;)&quot; + name + &quot;&#x3D;([^&amp;]*)(&amp;|$)&quot;)         var r &#x3D; window.location.search.substr(1).match(reg)         if(r !&#x3D; null) {">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-23T04:15:41.389Z">
-<meta property="article:modified_time" content="2020-03-23T04:15:41.389Z">
+<meta property="article:published_time" content="2020-03-23T05:52:27.892Z">
+<meta property="article:modified_time" content="2020-03-23T05:52:27.892Z">
 <meta property="article:author" content="xfqwdsj">
 <meta name="twitter:card" content="summary">
 
@@ -234,116 +234,67 @@ $(function() {
     }
     if(getQueryString("id") != null) {
         $(".result").css("visibility", "visible")
+        var id = getQueryString("id")
         var query = new MW.Query("MwordsResult")
         var user = new MW.Query("_User")
-        query.get(getQueryString("id")).then(function(res) {
-            var ouser = new Array()
-            var oobject = new Array()
-            var lb = new Array()
-            var unit = res.get("unit")
-            query.descending("diyhelp")
-            query.equalTo("unit", unit)
-            query.find().then(function(object) {
-                /*
-                $(object).each(function(index) {
-                    var nononly = false
-                    $(ouser).each(function(idx) {
-                        if(ouser[idx] == object[index]._serverData.userid) {
-                            nononly = true
-                        }
-                    })
-                    if(nononly == false) {
-                        ouser.push(object[index]._serverData.userid)
-                    }
-                })
-                */
-                user.find().then(function(users) {
-                    $(users).each(function(index) {
-                        var speed = new Array()
-                        var username = users[index].get("username")
-                        $(object).each(function(idx) {
-                            if(object[idx].get("userid") == users[index].id) {
-                                speed.push(object[idx].get("speed"))
-                            }
-                        })
-                        speed.sort()
-                        speed.reverse()
-                        speed = speed.slice(0, 1)
-                        oobject.push(new Array(username, speed))
-                        $(object).each(function(idx) {
-                            if(object[idx].id == getQueryString("id") && object[idx].get("userid") == users[index].id) {
-                                var diyhelp = object[idx].get("diyhelp")
-                                if(diyhelp == 0) {
-                                    diyhelp = "全部"
-                                }
-                                $("#result").html("我是" + users[index].get("nickname") 
-                                                + " 我的唯一用户名是" + users[index].get("username")
-                                                + " 我在" + object[idx].createdAt.toLocaleString()
-                                                + " 默写了" + unit + "的单词" 
-                                                + " 用时" + getMSSTime(object[idx].get("timer"))
-                                                + " 使用提示字数" + diyhelp
-                                                + " 提示了" + object[idx].get("help") + "次")
-                                $("#result2").html("数据更新于" + object[idx].updatedAt.toLocaleString())
-                                $("#result3").html("妥善保管数据ID " + object[idx].id)
-                            }
-                        })
-                        /*
-                        user.get(ouser[index]).then(function(userres) {
-                            username = userres.get("username").then(function(res) {
-
-                            }, function(e) {
-                                switch(e.code) {
-                                    case 429: 
-                                        $("#leader").html("请求超限 请过一会再试")
-                                        break
-                                    default: 
-                                        $("#leader").html("错误：" + e)
-                                }
-                            })
-                        }, function(e) {
-                            switch(e.code) {
-                                case 429: 
-                                    alert("请求超限 请过一会再试")
-                                    break
-                                default: 
-                                    alert("错误：" + e)
-                            }
-                        })
-                        var wait = function() {
-                            if(username) {
-
-                            } else {
-                                setTimeout(wait, 500)
-                            }
-                        }
-                        wait()
-                        */
-                    })
-                }, function(e) {
-                    switch(e.code) {
-                        case 429: 
-                            alert("请求超限 请过一会再试")
-                            break
-                        default: 
-                            alert("错误：" + e)
-                    }
-                })
-                var wait = function() {
-                    if(oobject.length == users.length) {
-                        oobject.sort(descend)
-                        $(oobject).each(function(index) {
-                            oobject = oobject.slice(0, 5)
-                            if (index == oobject.length - 1) {
-                                $("#leader").html($("#leader").html() + oobject[index][0] + " " + oobject[index][1] + "个单词/秒")
-                            } else {
-                                $("#leader").html($("#leader").html() + oobject[index][0] + " " + oobject[index][1] + "个单词/秒<br />")
-                            }
-                        })
-                    } else {
-                        setTimeout(wait, 500)
-                    }
+        var oobject = new Array()
+        var unit
+        var nuidx = new Array()
+        query.descending("diyhelp")
+        query.find().then(function(object) {
+            $(object).each(function(index) {
+                if(object[index].id == id) {
+                    unit = object[index].get("unit")
                 }
-                wait()
+            })
+            $(object).each(function(index) {
+                if(object[index].get("unit") != unit) {
+                    nuidx.push(index)
+                }
+            })
+            $(nuidx).each(function(index) {
+                object.splice(nuidx[index], 1)
+            })
+            user.find().then(function(users) {
+                $(users).each(function(index) {
+                    var speed = new Array()
+                    var username = users[index].get("username")
+                    $(object).each(function(idx) {
+                        if(object[idx].get("userid") == users[index].id) {
+                            speed.push(object[idx].get("speed"))
+                        }
+                    })
+                    speed.sort()
+                    speed.reverse()
+                    speed = speed.slice(0, 1)
+                    oobject.push(new Array(username, speed))
+                    $(object).each(function(idx) {
+                        if(object[idx].id == id && object[idx].get("userid") == users[index].id) {
+                            var diyhelp = object[idx].get("diyhelp")
+                            if(diyhelp == 0) {
+                                diyhelp = "全部"
+                            }
+                            $("#result").html("我是" + users[index].get("nickname") 
+                                            + " 我的唯一用户名是" + users[index].get("username")
+                                            + " 我在" + object[idx].createdAt.toLocaleString()
+                                            + " 默写了" + unit + "的单词" 
+                                            + " 用时" + getMSSTime(object[idx].get("timer"))
+                                            + " 使用提示字数" + diyhelp
+                                            + " 提示了" + object[idx].get("help") + "次")
+                            $("#result2").html("数据更新于" + object[idx].updatedAt.toLocaleString())
+                            $("#result3").html("妥善保管数据ID " + object[idx].id)
+                        }
+                    })
+                })
+                oobject.sort(descend)
+                $(oobject).each(function(idx) {
+                    oobject = oobject.slice(0, 5)
+                    if (idx == oobject.length - 1) {
+                        $("#leader").html($("#leader").html() + oobject[idx][0] + " " + oobject[idx][1] + "个单词/秒")
+                    } else {
+                        $("#leader").html($("#leader").html() + oobject[idx][0] + " " + oobject[idx][1] + "个单词/秒<br />")
+                    }
+                })
             }, function(e) {
                 switch(e.code) {
                     case 429: 
@@ -375,20 +326,6 @@ $(function() {
 </script>
 
 <style type="text/css">
-    /*
-    .back {
-        background-color: #FF0000;
-        height: 2px;
-        margin-bottom: 5px;
-        width: 100%;
-    }
-    .progress {
-        background-color: #226DDD;
-        width: 0%;
-        height: 100%;
-        transition: 1.5s;
-    }
-    */
     .card {
         text-align: center;
         border-radius:5px;
@@ -419,9 +356,6 @@ $(function() {
         border-bottom: 3px solid #FF7070; 
     }
 </style>
-<!-- div class="back">
-    <div id="progress" class="progress"></div>
-</div -->
 <div class="result">
     <div class="card">
         <p>排行榜（提示数为先决条件）</p>
