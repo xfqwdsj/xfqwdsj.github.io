@@ -4,7 +4,7 @@ $(function() {
 		定义变量 - 开始
 	*/
 	
-	var 版本 = "1.2.7.1"
+	var 版本 = "1.2.7.2"
 	var 完成 = false
 	var 单词总数, 
 		提示总数, 
@@ -24,6 +24,7 @@ $(function() {
 		自定义提示, 
 		结果文案, 
 		是否上传, 
+		速度, 
 		MwordsResult, 
 		mwordsresult
 	
@@ -70,20 +71,48 @@ $(function() {
 			if(confirm(结果文案)) {
 				if(currentUser) {
 					if(是否上传 == false) {
-						MwordsResult = MW.Object.extend("MwordsResult")
-						mwordsresult = new MwordsResult()
-						mwordsresult.set("unit", $("#unit").val())
-						mwordsresult.set("timer", 计时秒)
-						mwordsresult.set("diyhelp", 自定义提示)
-						mwordsresult.set("help", 提示总数)
-						mwordsresult.set("userid", currentUser.id)
-						mwordsresult.set("speed", 单词总数 / 计时秒)
-						mwordsresult.save().then(function (saveresult) {
-							新标签页打开("result.html?id=" + saveresult.id, '_blank')
-							是否上传 = true
-						}, function (error) {
-							alert(error)
+						var 结果查询 = new MW.Query("MwordsResult")
+						var 允许上传 = true
+						var 记录
+						结果查询.equalTo("userid", currentUser.id)
+						结果查询.equalTo("unit", $("#unit").val())
+						结果查询.find().then(function (查询结果) {
+							if(查询结果.length > 0) {
+								查询结果.sort(排序)
+								$(查询结果).each(function(index) {
+									if(查询结果[index].get("speed") <= 速度) {
+										MW.Object.createWithoutData("MwordsResult", 查询结果[index].id).destroy()
+									} else {
+										允许上传 = false
+										记录 = 查询结果[index].id
+									}
+								})
+							}
+							if(允许上传 != false) {
+								MwordsResult = MW.Object.extend("MwordsResult")
+								mwordsresult = new MwordsResult()
+								mwordsresult.set("unit", $("#unit").val())
+								mwordsresult.set("timer", 计时秒)
+								mwordsresult.set("diyhelp", 自定义提示)
+								mwordsresult.set("help", 提示总数)
+								mwordsresult.set("userid", currentUser.id)
+								mwordsresult.set("speed", 速度)
+								mwordsresult.save().then(function (saveresult) {
+									新标签页打开("result.html?id=" + saveresult.id)
+									是否上传 = true
+								}, function (error) {
+									alert(error)
+								})
+							} else {
+								if(confirm("你有一个成绩更好的记录 要跳转吗？")) {
+									新标签页打开("result.html?id=" + 记录)
+								}
+							}
+						}, function(e) {
+							console.log(e)
 						})
+					} else {
+						alert("你已经上传过了！")
 					}
 				} else {
 					window.location = "/mword/mword-login.html"
@@ -155,10 +184,11 @@ $(function() {
 							} 
 							最终计时 = 结果分 + ":" + 结果秒
 							结果分 = 结果秒 = 0
+							速度 = 单词总数 / 计时秒
 							if(自定义提示 == 0) {
 								自定义提示 = "全部"
 							}
-							结果文案 = "共默写" + 单词总数 + "个单词 共提示" + 提示总数 + "次 使用提示字数" + 自定义提示 + " 用时" + 最终计时 + "\n上传到服务器？"
+							结果文案 = "共默写" + 单词总数 + "个单词 共提示" + 提示总数 + "次 使用提示字数" + 自定义提示 + " 用时" + 最终计时 + " 速度" + 速度 + "个单词/秒\n上传到服务器？"
 							if(自定义提示 == "全部") {
 								自定义提示 = parseInt(0)
 							}
@@ -211,6 +241,9 @@ $(function() {
 		el.target = '_new'
 		el.click()
 		document.body.removeChild(el)
+	}
+	function 排序(x, y){
+		return y.get("speed") - x.get("speed")
 	}
 	
 	/*
