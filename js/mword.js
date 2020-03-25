@@ -106,13 +106,14 @@ $(function() {
 							} else {
 								if(confirm("你有一个成绩更好的记录 要跳转吗？")) {
 									新标签页打开("result.html?id=" + 记录)
+									是否上传 = true
 								}
 							}
 						}, function(e) {
 							console.log(e)
 						})
 					} else {
-						alert("你已经上传过了！")
+						alert("你已经上传/跳转过了！")
 					}
 				} else {
 					window.location = "/mword/mword-login.html"
