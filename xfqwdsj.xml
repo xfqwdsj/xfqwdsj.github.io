@@ -1,22 +1,165 @@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-	<url>
-		<loc>https://xfqwdsj.github.io/</loc>
-		<priority>1.00</priority>
-	</url>
-	<url>
-		<loc>https://xfqwdsj.github.io/mword/</loc>
-		<priority>1.00</priority>
-	</url>
-	<url>
-		<loc>https://xfqwdsj.github.io/mword/release.html</loc>
-		<priority>1.00</priority>
-	</url>
-	<url>
-		<loc>https://xfqwdsj.github.io/mword/debug.html</loc>
-		<priority>1.00</priority>
-	</url>
-	<url>
-		<loc>https://xfqwdsj.github.io/blog/</loc>
-		<priority>1.00</priority>
-	</url>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://xfqwdsj.github.io/mword/mword.html</loc>
+    
+    <lastmod>2020-03-26T00:51:56.950Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xfqwdsj.github.io/mword/lb.html</loc>
+    
+    <lastmod>2020-03-25T09:29:12.601Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xfqwdsj.github.io/mword/result.html</loc>
+    
+    <lastmod>2020-03-25T09:27:41.225Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xfqwdsj.github.io/mword/index.html</loc>
+    
+    <lastmod>2020-03-25T08:41:27.794Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xfqwdsj.github.io/mword/mword-user.html</loc>
+    
+    <lastmod>2020-03-23T10:09:04.122Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xfqwdsj.github.io/google6e663f45ab5e563f.html</loc>
+    
+    <lastmod>2020-03-22T04:15:19.300Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xfqwdsj.github.io/baidu_verify_zmaWdYtSuC.html</loc>
+    
+    <lastmod>2020-03-22T04:15:05.859Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xfqwdsj.github.io/sword/index.html</loc>
+    
+    <lastmod>2020-03-21T09:55:51.543Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xfqwdsj.github.io/sword/swd.html</loc>
+    
+    <lastmod>2020-03-21T09:53:18.308Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xfqwdsj.github.io/sword/scn.html</loc>
+    
+    <lastmod>2020-03-21T09:53:04.456Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xfqwdsj.github.io/pdf/web/viewer.html</loc>
+    
+    <lastmod>2020-03-21T06:53:29.885Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xfqwdsj.github.io/study/index.html</loc>
+    
+    <lastmod>2020-03-21T06:52:14.021Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xfqwdsj.github.io/study/7b/book/politics.html</loc>
+    
+    <lastmod>2020-03-21T06:41:35.496Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xfqwdsj.github.io/study/7b/book/maths.html</loc>
+    
+    <lastmod>2020-03-21T06:41:32.319Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xfqwdsj.github.io/study/7b/book/history.html</loc>
+    
+    <lastmod>2020-03-21T06:41:27.148Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xfqwdsj.github.io/study/7b/book/geography.html</loc>
+    
+    <lastmod>2020-03-21T06:41:17.465Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xfqwdsj.github.io/study/7b/book/english.html</loc>
+    
+    <lastmod>2020-03-21T06:41:10.210Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xfqwdsj.github.io/study/7b/book/biology.html</loc>
+    
+    <lastmod>2020-03-21T06:40:53.619Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xfqwdsj.github.io/study/7b/book/chinese.html</loc>
+    
+    <lastmod>2020-03-21T06:36:17.980Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xfqwdsj.github.io/pdf/README.html</loc>
+    
+    <lastmod>2020-03-21T04:33:02.203Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xfqwdsj.github.io/mword/mword-signin.html</loc>
+    
+    <lastmod>2020-03-21T03:59:12.485Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xfqwdsj.github.io/mword/mword-login.html</loc>
+    
+    <lastmod>2020-03-21T03:59:01.488Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xfqwdsj.github.io/index.html</loc>
+    
+    <lastmod>2020-03-21T03:58:35.288Z</lastmod>
+    
+  </url>
+  
 </urlset>

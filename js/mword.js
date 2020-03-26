@@ -4,7 +4,7 @@ $(function() {
 		定义变量 - 开始
 	*/
 	
-	var 版本 = "1.2.7.2"
+	var 版本 = "1.2.7.4"
 	var 完成 = false
 	var 单词总数, 
 		提示总数, 
@@ -15,8 +15,8 @@ $(function() {
 		翻译数据, 
 		单词表, 
 		进度, 
-		错误提示计时器, 
 		计时器, 
+		计时器2, 
 		结果分, 
 		结果秒, 
 		最终计时, 
@@ -25,6 +25,7 @@ $(function() {
 		结果文案, 
 		是否上传, 
 		速度, 
+		加载中,
 		MwordsResult, 
 		mwordsresult
 	
@@ -35,7 +36,7 @@ $(function() {
 	*/
 	
 	背单词()
-	$("#version").html("版本 " + 版本)  
+	$("#文右下").html("版本 " + 版本)  
 	版本 =  null
 	
 	/*
@@ -44,27 +45,27 @@ $(function() {
 		基本方法 - 开始
 	*/
 	
-	$("#input-helpdiy").off("keydown").on("keydown",
+	$("#选项自定义提示").off("keydown").on("keydown",
 	function(e) {
-		if(e.keyCode == 13 && 自定义提示 != $("#input-helpdiy").val() && 计时器 != null) {
-			if($("#input-helpdiy").val() == 0) {
-				$("#input-helpdiy").val("")
+		if(e.keyCode == 13 && 自定义提示 != $("#选项自定义提示").val() && 加载中 != false) {
+			if($("#选项自定义提示").val() == 0) {
+				$("#选项自定义提示").val("")
 			}
-			自定义提示 = $("#input-helpdiy").val()
+			自定义提示 = $("#选项自定义提示").val()
 			背单词()
 		}
 	})
-	$("#unit").off("change").on("change", 
+	$("#单元").off("change").on("change", 
 	function() {
 		背单词()  
 	}) 
-	$("#help").off("click").on("click",
+	$("#按钮左").off("click").on("click",
 	function() {
 		if (!完成) {
-			if($("#input-helpdiy").val() != 0) {
-				$("#notice").html(单词表[进度].单词.substring(0, $("#input-helpdiy").val())) 
-			} else if($("#input-helpdiy").val() == 0) {
-				$("#notice").html(单词表[进度].单词)
+			if($("#选项自定义提示").val() != 0) {
+				$("#文左上").html(单词表[进度].单词.substring(0, $("#选项自定义提示").val())) 
+			} else if($("#选项自定义提示").val() == 0) {
+				$("#文左上").html(单词表[进度].单词)
 			}
 			提示总数++
 		} else {
@@ -75,7 +76,7 @@ $(function() {
 						var 允许上传 = true
 						var 记录
 						结果查询.equalTo("userid", currentUser.id)
-						结果查询.equalTo("unit", $("#unit").val())
+						结果查询.equalTo("unit", $("#单元").val())
 						结果查询.find().then(function (查询结果) {
 							if(查询结果.length > 0) {
 								查询结果.sort(排序)
@@ -91,7 +92,7 @@ $(function() {
 							if(允许上传 != false) {
 								MwordsResult = MW.Object.extend("MwordsResult")
 								mwordsresult = new MwordsResult()
-								mwordsresult.set("unit", $("#unit").val())
+								mwordsresult.set("unit", $("#单元").val())
 								mwordsresult.set("timer", 计时秒)
 								mwordsresult.set("diyhelp", 自定义提示)
 								mwordsresult.set("help", 提示总数)
@@ -122,7 +123,7 @@ $(function() {
 			}
 		}
 	})
-	$("#play").off("click").on("click",
+	$("#播放").off("click").on("click",
 	function() {
 		if (!完成) {
 			new Audio("http://dict.youdao.com/speech?audio=" + 单词表[进度].单词).play()
@@ -130,49 +131,51 @@ $(function() {
 			new Audio("/sounds/win.mp3").play()
 		}
 	})
-	$("#again").off("click").on("click",
+	$("#按钮右").off("click").on("click",
 	function() {
-		背单词()
+		if(加载中 == false) {
+			背单词()
+		}
 	})
-	$("#text").off("input").on("input",
+	$("#输入").off("input").on("input",
 	function() {
-		var hint = $("#hint").html()
-		$("#notice").html("")
-		clearTimeout(错误提示计时器)
+		var hint = $("#顶部").html()
+		$("#文左上").html("")
+		clearTimeout(计时器2)
 		if (!完成) {
-			if ($("#text").val().toLowerCase().trim() == 单词表[进度].单词.trim().toLowerCase() ) {
+			if ($("#输入").val().toLowerCase().trim() == 单词表[进度].单词.trim().toLowerCase() ) {
 				是否正确 = true
 			} else {
 				是否正确 = false
 			}
 		} else {
-			$("#text").val("")
+			$("#输入").val("")
 		}
 	}) 
-	$("#text").off("keydown").on("keydown",
+	$("#输入").off("keydown").on("keydown",
 	function(e) {
 		if (e.keyCode == 13) {
-			$("#notice").html("")
+			$("#文左上").html("")
 			if (是否正确 == false) {
-				clearTimeout(错误提示计时器)
-				$("#text").attr("class", "input-wrong")
+				clearTimeout(计时器2)
+				$("#输入").attr("class", "input-wrong")
 				提示总数++
-				$("#notice").html("<font color='red'>请输入正确的单词：" + 单词表[进度].单词 + "</font>")
-				$("#text").val("")
-				错误提示计时器 = setTimeout(function() {
-					$("#notice").html("")
+				$("#文左上").html("<font color='red'>请输入正确的单词：" + 单词表[进度].单词 + "</font>")
+				$("#输入").val("")
+				计时器2 = setTimeout(function() {
+					$("#文左上").html("")
 				},
 				1000)
 			} else if (是否正确 == true) {
 				setTimeout(function() {
-					$("#text").attr("class", "myInput")
+					$("#输入").attr("class", "myInput")
 					if (++正确数量 >= 单词总数) {
 						clearInterval(计时器)
-						$("#text").val("") 
-						$("#result").html("") 
-						$("#notice").html("") 
-						$("#help").html("统计") 
-						$("#hint").html("<font color='green'>恭喜你 默写完成</font>")
+						$("#输入").val("") 
+						$("#文右上").html("") 
+						$("#文左上").html("") 
+						$("#按钮左").html("统计") 
+						$("#顶部").html("<font color='green'>恭喜你 默写完成</font>")
 						完成 = true
 						if(最终计时 == "获取失败") {
 							结果秒 = 计时秒
@@ -219,21 +222,22 @@ $(function() {
 		return ID
 	}
 	function 开始计时() {
-		$("#time").html(计时秒)
+		clearInterval(计时器)
+		$("#文左下").html(计时秒)
 		计时器 = setInterval(function(){
-			$("#time").html(++计时秒)
+			$("#文左下").html(++计时秒)
 		},
 		1000)
 	}
 	function 随机排序(x, y) {
-		return Math.random() > .5 ? -1 : 1  
+		return Math.random() > .5 ? -1 : 1 
 	}
 	function 更新进度() {
 		是否正确 = false
-		$("#hint").html(单词表[++进度].中文) 
-		$("#text").val("") 
-		$("#notice").html("")
-		$("#result").html(正确数量 + "/" + 单词总数)
+		$("#顶部").html(单词表[++进度].中文) 
+		$("#输入").val("") 
+		$("#文左上").html("")
+		$("#文右上").html(正确数量 + "/" + 单词总数)
 	}
 	function 新标签页打开(url) {
 		var el = document.createElement("a")
@@ -251,30 +255,29 @@ $(function() {
 		基本方法 结束
 	*/
 	function 背单词() {
-		clearInterval(计时器)
-		$("#text").attr("class", "myInput")
-		$("#text").val("")
-		$("#hint").html("Loading...")
-		$("#help").html("Please")
-		$("#again").html("wait...")
-		$("#result").html("0/0")
-		var units = $("#unit").val()
-		自定义提示 = $("#input-helpdiy").val()
+		$("#输入").attr("class", "myInput")
+		$("#输入").val("")
+		$("#顶部").html("Loading...")
+		$("#按钮左").html("Please")
+		$("#按钮右").html("wait...")
+		$("#文右上").html("0/0")
+		自定义提示 = $("#选项自定义提示").val()
 		单词表 = new Array()
-		完成 = 是否正确 = false
+		加载中 = true
+		完成 = 是否正确 = 是否上传 = false
 		单词总数 = 提示总数 = 正确数量 = 进度 = 计时秒 = 结果分 = 结果秒 = 0
-		错误提示计时器 = 计时器 = 结果文案 = null
-		是否上传 = false
+		结果文案 = null
 		最终计时 = "获取失败"
 
 		//====================
 		
 		$.ajax({
-			url: "/xml/words_" + units + ".xml",
+			url: "/xml/words_" + $("#单元").val() + ".xml",
 			dataType: 'xml',
 			type: 'GET',
 			timeout: 5000,
 			success: function(data) {
+				加载中 = false
 				$(data).find("item").each(function(index) {
 					单词 = $(this).find("word").html() 
 					翻译数据 = $(this).find("trans").html() 
@@ -283,21 +286,21 @@ $(function() {
 						'单词': 单词,
 						'中文': 中文
 					}
-					index = null
 				}) 
 				单词表.sort(随机排序)
 				单词总数 = 单词表.length
-				$("#hint").html(单词表[进度].中文)
-				$("#result").html(正确数量 + "/" + 单词总数)
-				$("#help").html("提示") 
-				$("#again").html("重默")
-				$("#notice").html("")
+				$("#顶部").html(单词表[进度].中文)
+				$("#文右上").html(正确数量 + "/" + 单词总数)
+				$("#按钮左").html("提示") 
+				$("#按钮右").html("重默")
+				$("#文左上").html("")
 				开始计时()
 				单词 = 翻译数据 = 中文 = null
 			}
 		})  
 	}
-	units = null
+
+
 	let media = window.matchMedia('(prefers-color-scheme: dark)')
 	let callback = (e) => {
 		let prefersDarkMode = e.matches
