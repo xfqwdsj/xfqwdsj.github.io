@@ -32,8 +32,8 @@
 <meta property="og:site_name" content="小番茄我的世界">
 <meta property="og:description" content="$(function() { 	var currentUser &#x3D; MW.User.current() 	if(currentUser) { 		window.location &#x3D; &quot;&#x2F;mword&#x2F;mword-user.html&quot; 	} 	$(&quot;#submit&quot;).off(&quot;click&quot;).on(&quot;click&quot;,  	function() { 		if($(&quot;#username&quot;).val(">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-24T06:51:41.111Z">
-<meta property="article:modified_time" content="2020-03-21T03:59:01.488Z">
+<meta property="article:published_time" content="2020-03-26T02:47:21.433Z">
+<meta property="article:modified_time" content="2020-03-26T02:47:21.433Z">
 <meta property="article:author" content="xfqwdsj">
 <meta name="twitter:card" content="summary">
 
@@ -156,6 +156,11 @@ var MW = AV
     <a href="/study/" rel="section"><i class="fa fa-fw fa-graduation-cap"></i>学习</a>
 
   </li>
+        <li class="menu-item menu-item-tools">
+
+    <a href="/tools/" rel="section"><i class="fa fa-fw fa-wrench"></i>工具</a>
+
+  </li>
         <li class="menu-item menu-item-blog">
 
     <a href="/blog/" rel="section"><i class="fa fa-fw fa-rss"></i>博客</a>
@@ -266,7 +271,9 @@ $(function() {
 <p>没有账号？<a href="/mword/mword-signin.html">注册</a></p>
 <style type="text/css">
 	.myInput {
-		margin-bottom: 5px;
+		height: 33px; 
+		width: 100%; 
+		font-size: 20px;
 		transition: 0.5s;
 		outline: none;
 		text-align: center; 
@@ -275,13 +282,14 @@ $(function() {
 		border-left: none;
 		border-right: none;
 		background-color: rgba(0, 0, 0, 0);
-		width: 100%;
 	}
 	.myInput:focus {
-		border-bottom: 3px solid #FF7070; 
+		border-bottom: 3px solid #30FF30; 
 	}
-	.myInput-wrong {
-		margin-bottom: 5px;
+	.input-wrong {
+		height: 33px;
+		width: 100%; 
+		font-size: 20px;
 		transition: 0.5s;
 		outline: none;
 		text-align: center; 
@@ -290,7 +298,6 @@ $(function() {
 		border-right: none;
 		border-bottom: 3px solid #FF0000; 
 		background-color: rgba(0, 0, 0, 0);
-		width: 100%;
 	}
 	.bton {
 		padding:0.6rem 0.9rem;

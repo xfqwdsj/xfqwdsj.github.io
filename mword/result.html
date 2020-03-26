@@ -32,8 +32,8 @@
 <meta property="og:site_name" content="小番茄我的世界">
 <meta property="og:description" content="$(function() { 	function getQueryString(name) { 		var reg &#x3D; new RegExp(&quot;(^|&amp;)&quot; + name + &quot;&#x3D;([^&amp;]*)(&amp;|$)&quot;) 		var r &#x3D; window.location.search.substr(1).match(reg) 		if(r !&#x3D; null) { 			return decodeURI(">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-25T09:27:41.225Z">
-<meta property="article:modified_time" content="2020-03-25T09:27:41.225Z">
+<meta property="article:published_time" content="2020-03-26T02:48:27.417Z">
+<meta property="article:modified_time" content="2020-03-26T02:48:27.417Z">
 <meta property="article:author" content="xfqwdsj">
 <meta name="twitter:card" content="summary">
 
@@ -154,6 +154,11 @@ var MW = AV
         <li class="menu-item menu-item-study">
 
     <a href="/study/" rel="section"><i class="fa fa-fw fa-graduation-cap"></i>学习</a>
+
+  </li>
+        <li class="menu-item menu-item-tools">
+
+    <a href="/tools/" rel="section"><i class="fa fa-fw fa-wrench"></i>工具</a>
 
   </li>
         <li class="menu-item menu-item-blog">
@@ -354,11 +359,12 @@ $(function() {
 		visibility: hidden;
 	}
 	.search {
-		text-align: center;
 		visibility: hidden;
 	}
 	.myInput {
-		margin-bottom: 5px;
+		height: 33px; 
+		width: 100%; 
+		font-size: 20px;
 		transition: 0.5s;
 		outline: none;
 		text-align: center; 
@@ -367,10 +373,9 @@ $(function() {
 		border-left: none;
 		border-right: none;
 		background-color: rgba(0, 0, 0, 0);
-		width: 100%;
 	}
 	.myInput:focus {
-		border-bottom: 3px solid #FF7070; 
+		border-bottom: 3px solid #30FF30; 
 	}
 </style>
 <div class="result">
