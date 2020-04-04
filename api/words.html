@@ -1,0 +1,35 @@
+
+<script type="text/javascript" src="/jquery.js"></script>
+<script type="text/javascript">
+$(function() {
+	function getQueryString(name) {
+		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)")
+		var r = window.location.search.substr(1).match(reg)
+		if(r != null) {
+			return decodeURI(r[2])
+		}
+	}
+	if(getQueryString("unit") != null) {
+		var 返回 = ""
+		$.ajax({
+			url: "/xml/words_" + getQueryString("unit") + ".xml",
+			dataType: 'xml',
+			type: 'GET',
+			timeout: 5000,
+			success: function(data) {
+				$(data).find("item").each(function(index) {
+					单词 = $(this).find("word").html() 
+					翻译数据 = $(this).find("trans").html() 
+					中文 = 翻译数据.substring(9, 翻译数据.length - 3)
+					if(index = data.find("item").length - 1)
+						返回 = 返回 + 单词 + "," + 中文
+					else
+						返回 = 返回 + 单词 + "," + 中文 + "|"
+				})
+				document.write(返回)
+				单词 = 翻译数据 = 中文 = null
+			}
+		})
+	}
+})
+</script>
