@@ -21,7 +21,7 @@ $(document).ready(function() {
 					单词 = $(this).find("word").html() 
 					翻译数据 = $(this).find("trans").html() 
 					中文 = 翻译数据.substring(9, 翻译数据.length - 3)
-					返回 = 返回 + 单词 + "," + 中文 + "."
+					返回 = 返回 + 单词 + ",,," + 中文 + "..."
 				})
 				返回 = 返回.substr(0, 返回.length - 1)
 				document.write(返回)
