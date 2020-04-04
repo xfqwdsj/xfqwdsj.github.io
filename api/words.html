@@ -1,7 +1,7 @@
 
 <script type="text/javascript" src="/jquery.js"></script>
 <script type="text/javascript">
-$(function() {
+$(document).ready(function() {
 	function getQueryString(name) {
 		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)")
 		var r = window.location.search.substr(1).match(reg)
@@ -21,7 +21,7 @@ $(function() {
 					单词 = $(this).find("word").html() 
 					翻译数据 = $(this).find("trans").html() 
 					中文 = 翻译数据.substring(9, 翻译数据.length - 3)
-					返回 = 返回 + 单词 + "," + 中文 + "|"
+					返回 = 返回 + 单词 + "," + 中文 + "."
 				})
 				返回 = 返回.substr(0, 返回.length - 1)
 				document.write(返回)
