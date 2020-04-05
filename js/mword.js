@@ -4,7 +4,7 @@ $(function() {
 		定义变量 - 开始
 	*/
 	
-	var 版本 = "1.2.7.4"
+	var 版本 = "1.2.7.5"
 	var 完成 = false
 	var 单词总数, 
 		提示总数, 
@@ -15,8 +15,7 @@ $(function() {
 		翻译数据, 
 		单词表, 
 		进度, 
-		计时器, 
-		计时器2, 
+		计时器,
 		结果分, 
 		结果秒, 
 		最终计时, 
@@ -141,7 +140,6 @@ $(function() {
 	function() {
 		var hint = $("#顶部").html()
 		$("#文左上").html("")
-		clearTimeout(计时器2)
 		if (!完成) {
 			if ($("#输入").val().toLowerCase().trim() == 单词表[进度].单词.trim().toLowerCase() ) {
 				是否正确 = true
@@ -157,15 +155,9 @@ $(function() {
 		if (e.keyCode == 13) {
 			$("#文左上").html("")
 			if (是否正确 == false) {
-				clearTimeout(计时器2)
 				$("#输入").attr("class", "input-wrong")
-				提示总数++
-				$("#文左上").html("<font color='red'>请输入正确的单词：" + 单词表[进度].单词 + "</font>")
+				$("#文左上").html("<font color='red'>请输入正确的单词</font>")
 				$("#输入").val("")
-				计时器2 = setTimeout(function() {
-					$("#文左上").html("")
-				},
-				1000)
 			} else if (是否正确 == true) {
 				setTimeout(function() {
 					$("#输入").attr("class", "myInput")
