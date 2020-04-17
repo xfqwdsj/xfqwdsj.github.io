@@ -57,7 +57,7 @@ $(function() {
 	$("#单元").off("change").on("change", 
 	function() {
 		背单词()  
-	}) 
+	})
 	$("#按钮左").off("click").on("click",
 	function() {
 		if (!完成) {
