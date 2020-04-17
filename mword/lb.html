@@ -32,8 +32,8 @@
 <meta property="og:site_name" content="小番茄我的世界">
 <meta property="og:description" content="$(function() { 	function getQueryString(name) { 		var reg &#x3D; new RegExp(&quot;(^|&amp;)&quot; + name + &quot;&#x3D;([^&amp;]*)(&amp;|$)&quot;) 		var r &#x3D; window.location.search.substr(1).match(reg) 		if(r !&#x3D; null) { 			return decodeURI(">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-04-17T02:13:57.941Z">
-<meta property="article:modified_time" content="2020-04-17T02:13:57.941Z">
+<meta property="article:published_time" content="2020-04-17T02:31:14.583Z">
+<meta property="article:modified_time" content="2020-04-17T02:31:14.583Z">
 <meta property="article:author" content="xfqwdsj">
 <meta name="twitter:card" content="summary">
 
@@ -245,8 +245,9 @@ $(function() {
 		var user = new MW.Query("_User")
 		var oobject = new Array()
 		var ouser = new Array()
-		var nuidx = new Array()
+		//var nuidx = new Array()
 		query.descending("diyhelp")
+		query.equalTo("unit", unit)
 		query.find().then(function(object) {
 			/*
 			$(object).each(function(index) {
@@ -254,7 +255,6 @@ $(function() {
 					unit = object[index].get("unit")
 				}
 			})
-			 */
 			$(object).each(function(index) {
 				if(object[index].get("unit") != unit) {
 					nuidx.push(index)
@@ -266,6 +266,7 @@ $(function() {
 				i++
 			})
 			i = null
+			 */
 			$(object).each(function(index) {
 				if(ouser.indexOf(object[index].get("userid")) < 0) {
 					ouser.push(object[index].get("userid"))
@@ -380,7 +381,7 @@ $(function() {
 		background-color: rgba(0, 0, 0, 0);
 	}
 </style>
-<div>
+<div style="text-align: center;">
 	<select class="select" id="unit" style="margin-bottom: 2px">
 		<option value="7b_u1">Unit 1</option>
 		<option value="7b_u2">Unit 2</option>
@@ -392,8 +393,6 @@ $(function() {
 		<option value="7b_u8">Unit 8</option>
 		<option value="test">测试</option>
 	</select>
-</div>
-<div class="result">
 	<div class="card">
 		<p>排行榜（提示数为先决条件）</p>
 		<span id="leader"></span>
