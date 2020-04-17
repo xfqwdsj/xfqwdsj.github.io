@@ -124,7 +124,7 @@ $(function() {
 	})
 	$("#播放").off("click").on("click",
 	function() {
-		if (!完成) {
+		if (!完成) {-
 			new Audio("http://dict.youdao.com/speech?audio=" + 单词表[进度].单词).play()
 		} else {
 			new Audio("/sounds/win.mp3").play()

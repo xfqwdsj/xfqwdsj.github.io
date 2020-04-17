@@ -32,8 +32,8 @@
 <meta property="og:site_name" content="小番茄我的世界">
 <meta property="og:description" content="$(function() { 	function getQueryString(name) { 		var reg &#x3D; new RegExp(&quot;(^|&amp;)&quot; + name + &quot;&#x3D;([^&amp;]*)(&amp;|$)&quot;) 		var r &#x3D; window.location.search.substr(1).match(reg) 		if(r !&#x3D; null) { 			return decodeURI(">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-25T09:29:12.601Z">
-<meta property="article:modified_time" content="2020-03-25T09:29:12.601Z">
+<meta property="article:published_time" content="2020-04-17T02:13:57.941Z">
+<meta property="article:modified_time" content="2020-04-17T02:13:57.941Z">
 <meta property="article:author" content="xfqwdsj">
 <meta name="twitter:card" content="summary">
 
@@ -238,22 +238,23 @@ $(function() {
 	function descend(x, y){
 		return y[1] - x[1]
 	}
-	if(getQueryString("id") != null) {
+	if(getQueryString("unit") != null) {
 		$(".result").css("visibility", "visible")
-		var id = getQueryString("id")
+		var unit = getQueryString("unit")
 		var query = new MW.Query("MwordsResult")
 		var user = new MW.Query("_User")
 		var oobject = new Array()
 		var ouser = new Array()
-		var unit
 		var nuidx = new Array()
 		query.descending("diyhelp")
 		query.find().then(function(object) {
+			/*
 			$(object).each(function(index) {
 				if(object[index].id == id) {
 					unit = object[index].get("unit")
 				}
 			})
+			 */
 			$(object).each(function(index) {
 				if(object[index].get("unit") != unit) {
 					nuidx.push(index)
@@ -271,6 +272,7 @@ $(function() {
 				}
 			})
 			user.find().then(function(users) {
+				/*
 				$(users).each(function(index) {
 					$(object).each(function(idx) {
 						if(object[idx].id == id && object[idx].get("userid") == users[index].id) {
@@ -290,6 +292,7 @@ $(function() {
 						}
 					})
 				})
+				 */
 				$(ouser).each(function(index) {
 					$(users).each(function(indx) {
 						if(users[indx].id == ouser[index]) {
@@ -304,13 +307,12 @@ $(function() {
 							speed.reverse()
 							speed = speed.slice(0, 1)
 							oobject.push(new Array(username, speed))
-							return true
+							//return true
 						}
 					})
 				})
 				oobject.sort(descend)
 				$(oobject).each(function(idx) {
-					oobject = oobject.slice(0, 5)
 					if (idx == oobject.length - 1) {
 						$("#leader").html($("#leader").html() + oobject[idx][0] + " " + oobject[idx][1] + "个单词/秒")
 					} else {
