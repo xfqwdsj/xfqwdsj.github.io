@@ -32,8 +32,8 @@
 <meta property="og:site_name" content="小番茄我的世界">
 <meta property="og:description" content=".myInput { 		height: 33px;  		width: 100%;  		font-size: 20px; 		transition: 0.5s; 		outline: none; 		text-align: center;  		border-bottom: 2px solid #EEEEEE;  		border-top: none;  		border-left: n">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-04-18T15:36:14.150Z">
-<meta property="article:modified_time" content="2020-04-18T15:36:14.150Z">
+<meta property="article:published_time" content="2020-04-18T15:45:47.221Z">
+<meta property="article:modified_time" content="2020-04-18T15:45:47.221Z">
 <meta property="article:author" content="xfqwdsj">
 <meta name="twitter:card" content="summary">
 
@@ -249,20 +249,20 @@ var MW = AV
 	}
 </style>
 <div style="text-align: center;">
+	<p>文案投稿：</p>
 	<input type="input" id="subject" class="myInput" placeholder="主体" />
 	<input type="input" id="event" class="myInput" placeholder="事件" />
 	<input type="input" id="event2" class="myInput" placeholder="另一种说法" />
 	<button type="button" class="bton">生成</button>
 </div>
 <div>
-	<textarea id="result" placeholder="结果" style="width: 100%; height: auto;" onchange="heightChanger(this)"></textarea>
+	<textarea id="result" placeholder="结果" style="width: 100%; height: auto; resize: none;" onchange="heightChanger(this)" oninput="heightChanger(this)"></textarea>
 </div>
 <script type="text/javascript">
 $(function() {
 	$(".bton").off("click").on("click", function() {
 		var max = 1
-		var min = 0
-		$("#result").val(create(parseInt(Math.random() * (max - min + 1) + min)))
+		$("#result").val(create(parseInt(Math.random() * (max - 0 + 1) + 0)))
 	})
 	function create(seed) {
 		if($("#subject").val() != "" && $("#event").val() != "" && $("#event2").val() != "") {
@@ -282,7 +282,8 @@ $(function() {
 	}
 })
 function heightChanger(html) {
-	html.style.height =  html.scrollHeight + "px"
+	html.style.height = "auto"
+	html.style.height = html.scrollHeight + "px"
 }
 </script>
       </div>
