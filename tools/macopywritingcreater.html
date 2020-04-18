@@ -32,8 +32,8 @@
 <meta property="og:site_name" content="小番茄我的世界">
 <meta property="og:description" content=".myInput { 		height: 33px;  		width: 100%;  		font-size: 20px; 		transition: 0.5s; 		outline: none; 		text-align: center;  		border-bottom: 2px solid #EEEEEE;  		border-top: none;  		border-left: n">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-04-18T15:03:18.840Z">
-<meta property="article:modified_time" content="2020-04-18T15:03:18.840Z">
+<meta property="article:published_time" content="2020-04-18T15:24:34.239Z">
+<meta property="article:modified_time" content="2020-04-18T15:24:34.239Z">
 <meta property="article:author" content="xfqwdsj">
 <meta name="twitter:card" content="summary">
 
@@ -255,25 +255,33 @@ var MW = AV
 	<button type="button" class="bton">生成</button>
 </div>
 <div>
-	<textarea id="result" placeholder="结果" style="width: 100%; height: auto;"></textarea>
+	<textarea id="result" placeholder="结果" style="width: 100%; height: auto;" onchange="heightChanger(this)"></textarea>
 </div>
 <script type="text/javascript">
 $(function() {
 	$(".bton").off("click").on("click", function() {
-		var max = 0
+		var max = 1
 		var min = 0
 		$("#result").val(create(parseInt(Math.random() * (max - min + 1) + min)))
 	})
 	function create(seed) {
-		if($("#subject").val() != "" && $("#subject").val() != "" && $("#subject").val() != "") {
+		if($("#subject").val() != "" && $("#event").val() != "" && $("#event2").val() != "") {
+			var subject = $("#subject").val()
+			var event = $("#event").val()
+			var event2 = $("#event2").val()
 			switch(seed) {
 				case 0:
-					return `${subject}${event}是怎么回事呢？${subject}相信大家都很熟悉，但是${subject}${event}是怎么回事呢，下面就让小编带大家一起了解吧。\r\n　　${subject}${event}，其实就是${event2}，大家可能会很惊讶${subject}怎么会${event}呢？但事实就是这样，小编也感到非常惊讶。\r\n　　这就是关于${subject}${event}的事情了，大家有什么想法呢，欢迎在评论区告诉小编一起讨论哦！`
+					return `	${subject}${event}是怎么回事呢？${subject}相信大家都很熟悉，但是${subject}${event}是怎么回事呢，下面就让小编带大家一起了解吧。\r\n	${subject}${event}，其实就是${event2}，大家可能会很惊讶${subject}怎么会${event}呢？但事实就是这样，小编也感到非常惊讶。\r\n	这就是关于${subject}${event}的事情了，大家有什么想法呢，欢迎在评论区告诉小编一起讨论哦！`
 					break;
+				case 1:
+					return `	哈喽大家好，欢迎来到xxx。我们都知道${subject}是${event}的。但是近日，一位外国小哥提出了一个问题，让人十分惊讶，我们一起来看看吧。\r\n	这位外国小哥提出了一个问题，也同样让我十分惊讶，他说：${subject}怎么会${event}呢？相信聪明机智的你已经知道了事情的真相，那就是${event2}。\r\n	当小编得知到这个答案后，小编也惊呆了，但事实就是这样。\r\n	好了这就是关于${subject}${event}的事情了，大家有什么想法呢，欢迎在评论区告诉小编一起讨论哦！`
 				default:
 					return "出错啦！"
 			}
 		}
+	}
+	function heightChanger(html) {
+		$(html).css("height", html.scrollHeight + "px")
 	}
 })
 </script>
