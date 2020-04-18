@@ -32,8 +32,8 @@
 <meta property="og:site_name" content="小番茄我的世界">
 <meta property="og:description" content=".myInput { 		height: 33px;  		width: 100%;  		font-size: 20px; 		transition: 0.5s; 		outline: none; 		text-align: center;  		border-bottom: 2px solid #EEEEEE;  		border-top: none;  		border-left: n">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-04-18T14:42:00.366Z">
-<meta property="article:modified_time" content="2020-04-18T14:42:00.366Z">
+<meta property="article:published_time" content="2020-04-18T15:03:18.840Z">
+<meta property="article:modified_time" content="2020-04-18T15:03:18.840Z">
 <meta property="article:author" content="xfqwdsj">
 <meta name="twitter:card" content="summary">
 
@@ -262,13 +262,16 @@ $(function() {
 	$(".bton").off("click").on("click", function() {
 		var max = 0
 		var min = 0
-		$("#result").val(create(Math.random() * (max - min + 1) + min))
+		$("#result").val(create(parseInt(Math.random() * (max - min + 1) + min)))
 	})
 	function create(seed) {
 		if($("#subject").val() != "" && $("#subject").val() != "" && $("#subject").val() != "") {
 			switch(seed) {
 				case 0:
 					return `${subject}${event}是怎么回事呢？${subject}相信大家都很熟悉，但是${subject}${event}是怎么回事呢，下面就让小编带大家一起了解吧。\r\n　　${subject}${event}，其实就是${event2}，大家可能会很惊讶${subject}怎么会${event}呢？但事实就是这样，小编也感到非常惊讶。\r\n　　这就是关于${subject}${event}的事情了，大家有什么想法呢，欢迎在评论区告诉小编一起讨论哦！`
+					break;
+				default:
+					return "出错啦！"
 			}
 		}
 	}
