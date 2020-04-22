@@ -32,8 +32,8 @@
 <meta property="og:site_name" content="小番茄我的世界">
 <meta property="og:description" content=".myInput { 		height: 33px;  		width: 100%;  		font-size: 20px; 		transition: 0.5s; 		outline: none; 		text-align: center;  		border-bottom: 2px solid #EEEEEE;  		border-top: none;  		border-left: n">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-04-22T13:02:42.979Z">
-<meta property="article:modified_time" content="2020-04-22T13:02:42.979Z">
+<meta property="article:published_time" content="2020-04-22T13:10:54.054Z">
+<meta property="article:modified_time" content="2020-04-22T13:10:54.054Z">
 <meta property="article:author" content="xfqwdsj">
 <meta name="twitter:card" content="summary">
 
@@ -276,10 +276,10 @@ $(function() {
 					var event = $("#event").val()
 					var event2 = $("#event2").val()
 					data = data.crs[parseInt(Math.random() * data.crs.length)].cr
-					data = data.replace(new RegExp("${head}","g"), "	")
-					data = data.replace(new RegExp("${subject}","g"), subject)
-					data = data.replace(new RegExp("${event}","g"), event)
-					data = data.replace(new RegExp("${event2}","g"), event2)
+					data = data.replace(new RegExp("|(head)|", "g"), "	")
+					data = data.replace(new RegExp("|(subject)|", "g"), subject)
+					data = data.replace(new RegExp("|(event)|", "g"), event)
+					data = data.replace(new RegExp("|(event2)|", "g"), event2)
 					$("#result").val(data)
 					heightChanger(document.getElementById("result"))
 				}
