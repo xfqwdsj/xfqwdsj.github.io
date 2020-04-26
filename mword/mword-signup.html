@@ -8,14 +8,39 @@
 	<script type="text/javascript" src="/jquery.js"></script>
 	<script type="text/javascript" src="/av-min.js"></script>
 	<script type="text/javascript">
-		AV.init({
-			appId: "1KbhNSxDBKNOvAiGQEJqPE6B-gzGzoHsz",
-			appKey: "aWxGGJwdeWE7rmxyLWIbkuyT",
-			serverURLs: "https://1kbhnsxd.lc-cn-n1-shared.com"
+		$(function () {
+			AV.init({
+				appId: "1KbhNSxDBKNOvAiGQEJqPE6B-gzGzoHsz",
+				appKey: "aWxGGJwdeWE7rmxyLWIbkuyT",
+				serverURLs: "https://1kbhnsxd.lc-cn-n1-shared.com"
+			})
+			var MW = AV
+			var currentUser = MW.User.current()
+			if (currentUser) {
+				window.location = "mword-user.html"
+			}
+			$("#submit").off("click").on("click", function () {
+				if ($("#username").val() != "" && $("#nickname").val() != "" && $("#password").val() != "" && $("#email").val() != "") {
+					var user = new MW.User()
+					user.setUsername($("#username").val())
+					user.set("nickname", $("#nickname").val())
+					user.setPassword($("#password").val())
+					user.setEmail($("#email").val())
+					$("#username").val("")
+					$("#nickname").val("")
+					$("#password").val("")
+					$("#email").val("")
+					user.signUp().then(function (user) {
+						alert("注册成功 请验证邮箱")
+						MW.User.logOut()
+						window.location = "mword-login.html"
+					}, function (error) {
+						alert(error)
+					})
+				}
+			})
 		})
-		var MW = AV
 	</script>
-	<script type="text/javascript" src="/js/signup.js"></script>
 	<style type="text/css">
 		.form-bg {
 			padding: 2em 0;
