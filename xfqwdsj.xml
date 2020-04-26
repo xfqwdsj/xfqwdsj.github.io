@@ -2,16 +2,65 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://xfqwdsj.github.io/tools/docs/cr.html</loc>
+    <loc>https://xfqwdsj.github.io/mword/mword-login.html</loc>
     
-    <lastmod>2020-04-24T03:57:24.006Z</lastmod>
+    <lastmod>2020-04-26T04:28:36.531Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xfqwdsj.github.io/mword/mword-signup.html</loc>
+    
+    <lastmod>2020-04-26T04:25:06.156Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xfqwdsj.github.io/mword/login.html</loc>
+    
+    <lastmod>2020-04-26T03:29:24.688Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xfqwdsj.github.io/mword/mword-signup-a.html</loc>
+    
+    <lastmod>2020-04-26T02:54:16.739Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xfqwdsj.github.io/mword/lb.html</loc>
+    
+    <lastmod>2020-04-26T01:40:31.783Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xfqwdsj.github.io/mword/mword.html</loc>
+    
+    <lastmod>2020-04-26T01:18:31.220Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xfqwdsj.github.io/tools/qqcustomstatus.html</loc>
+    
+    <lastmod>2020-04-26T01:13:36.579Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://xfqwdsj.github.io/tools/json/cr.json</loc>
     
-    <lastmod>2020-04-24T03:44:15.607Z</lastmod>
+    <lastmod>2020-04-26T01:11:44.393Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xfqwdsj.github.io/tools/docs/cr.html</loc>
+    
+    <lastmod>2020-04-24T03:57:24.006Z</lastmod>
     
   </url>
   
@@ -30,13 +79,6 @@
   </url>
   
   <url>
-    <loc>https://xfqwdsj.github.io/tools/qqcustomstatus.html</loc>
-    
-    <lastmod>2020-04-19T11:46:20.163Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://xfqwdsj.github.io/mword/query.html</loc>
     
     <lastmod>2020-04-17T03:11:39.949Z</lastmod>
@@ -51,37 +93,9 @@
   </url>
   
   <url>
-    <loc>https://xfqwdsj.github.io/mword/lb.html</loc>
-    
-    <lastmod>2020-04-17T02:47:02.994Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://xfqwdsj.github.io/mword/result.html</loc>
     
     <lastmod>2020-04-17T02:13:13.741Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://xfqwdsj.github.io/mword/mword-login.html</loc>
-    
-    <lastmod>2020-04-04T07:08:42.951Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://xfqwdsj.github.io/mword/mword-signup.html</loc>
-    
-    <lastmod>2020-04-01T00:13:59.582Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://xfqwdsj.github.io/mword/mword.html</loc>
-    
-    <lastmod>2020-03-26T02:43:51.556Z</lastmod>
     
   </url>
   
