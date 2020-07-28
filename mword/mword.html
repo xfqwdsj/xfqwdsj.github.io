@@ -32,8 +32,8 @@
 <meta property="og:site_name" content="小番茄我的世界">
 <meta property="og:description" content="var currentUser &#x3D; MW.User.current() $(function() { 	if(currentUser) { 		$(&quot;#用户信息&quot;).html(&quot;您已登录：&quot; + currentUser.get(&quot;username&quot;) + &quot;&quot;) 	} 	else { 		$(&quot;#用户信息&quot;).html(&quot;请登录 或刷新 否则本次默写数据无效&quot;) 	} })">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-05-22T14:00:30.022Z">
-<meta property="article:modified_time" content="2020-05-22T14:00:30.022Z">
+<meta property="article:published_time" content="2020-07-11T04:25:57.823Z">
+<meta property="article:modified_time" content="2020-07-11T04:25:57.823Z">
 <meta property="article:author" content="xfqwdsj">
 <meta name="twitter:card" content="summary">
 
@@ -284,7 +284,7 @@ $(function() {
 		background-color: rgba(0, 0, 0, 0);
 	}
 	.myInput:focus {
-		border-bottom: 2px solid rgb(56, 149, 255); 
+		border-bottom: 2px solid rgb(56, 149, 255);
 	}
 	.input-wrong {
 		height: 33px;
@@ -570,6 +570,26 @@ $(function() {
 
 
 
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
 
 
 
