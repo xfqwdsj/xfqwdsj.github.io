@@ -281,7 +281,7 @@ $(function() {
 			timeout: 5000,
 			success: function(data) {
 				for (object of data) {
-					$("#单词").append(`<option value="${object.url}">${object.displayName}</option>`)
+					$("#单元").append(`<option value="${object.url}">${object.displayName}</option>`)
 				}
 				背单词()
 			}
