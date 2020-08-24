@@ -32,8 +32,8 @@
 <meta property="og:site_name" content="小番茄我的世界">
 <meta property="og:description" content="$(function() { 	function getQueryString(name) { 		var reg &#x3D; new RegExp(&quot;(^|&amp;)&quot; + name + &quot;&#x3D;([^&amp;]*)(&amp;|$)&quot;) 		var r &#x3D; window.location.search.substr(1).match(reg) 		if(r !&#x3D; null) { 			return decodeURI(">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-08-24T14:42:45.851Z">
-<meta property="article:modified_time" content="2020-08-24T14:42:45.851Z">
+<meta property="article:published_time" content="2020-08-24T15:18:10.325Z">
+<meta property="article:modified_time" content="2020-08-24T15:18:10.325Z">
 <meta property="article:author" content="xfqwdsj">
 <meta name="twitter:card" content="summary">
 
@@ -308,13 +308,13 @@ $(function() {
 				for (object of data) {
 					$("#unit").append(`<option value="${object.url}">${object.displayName}</option>`)
 				}
-				init($("#unit").html())
+				init($("#unit").find("option:selected").text())
 			}
 		})
 	}
 	$("#unit").off("change").on("change", 
 	function() {
-		init($("#unit").html())
+		init($("#unit").find("option:selected").text())
 	})
 	getUnits()
 })

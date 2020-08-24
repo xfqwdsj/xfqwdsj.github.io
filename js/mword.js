@@ -88,7 +88,7 @@ $(function() {
 							if(允许上传 != false) {
 								MwordsResult = MW.Object.extend("MwordsResult")
 								mwordsresult = new MwordsResult()
-								mwordsresult.set("unit", $("#单元").html())
+								mwordsresult.set("unit", $("#单元").find("option:selected").text())
 								mwordsresult.set("timer", 计时秒)
 								mwordsresult.set("diyhelp", 自定义提示)
 								mwordsresult.set("help", 提示总数)
