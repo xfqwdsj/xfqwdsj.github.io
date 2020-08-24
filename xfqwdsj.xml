@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://xfqwdsj.github.io/mword/words.json</loc>
+    
+    <lastmod>2020-08-24T13:20:27.144Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xfqwdsj.github.io/mword/mword.html</loc>
+    
+    <lastmod>2020-08-24T13:18:44.294Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://xfqwdsj.github.io/study/7b/book/politics.html</loc>
     
     <lastmod>2020-07-28T11:21:59.981Z</lastmod>
@@ -47,13 +61,6 @@
     <loc>https://xfqwdsj.github.io/study/7b/book/biology.html</loc>
     
     <lastmod>2020-07-28T11:21:05.347Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://xfqwdsj.github.io/mword/mword.html</loc>
-    
-    <lastmod>2020-07-11T04:25:57.823Z</lastmod>
     
   </url>
   

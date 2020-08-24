@@ -33,7 +33,7 @@ $(function() {
 		初始化 - 开始
 	*/
 	
-	背单词()
+	获取列表()
 	
 	/*
 		初始化 - 结束
@@ -135,7 +135,6 @@ $(function() {
 	})
 	$("#输入").off("input").on("input",
 	function() {
-		var hint = $("#顶部").html()
 		$("#文左上").html("")
 		if (!完成) {
 			if ($("#输入").val().toLowerCase().trim() == 单词表[进度].单词.trim().toLowerCase() ) {
@@ -195,21 +194,6 @@ $(function() {
 			}
 		}
 	})
-	function 获取随机字符串(长度) {
-		var ID = ""
-		for(var i = 0; i < 长度; i++) {
-			if(parseInt(Math.random() * (2 - 1 + 1) + 1) == 1) {
-				if(parseInt(Math.random() * (2 - 1 + 1) + 1) == 1) {
-					ID = ID + String.fromCharCode(parseInt(Math.random() * (90 - 65 + 1) + 65))
-				} else {
-					ID = ID + String.fromCharCode(parseInt(Math.random() * (122 - 97 + 1) + 97))
-				}
-			} else {
-				ID = ID + parseInt(Math.random() * (9 - 0 + 1) + 0).toString()
-			}
-		}
-		return ID
-	}
 	function 开始计时() {
 		clearInterval(计时器)
 		$("#文左下").html(计时秒)
@@ -218,7 +202,7 @@ $(function() {
 		},
 		1000)
 	}
-	function 随机排序(x, y) {
+	function 随机排序() {
 		return Math.random() > .5 ? -1 : 1 
 	}
 	function 更新进度() {
@@ -261,7 +245,7 @@ $(function() {
 		//====================
 		
 		$.ajax({
-			url: "/xml/words_" + $("#单元").val() + ".xml",
+			url: $("#单元").val(),
 			dataType: 'xml',
 			type: 'GET',
 			timeout: 5000,
@@ -285,6 +269,21 @@ $(function() {
 				$("#文左上").html("")
 				开始计时()
 				单词 = 翻译数据 = 中文 = null
+			}
+		})
+	}
+
+	function 获取列表() {
+		$.ajax({
+			url: "/mword/words.json",
+			dataType: 'json',
+			type: 'GET',
+			timeout: 5000,
+			success: function(data) {
+				for (object of data) {
+					$("#单词").append(`<option value="${object.url}">${object.displayName}</option>`)
+				}
+				背单词()
 			}
 		})
 	}
