@@ -1,118 +1,176 @@
 <wordbook>
-<item>
-<word>order</word>
-<trans><![CDATA[n.订货；订购]]></trans>
-</item>
-<item>
-<word>compare</word>
-<trans><![CDATA[v.比较；对比]]></trans>
-</item>
-<item>
-<word>monitor</word>
-<trans><![CDATA[n.（计算机）显示器]]></trans>
-</item>
-<item>
-<word>speaker</word>
-<trans><![CDATA[n.扬声器]]></trans>
-</item>
-<item>
-<word>main unit</word>
-<trans><![CDATA[n.（计算机）主机]]></trans>
-</item>
-<item>
-<word>keyboard</word>
-<trans><![CDATA[n.（计算机或打字机）键盘]]></trans>
-</item>
-<item>
-<word>mouse</word>
-<trans><![CDATA[n.（计算机）鼠标]]></trans>
-</item>
-<item>
-<word>type</word>
-<trans><![CDATA[v.打字]]></trans>
-</item>
-<item>
-<word>brain</word>
-<trans><![CDATA[n.脑]]></trans>
-</item>
-<item>
-<word>control</word>
-<trans><![CDATA[v.操纵，控制（机器或系统等）]]></trans>
-</item>
-<item>
-<word>expensive</word>
-<trans><![CDATA[adj.昂贵的；价格高的]]></trans>
-</item>
-<item>
-<word>tiny</word>
-<trans><![CDATA[adj.极小的；微小的]]></trans>
-</item>
-<item>
-<word>depend</word>
-<trans><![CDATA[v.依靠；依赖]]></trans>
-</item>
-<item>
-<word>calculate</word>
-<trans><![CDATA[v.计算]]></trans>
-</item>
-<item>
-<word>speed</word>
-<trans><![CDATA[n.速度]]></trans>
-</item>
-<item>
-<word>operate</word>
-<trans><![CDATA[v.操纵；控制]]></trans>
-</item>
-<item>
-<word>railway</word>
-<trans><![CDATA[n.铁路系统]]></trans>
-</item>
-<item>
-<word>company</word>
-<trans><![CDATA[n.公司]]></trans>
-</item>
-<item>
-<word>price</word>
-<trans><![CDATA[n.价格]]></trans>
-</item>
-<item>
-<word>total</word>
-<trans><![CDATA[n.总额；合计]]></trans>
-</item>
-<item>
-<word>inch</word>
-<trans><![CDATA[n.英寸]]></trans>
-</item>
-<item>
-<word>sell</word>
-<trans><![CDATA[v.出售；售卖]]></trans>
-</item>
-<item>
-<word>popular</word>
-<trans><![CDATA[adj.受喜爱的；受欢迎的]]></trans>
-</item>
-<item>
-<word>work as</word>
-<trans><![CDATA[从事……工作]]></trans>
-</item>
-<item>
-<word>be unaware of</word>
-<trans><![CDATA[没意识到；未察觉]]></trans>
-</item>
-<item>
-<word>depend on</word>
-<trans><![CDATA[依靠 ]]></trans>
-</item>
-<item>
-<word>in addition</word>
-<trans><![CDATA[除……以外（还）]]></trans>
-</item>
-<item>
-<word>grand total</word>
-<trans><![CDATA[总计；共计]]></trans>
-</item>
-<item>
-<word>look forward to</word>
-<trans><![CDATA[盼望；期待]]></trans>
-</item>
+    <item>
+        <word>order</word>
+        <trans>
+            <![CDATA[n.订货；订购]]>
+        </trans>
+    </item>
+    <item>
+        <word>compare</word>
+        <trans>
+            <![CDATA[v.比较；对比]]>
+        </trans>
+    </item>
+    <item>
+        <word>monitor</word>
+        <trans>
+            <![CDATA[n.（计算机）显示器]]>
+        </trans>
+    </item>
+    <item>
+        <word>speaker</word>
+        <trans>
+            <![CDATA[n.扬声器]]>
+        </trans>
+    </item>
+    <item>
+        <word>main unit</word>
+        <trans>
+            <![CDATA[n.（计算机）主机]]>
+        </trans>
+    </item>
+    <item>
+        <word>keyboard</word>
+        <trans>
+            <![CDATA[n.（计算机或打字机）键盘]]>
+        </trans>
+    </item>
+    <item>
+        <word>mouse</word>
+        <trans>
+            <![CDATA[n.（计算机）鼠标]]>
+        </trans>
+    </item>
+    <item>
+        <word>type</word>
+        <trans>
+            <![CDATA[v.打字]]>
+        </trans>
+    </item>
+    <item>
+        <word>brain</word>
+        <trans>
+            <![CDATA[n.脑]]>
+        </trans>
+    </item>
+    <item>
+        <word>control</word>
+        <trans>
+            <![CDATA[v.操纵，控制（机器或系统等）]]>
+        </trans>
+    </item>
+    <item>
+        <word>expensive</word>
+        <trans>
+            <![CDATA[adj.昂贵的；价格高的]]>
+        </trans>
+    </item>
+    <item>
+        <word>tiny</word>
+        <trans>
+            <![CDATA[adj.极小的；微小的]]>
+        </trans>
+    </item>
+    <item>
+        <word>depend</word>
+        <trans>
+            <![CDATA[v.依靠；依赖]]>
+        </trans>
+    </item>
+    <item>
+        <word>calculate</word>
+        <trans>
+            <![CDATA[v.计算]]>
+        </trans>
+    </item>
+    <item>
+        <word>speed</word>
+        <trans>
+            <![CDATA[n.速度]]>
+        </trans>
+    </item>
+    <item>
+        <word>operate</word>
+        <trans>
+            <![CDATA[v.操纵；控制]]>
+        </trans>
+    </item>
+    <item>
+        <word>railway</word>
+        <trans>
+            <![CDATA[n.铁路系统]]>
+        </trans>
+    </item>
+    <item>
+        <word>company</word>
+        <trans>
+            <![CDATA[n.公司]]>
+        </trans>
+    </item>
+    <item>
+        <word>price</word>
+        <trans>
+            <![CDATA[n.价格]]>
+        </trans>
+    </item>
+    <item>
+        <word>total</word>
+        <trans>
+            <![CDATA[n.总额；合计]]>
+        </trans>
+    </item>
+    <item>
+        <word>inch</word>
+        <trans>
+            <![CDATA[n.英寸]]>
+        </trans>
+    </item>
+    <item>
+        <word>sell</word>
+        <trans>
+            <![CDATA[v.出售；售卖]]>
+        </trans>
+    </item>
+    <item>
+        <word>popular</word>
+        <trans>
+            <![CDATA[adj.受喜爱的；受欢迎的]]>
+        </trans>
+    </item>
+    <item>
+        <word>work as</word>
+        <trans>
+            <![CDATA[从事......工作]]>
+        </trans>
+    </item>
+    <item>
+        <word>be unaware of</word>
+        <trans>
+            <![CDATA[没意识到；未察觉]]>
+        </trans>
+    </item>
+    <item>
+        <word>depend on</word>
+        <trans>
+            <![CDATA[依靠]]>
+        </trans>
+    </item>
+    <item>
+        <word>in addition</word>
+        <trans>
+            <![CDATA[除......以外（还）]]>
+        </trans>
+    </item>
+    <item>
+        <word>grand total</word>
+        <trans>
+            <![CDATA[总计；共计]]>
+        </trans>
+    </item>
+    <item>
+        <word>look forward to</word>
+        <trans>
+            <![CDATA[盼望；期待]]>
+        </trans>
+    </item>
 </wordbook>

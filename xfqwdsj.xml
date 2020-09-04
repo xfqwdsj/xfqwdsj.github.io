@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://xfqwdsj.github.io/mword/words.json</loc>
+    
+    <lastmod>2020-09-04T14:31:15.400Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://xfqwdsj.github.io/mword/index.html</loc>
     
     <lastmod>2020-08-24T15:21:10.465Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://xfqwdsj.github.io/mword/lb.html</loc>
     
     <lastmod>2020-08-24T15:18:10.325Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://xfqwdsj.github.io/mword/words.json</loc>
-    
-    <lastmod>2020-08-24T14:33:00.250Z</lastmod>
     
   </url>
   

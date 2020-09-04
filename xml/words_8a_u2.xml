@@ -1,111 +1,164 @@
 <wordbook>
-<item>
-<word>number</word>
-<trans><![CDATA[n.数字]]></trans>
-</item>
-<item>
-<word>instructions</word>
-<trans><![CDATA[n.[pl.]指示；命令]]></trans>
-</item>
-<item>
-<word><word>check</word>
-<trans><![CDATA[v.检查；核实]]></trans>
-</item>
-<item>
-<word>gram</word>
-<trans><![CDATA[n.克（重量单位）]]></trans>
-</item>
-<item>
-<word>son</word>
-<trans><![CDATA[n.儿子]]></trans>
-</item>
-<item>
-<word>chess</word>
-<trans><![CDATA[n.国际象棋；棋盘]]></trans>
-</item>
-<item>
-<word>India</word>
-<trans><![CDATA[n.印度]]></trans>
-</item>
-<item>
-<word>wise</word>
-<trans><![CDATA[adj.充满智慧的]]></trans>
-</item>
-<item>
-<word>challenge</word>
-<trans><![CDATA[v.向（某人）挑战]]></trans>
-</item>
-<item>
-<word>promise</word>
-<trans><![CDATA[v.许诺，承诺]]></trans>
-</item>
-<item>
-<word>prize</word>
-<trans><![CDATA[n.奖赏，奖品]]></trans>
-</item>
-<item>
-<word>grain</word>
-<trans><![CDATA[n.谷粒]]></trans>
-</item>
-<item>
-<word>chessboard</word>
-<trans><![CDATA[n.国际象棋]]></trans>
-</item>
-<item>
-<word>double</word>
-<trans><![CDATA[v.加倍]]></trans>
-</item>
-<item>
-<word>amount</word>
-<trans><![CDATA[n.数量；数额]]></trans>
-</item>
-<item>
-<word>rest</word>
-<trans><![CDATA[n.剩余部分]]></trans>
-</item>
-<item>
-<word>gold</word>
-<trans><![CDATA[n.金子；黄金]]></trans>
-</item>
-<item>
-<word>instead</word>
-<trans><![CDATA[adv.代替；顶替]]></trans>
-</item>
-<item>
-<word>realize</word>
-<trans><![CDATA[v.认识到；意识到]]></trans>
-</item>
-<item>
-<word>copy</word>
-<trans><![CDATA[v.抄写；誊写]]></trans>
-</item>
-<item>
-<word>correctly</word>
-<trans><![CDATA[adv.准确无误地；正确地]]></trans>
-</item>
-<item>
-<word>traffic</word>
-<trans><![CDATA[n.交通]]></trans>
-</item>
-<item>
-<word>accident</word>
-<trans><![CDATA[n.（交通）事故]]></trans>
-</item>
-<item>
-<word>a long time ago</word>
-<trans><![CDATA[很早以前]]></trans>
-</item>
-<item>
-<word>challenge to </word>
-<trans><![CDATA[向（某人）挑战（短语）]]></trans>
-</item>
-<item>
-<word>and so on</word>
-<trans><![CDATA[等等]]></trans>
-</item>
-<item>
-<word>copy down</word>
-<trans><![CDATA[抄写；誊写]]></trans>
-</item>
-<item>
-<word></wordbook>
+    <item>
+        <word>number</word>
+        <trans>
+            <![CDATA[n.数字]]>
+        </trans>
+    </item>
+    <item>
+        <word>instructions</word>
+        <trans>
+            <![CDATA[n.[pl.]指示；命令]]>
+        </trans>
+    </item>
+    <item>
+        <word>check</word>
+        <trans>
+            <![CDATA[v.检查；核实]]>
+        </trans>
+    </item>
+    <item>
+        <word>gram</word>
+        <trans>
+            <![CDATA[n.克（重量单位）]]>
+        </trans>
+    </item>
+    <item>
+        <word>son</word>
+        <trans>
+            <![CDATA[n.儿子]]>
+        </trans>
+    </item>
+    <item>
+        <word>chess</word>
+        <trans>
+            <![CDATA[n.国际象棋；棋盘]]>
+        </trans>
+    </item>
+    <item>
+        <word>India</word>
+        <trans>
+            <![CDATA[n.印度]]>
+        </trans>
+    </item>
+    <item>
+        <word>wise</word>
+        <trans>
+            <![CDATA[adj.充满智慧的]]>
+        </trans>
+    </item>
+    <item>
+        <word>challenge</word>
+        <trans>
+            <![CDATA[v.向（某人）挑战]]>
+        </trans>
+    </item>
+    <item>
+        <word>promise</word>
+        <trans>
+            <![CDATA[v.许诺，承诺]]>
+        </trans>
+    </item>
+    <item>
+        <word>prize</word>
+        <trans>
+            <![CDATA[n.奖赏，奖品]]>
+        </trans>
+    </item>
+    <item>
+        <word>grain</word>
+        <trans>
+            <![CDATA[n.谷粒]]>
+        </trans>
+    </item>
+    <item>
+        <word>chessboard</word>
+        <trans>
+            <![CDATA[n.国际象棋]]>
+        </trans>
+    </item>
+    <item>
+        <word>double</word>
+        <trans>
+            <![CDATA[v.加倍]]>
+        </trans>
+    </item>
+    <item>
+        <word>amount</word>
+        <trans>
+            <![CDATA[n.数量；数额]]>
+        </trans>
+    </item>
+    <item>
+        <word>rest</word>
+        <trans>
+            <![CDATA[n.剩余部分]]>
+        </trans>
+    </item>
+    <item>
+        <word>gold</word>
+        <trans>
+            <![CDATA[n.金子；黄金]]>
+        </trans>
+    </item>
+    <item>
+        <word>instead</word>
+        <trans>
+            <![CDATA[adv.代替；顶替]]>
+        </trans>
+    </item>
+    <item>
+        <word>realize</word>
+        <trans>
+            <![CDATA[v.认识到；意识到]]>
+        </trans>
+    </item>
+    <item>
+        <word>copy</word>
+        <trans>
+            <![CDATA[v.抄写；誊写]]>
+        </trans>
+    </item>
+    <item>
+        <word>correctly</word>
+        <trans>
+            <![CDATA[adv.准确无误地；正确地]]>
+        </trans>
+    </item>
+    <item>
+        <word>traffic</word>
+        <trans>
+            <![CDATA[n.交通]]>
+        </trans>
+    </item>
+    <item>
+        <word>accident</word>
+        <trans>
+            <![CDATA[n.（交通）事故]]>
+        </trans>
+    </item>
+    <item>
+        <word>a long time ago</word>
+        <trans>
+            <![CDATA[很早以前]]>
+        </trans>
+    </item>
+    <item>
+        <word>challenge to </word>
+        <trans>
+            <![CDATA[向（某人）挑战（短语）]]>
+        </trans>
+    </item>
+    <item>
+        <word>and so on</word>
+        <trans>
+            <![CDATA[等等]]>
+        </trans>
+    </item>
+    <item>
+        <word>copy down</word>
+        <trans>
+            <![CDATA[抄写；誊写]]>
+        </trans>
+    </item>
+</wordbook>

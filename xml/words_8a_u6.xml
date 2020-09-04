@@ -1,150 +1,224 @@
 <wordbook>
-<item>
-<word>ancient</word>
-<trans><![CDATA[adj.古代的]]></trans>
-</item>
-<item>
-<word>trojan</word>
-<trans><![CDATA[n.特洛伊人]]></trans>
-</item>
-<item>
-<word>war</word>
-<trans><![CDATA[n.战争]]></trans>
-</item>
-<item>
-<word>understand</word>
-<trans><![CDATA[v.理解]]></trans>
-</item>
-<item>
-<word>difference</word>
-<trans><![CDATA[n.差别；不同（之处）]]></trans>
-</item>
-<item>
-<word>pyramid</word>
-<trans><![CDATA[n.（古埃及的）金字塔]]></trans>
-</item>
-<item>
-<word>captain</word>
-<trans><![CDATA[n.首领]]></trans>
-</item>
-<item>
-<word>greek</word>
-<trans><![CDATA[n.希腊人]]></trans>
-</item>
-<item>
-<word>capture</word>
-<trans><![CDATA[v.用武力夺取；攻占]]></trans>
-</item>
-<item>
-<word>soldier</word>
-<trans><![CDATA[n.士兵]]></trans>
-</item>
-<item>
-<word>huge</word>
-<trans><![CDATA[adj.巨大的]]></trans>
-</item>
-<item>
-<word>pull</word>
-<trans><![CDATA[v.（向某方向）拖，拉动]]></trans>
-</item>
-<item>
-<word>main</word>
-<trans><![CDATA[adj.主要的]]></trans>
-</item>
-<item>
-<word>celebrate</word>
-<trans><![CDATA[v.庆祝；祝贺]]></trans>
-</item>
-<item>
-<word>stupid</word>
-<trans><![CDATA[adj.笨的；傻的]]></trans>
-</item>
-<item>
-<word>midnight</word>
-<trans><![CDATA[n.午夜；子夜]]></trans>
-</item>
-<item>
-<word>empty</word>
-<trans><![CDATA[adj.空的]]></trans>
-</item>
-<item>
-<word>except</word>
-<trans><![CDATA[prep.除……之外]]></trans>
-</item>
-<item>
-<word>secret</word>
-<trans><![CDATA[n.秘密的]]></trans>
-</item>
-<item>
-<word>side</word>
-<trans><![CDATA[n.侧面]]></trans>
-</item>
-<item>
-<word>quietly</word>
-<trans><![CDATA[adv.安静地]]></trans>
-</item>
-<item>
-<word>army</word>
-<trans><![CDATA[n.陆军部队]]></trans>
-</item>
-<item>
-<word>enter</word>
-<trans><![CDATA[v.进来；进入]]></trans>
-</item>
-<item>
-<word>succeed</word>
-<trans><![CDATA[v.达到目的；实现目标]]></trans>
-</item>
-<item>
-<word>trick</word>
-<trans><![CDATA[n.计谋]]></trans>
-</item>
-<item>
-<word>prince</word>
-<trans><![CDATA[n.王子]]></trans>
-</item>
-<item>
-<word>queen</word>
-<trans><![CDATA[n.王后]]></trans>
-</item>
-<item>
-<word>steal</word>
-<trans><![CDATA[v.偷；窃取]]></trans>
-</item>
-<item>
-<word>punish</word>
-<trans><![CDATA[v.处罚；惩罚]]></trans>
-</item>
-<item>
-<word>scene</word>
-<trans><![CDATA[n.（戏剧或歌剧）场]]></trans>
-</item>
-<item>
-<word>sir</word>
-<trans><![CDATA[n.先生]]></trans>
-</item>
-<item>
-<word>act out</word>
-<trans><![CDATA[将……表演出来]]></trans>
-</item>
-<item>
-<word>make jokes about</word>
-<trans><![CDATA[拿……开玩笑；以……为笑柄]]></trans>
-</item>
-<item>
-<word>except for</word>
-<trans><![CDATA[除……之外]]></trans>
-</item>
-<item>
-<word>be full of</word>
-<trans><![CDATA[（有）大量的；（有）许多的]]></trans>
-</item>
-<item>
-<word>in the end</word>
-<trans><![CDATA[最后]]></trans>
-</item>
-<item>
-<word>come on</word>
-<trans><![CDATA[（用于命令）快；加油；加把劲]]></trans>
-</item>
+    <item>
+        <word>ancient</word>
+        <trans>
+            <![CDATA[adj.古代的]]>
+        </trans>
+    </item>
+    <item>
+        <word>trojan</word>
+        <trans>
+            <![CDATA[n.特洛伊人]]>
+        </trans>
+    </item>
+    <item>
+        <word>war</word>
+        <trans>
+            <![CDATA[n.战争]]>
+        </trans>
+    </item>
+    <item>
+        <word>understand</word>
+        <trans>
+            <![CDATA[v.理解]]>
+        </trans>
+    </item>
+    <item>
+        <word>difference</word>
+        <trans>
+            <![CDATA[n.差别；不同（之处）]]>
+        </trans>
+    </item>
+    <item>
+        <word>pyramid</word>
+        <trans>
+            <![CDATA[n.（古埃及的）金字塔]]>
+        </trans>
+    </item>
+    <item>
+        <word>captain</word>
+        <trans>
+            <![CDATA[n.首领]]>
+        </trans>
+    </item>
+    <item>
+        <word>greek</word>
+        <trans>
+            <![CDATA[n.希腊人]]>
+        </trans>
+    </item>
+    <item>
+        <word>capture</word>
+        <trans>
+            <![CDATA[v.用武力夺取；攻占]]>
+        </trans>
+    </item>
+    <item>
+        <word>soldier</word>
+        <trans>
+            <![CDATA[n.士兵]]>
+        </trans>
+    </item>
+    <item>
+        <word>huge</word>
+        <trans>
+            <![CDATA[adj.巨大的]]>
+        </trans>
+    </item>
+    <item>
+        <word>pull</word>
+        <trans>
+            <![CDATA[v.（向某方向）拖，拉动]]>
+        </trans>
+    </item>
+    <item>
+        <word>main</word>
+        <trans>
+            <![CDATA[adj.主要的]]>
+        </trans>
+    </item>
+    <item>
+        <word>celebrate</word>
+        <trans>
+            <![CDATA[v.庆祝；祝贺]]>
+        </trans>
+    </item>
+    <item>
+        <word>stupid</word>
+        <trans>
+            <![CDATA[adj.笨的；傻的]]>
+        </trans>
+    </item>
+    <item>
+        <word>midnight</word>
+        <trans>
+            <![CDATA[n.午夜；子夜]]>
+        </trans>
+    </item>
+    <item>
+        <word>empty</word>
+        <trans>
+            <![CDATA[adj.空的]]>
+        </trans>
+    </item>
+    <item>
+        <word>except</word>
+        <trans>
+            <![CDATA[prep.除......之外]]>
+        </trans>
+    </item>
+    <item>
+        <word>secret</word>
+        <trans>
+            <![CDATA[n.秘密的]]>
+        </trans>
+    </item>
+    <item>
+        <word>side</word>
+        <trans>
+            <![CDATA[n.侧面]]>
+        </trans>
+    </item>
+    <item>
+        <word>quietly</word>
+        <trans>
+            <![CDATA[adv.安静地]]>
+        </trans>
+    </item>
+    <item>
+        <word>army</word>
+        <trans>
+            <![CDATA[n.陆军部队]]>
+        </trans>
+    </item>
+    <item>
+        <word>enter</word>
+        <trans>
+            <![CDATA[v.进来；进入]]>
+        </trans>
+    </item>
+    <item>
+        <word>succeed</word>
+        <trans>
+            <![CDATA[v.达到目的；实现目标]]>
+        </trans>
+    </item>
+    <item>
+        <word>trick</word>
+        <trans>
+            <![CDATA[n.计谋]]>
+        </trans>
+    </item>
+    <item>
+        <word>prince</word>
+        <trans>
+            <![CDATA[n.王子]]>
+        </trans>
+    </item>
+    <item>
+        <word>queen</word>
+        <trans>
+            <![CDATA[n.王后]]>
+        </trans>
+    </item>
+    <item>
+        <word>steal</word>
+        <trans>
+            <![CDATA[v.偷；窃取]]>
+        </trans>
+    </item>
+    <item>
+        <word>punish</word>
+        <trans>
+            <![CDATA[v.处罚；惩罚]]>
+        </trans>
+    </item>
+    <item>
+        <word>scene</word>
+        <trans>
+            <![CDATA[n.（戏剧或歌剧）场]]>
+        </trans>
+    </item>
+    <item>
+        <word>sir</word>
+        <trans>
+            <![CDATA[n.先生]]>
+        </trans>
+    </item>
+    <item>
+        <word>act out</word>
+        <trans>
+            <![CDATA[将......表演出来]]>
+        </trans>
+    </item>
+    <item>
+        <word>make jokes about</word>
+        <trans>
+            <![CDATA[拿......开玩笑；以......为笑柄]]>
+        </trans>
+    </item>
+    <item>
+        <word>except for</word>
+        <trans>
+            <![CDATA[除......之外]]>
+        </trans>
+    </item>
+    <item>
+        <word>be full of</word>
+        <trans>
+            <![CDATA[（有）大量的；（有）许多的]]>
+        </trans>
+    </item>
+    <item>
+        <word>in the end</word>
+        <trans>
+            <![CDATA[最后]]>
+        </trans>
+    </item>
+    <item>
+        <word>come on</word>
+        <trans>
+            <![CDATA[（用于命令）快；加油；加把劲]]>
+        </trans>
+    </item>
 </wordbook>
