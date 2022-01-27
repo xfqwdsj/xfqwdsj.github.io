@@ -1,13 +1,12 @@
 hexo.extend.tag.register('message', function(args, content){
-    var type = args[0];
-    var icon = args[1];
-    var iconEl = '';
+    var icon = args.split(0, 1);
+    var classes = args;
     if (icon != null) iconEl = `<i class="fas fa-${icon} mr-2"></i>`
     return `
-    <article class="message message-immersive is-${type}">
+    <article class="message message-immersive ${type.join(' ')}">
         <div class="message-body">
             ${iconEl}
-            ${content}
+            ${hexo.render.renderSync({text: content, engine: 'markdown'}).split('\n').join('')}
         </div>
     </article>
     `;
