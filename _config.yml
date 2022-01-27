@@ -99,6 +99,11 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: cards
 
+style: 
+  prismjs: 
+    default: prism-twilight
+    darkmode: prism-tomorrow
+
 sitemap:
   path: sitemap.xml
   rel: true
