@@ -83,7 +83,7 @@ sudo userdel -r lighthouse
 ```bash
 cd /usr/local/qcloud/monitor/barad/admin
 ```
-执行以下命令，卸载 `BaradAgent`。该命令不显示结果，如果不存在`/usr/local/qcloud/monitor/barad`文件夹，则说明卸载成功。
+执行以下命令，卸载 `BaradAgent`。该命令不显示结果，如果不存在 `/usr/local/qcloud/monitor/barad` 文件夹，则说明卸载成功。
 ```bash
 ./uninstall.sh
 ```
@@ -206,7 +206,7 @@ sudo systemctl reload caddy
 
 #### 下载客户端
 
-我使用的客户端为 Clash，Clash 客户端备用下载地址（担心安全性请绕道）：<https://files.xfqlittlefan.xyz/Clash/>。
+我使用的客户端为 `Clash`。
 
 #### 编辑配置文件
 
@@ -233,7 +233,8 @@ proxies:
   udp: true
   tls: true
   network: ws
-  ws-path: [path]
+  ws-opts:
+    - path: [path]
 
 proxy-groups:
 - name: "PROXY"
