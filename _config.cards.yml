@@ -46,4 +46,19 @@ footer:
 lazyload:
   enable: true
   onlypost: false
-  loadingImage:
+  loadingImage: 
+
+search:
+  enable: true
+
+note: true
+
+fold: 
+  enable: true
+  motion: true
+
+fancybox: 
+  enable: true
+  auto: true
+
+back_to_top: true
