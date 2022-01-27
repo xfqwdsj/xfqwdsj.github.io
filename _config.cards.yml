@@ -64,3 +64,5 @@ fancybox:
   auto: true
 
 back_to_top: true
+
+darkmode: true
