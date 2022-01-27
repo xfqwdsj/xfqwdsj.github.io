@@ -101,8 +101,8 @@ theme: cards
 
 style: 
   prismjs: 
-    default: prism-twilight
-    darkmode: prism-tomorrow
+    default: twilight
+    darkmode: tomorrow
 
 sitemap:
   path: sitemap.xml
