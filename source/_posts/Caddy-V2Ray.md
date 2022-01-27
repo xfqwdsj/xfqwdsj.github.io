@@ -8,6 +8,7 @@ tags:
   - server
   - proxy
   - gfw
+toc: true
 ---
 
 > 灵感源自<https://blog.kallydev.com/docs/technical-notes/server/deploy-v2ray-with-docker/>，有修改。

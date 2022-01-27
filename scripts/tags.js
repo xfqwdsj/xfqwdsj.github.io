@@ -3,12 +3,14 @@ hexo.extend.tag.register('message', function(args, content){
     var icon = iconAndTitle[0];
     var title = iconAndTitle[1];
     var classes = args;
-    if (icon != null) icon = `<i class="fas fa-${icon} mr-2"></i>`
-    if (title != null && title != "") title = `${title}\n`
+    var iconEl = '';
+    var titleEl = '';
+    if (icon != undefined && icon != null && icon != '') iconEl = `<i class="fas fa-${icon} mr-2"></i>`
+    if (title != undefined && title != null && title != '') titleEl = `**${title}**\n`
     return `
     <article class="message message-immersive ${classes.join(' ')}">
         <div class="message-body">
-            ${icon}${title}${hexo.render.renderSync({text: content, engine: 'markdown'})}
+            ${iconEl}${hexo.render.renderSync({text: titleEl, engine: 'markdown'})}${hexo.render.renderSync({text: content, engine: 'markdown'})}
         </div>
     </article>
     `;

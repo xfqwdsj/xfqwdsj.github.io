@@ -158,9 +158,13 @@ search:
 # Comment plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Comment/
 comment:
-    type: disqus
-    # Disqus shortname
-    shortname: ''
+    type: disqusjs
+    shortname: xfqblog
+    api_key: ziuVShwIiQOLSZsLvnspaRCYxROIuuHRJOaqnuw5w3YEkh8yaKPegiztcWSWMomY
+    api: https://disqus.skk.moe/disqus/     # 可选填
+    admin: xfqwdsj                         # 可选填
+    admin_label: 管理员                      # 可选填
+    nesting: 4                              # 可选填
 # Donate plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Donation/
 donates:
@@ -183,10 +187,10 @@ donates:
         currency_code: USD
 # Share plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Share/
-share:
-    type: sharethis
+# share:
+    # type: sharethis
     # URL to the ShareThis share plugin script
-    install_url: ''
+    # install_url: ''
 # Sidebar configurations.
 # Please be noted that a sidebar is only visible when it has at least one widget
 sidebar:
@@ -273,14 +277,14 @@ widgets:
         position: left
         type: tags
     # Google FeedBurner email subscription widget configurations
-    -
+    # -
         # Where should the widget be placed, left sidebar or right sidebar
-        position: left
-        type: subscribe_email
+        # position: left
+        # type: subscribe_email
         # Hint text under the email input
-        description: 
+        # description: 
         # Feedburner ID
-        feedburner_id: ''
+        # feedburner_id: ''
     # Google AdSense unit configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
