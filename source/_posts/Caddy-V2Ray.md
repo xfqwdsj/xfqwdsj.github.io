@@ -87,9 +87,9 @@ cd /usr/local/qcloud/monitor/barad/admin
 ```bash
 ./uninstall.sh
 ```
-{% note info %}
+{% message info info-circle %}
 `BaradAgent` 上报云服务器部分指标数据，卸载 `BaradAgent` 后会停止数据上报。`Sgagent` 基本占用极少的内存，您也可以参考下列步骤卸载 `Sgagent` 。
-{% endnote %}
+{% endmessage %}
 
 ##### 卸载 `Sgagent`
 执行以下命令，进入 `Sgagent` 安装目录。
