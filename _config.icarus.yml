@@ -172,12 +172,12 @@ donates:
     -
         type: alipay
         # Alipay qrcode image URL
-        qrcode: 'https://qr.alipay.com/fkx18323xu1buewgmypjr04'
+        qrcode: '/Payment_QR/Alipay.jpg'
     # Wechat donate button configurations
     -
         type: wechat
         # Wechat qrcode image URL
-        qrcode: 'wxp://f2f05JOpvAObFmR3XNaE3BFKX3HZ73T5W8mK_089Ijkjwz4'
+        qrcode: '/Payment_QR/Wechat.png'
     # Paypal donate button configurations
     -
         type: paypal
@@ -244,7 +244,7 @@ widgets:
         # Whether to show the index of each heading
         index: true
         # Whether to collapse sub-headings when they are out-of-view
-        collapsed: true
+        collapsed: false
         # Maximum level of headings to show (1-6)
         depth: 3
     # Recommendation links widget configurations
