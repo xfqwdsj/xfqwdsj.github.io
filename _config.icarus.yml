@@ -235,7 +235,7 @@ widgets:
     # Table of contents widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
-        position: left
+        position: right
         type: toc
         # Whether to show the index of each heading
         index: true
@@ -287,9 +287,9 @@ widgets:
         position: left
         type: adsense
         # AdSense client ID
-        client_id: ''
+        client_id: 'ca-pub-7421280817011464'
         # AdSense AD unit ID
-        slot_id: ''
+        slot_id: '5661217768'
     # Follow.it email subscription widget configurations
     # -
         # Where should the widget be placed, left sidebar or right sidebar
