@@ -1,5 +1,5 @@
 hexo.extend.tag.register('message', function(args, content){
-    var iconAndTitle = args.splice(0, 1).split(',');
+    var iconAndTitle = args.splice(0, 1)[0].split(',');
     var icon = iconAndTitle[0];
     var title = iconAndTitle[1];
     var classes = args;
