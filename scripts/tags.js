@@ -1,5 +1,5 @@
 hexo.extend.tag.register('message', function(args, content){
-    var icon = args.split(0, 1);
+    var icon = args.splice(0, 1);
     var classes = args;
     if (icon != null) iconEl = `<i class="fas fa-${icon} mr-2"></i>`
     return `
