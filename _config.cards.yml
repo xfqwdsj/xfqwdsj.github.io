@@ -1,0 +1,17 @@
+navbar: 
+  sitename: {{ site.config.title }}
+  
+  # 右侧站内导航链接
+  menu: 
+    - name: 首页
+      url: /
+    - name: 标签
+      url: /tags/
+    - name: 归档
+      url: /archives/
+    - name: Page
+      url: /page/
+
+  # 导航栏永远显示在屏幕顶端
+  # 仅当屏幕宽度不小于 1080 px 时生效
+  sticky: true
