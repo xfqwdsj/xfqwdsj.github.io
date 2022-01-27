@@ -1,7 +1,5 @@
 navbar: 
-  sitename: {{ site.config.title.toString() }}
-  
-  # 右侧站内导航链接
+  sitename: 
   menu: 
     - name: 首页
       url: /
@@ -9,7 +7,43 @@ navbar:
       url: /tags/
     - name: 归档
       url: /archives/
-
-  # 导航栏永远显示在屏幕顶端
-  # 仅当屏幕宽度不小于 1080 px 时生效
   sticky: true
+
+cover: 
+  sitename: 
+  description: 
+
+meta:
+  title: Post
+  author:
+    name: xfqwdsj
+    url: https://blog.xfqlittlefan.xyz
+  date:
+    title: ''
+    format: 'YYYY-MM-DD'
+  updated:
+    title: ''
+    format: 'YYYY-MM-DD'
+  thumbnail: 
+    enable: false
+    default: 
+  expire: 
+    enable: true
+    duration: 120
+  auto_excerpt: 
+    enable: true
+    length: 150
+  toc: 
+    enable: true
+    list_number: true
+  copyright: 
+    enable: true
+    custom_text: 
+
+footer:
+  copyright_since: 2022
+
+lazyload:
+  enable: true
+  onlypost: false
+  loadingImage:

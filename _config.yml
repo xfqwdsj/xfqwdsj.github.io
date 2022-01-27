@@ -3,9 +3,9 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: "LTFan's Blog"
-subtitle: ''
-description: '随便记录我的编程日常'
+title: LTFan's Blog
+subtitle: 
+description: 随便记录我的编程日常
 keywords:
 author: xfqwdsj
 language: zh-CN
