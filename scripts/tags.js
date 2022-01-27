@@ -10,7 +10,7 @@ hexo.extend.tag.register('message', function(args, content){
     return `
     <article class="message message-immersive ${classes.join(' ')}">
         <div class="message-body">
-            ${iconEl}${hexo.render.renderSync({text: titleEl, engine: 'markdown'}).replace(/^\n+|\n+$/g, '')}${hexo.render.renderSync({text: content, engine: 'markdown'}).replace(/^\n+|\n+$/g, '')}
+            <span>${iconEl}${hexo.render.renderSync({text: titleEl, engine: 'markdown'})}${hexo.render.renderSync({text: content, engine: 'markdown'})}</span>
         </div>
     </article>
     `;
