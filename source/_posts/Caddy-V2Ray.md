@@ -14,9 +14,9 @@ tags:
 
 ## 部署说明
 
-{% note info %}
+{% message info info-circle %}
 仅用于参考，并非硬性要求，需按照实际情况自行更改。
-{% endnote %}
+{% endmessage %}
 
 - 服务器为腾讯云轻量应用服务器（海外地区）；
 - 服务器操作系统为 Ubuntu 20.04 LTS；
@@ -28,9 +28,9 @@ tags:
 
 #### 创建用户
 
-{% note info %}
+{% message info info-circle %}
 除特别说明，否则文章中所有带 `[ ]` 号的文本均需连 `[ ]` 号依据其中提示替换
-{% endnote %}
+{% endmessage %}
 
 ```bash
 sudo useradd -s /bin/bash -m [用户名]
@@ -74,9 +74,9 @@ sudo userdel -r lighthouse
 
 #### 卸载监控组件（可选）<sup>[[文档]](https://cloud.tencent.com/document/product/248/53584#.E5.8D.B8.E8.BD.BD.E7.9B.91.E6.8E.A7.E7.BB.84.E4.BB.B6)</sup>
 
-{% note warning %}
+{% message warning exclamation-circle %}
 本操作 **非必要** 执行，但 **建议** 执行。
-{% endnote %}
+{% endmessage %}
 
 ##### 卸载 `BaradAgent`
 登录云服务器后，执行以下命令，进入 `BaradAgent` 安装目录。
