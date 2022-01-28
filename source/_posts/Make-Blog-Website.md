@@ -58,7 +58,7 @@ cd hexo
 hexo init
 cd ..
 mv hexo/* .
-mv 
+mv hexo/.* .
 rmdir hexo
 ```
 
