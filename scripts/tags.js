@@ -1,3 +1,7 @@
+hexo.extend.tag.register('icon', function(args) {
+    return `<i class="fas ${args.join(' ')}"></i>`;
+});
+
 /**
  * Bulma Message Tag, see {@link https://bulma.io/documentation/components/message/}.
  * @param {string} color The color of this message. Usable: dark, primary, link, info, success, warning, danger.
@@ -21,7 +25,7 @@ hexo.extend.tag.register('message', function(args, content) {
                 case 'header':
                     header = `
                     <div class="message-header">
-                        ${hexo.render.renderSync({text: value, engine: 'markdown'})}
+                        ${hexo.render.renderSync({text: value, engine: 'md'})}
                     </div>
                     `;
                     break;
@@ -37,7 +41,3 @@ hexo.extend.tag.register('message', function(args, content) {
     </article>
     `;
 }, { ends: true });
-
-hexo.extend.tag.register('icon', function(args) {
-    return `<i class="fas ${args.join(' ')}"></i>`;
-});
