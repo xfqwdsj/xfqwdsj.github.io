@@ -1,5 +1,5 @@
 ---
-date: 2022-01-28 16:52:09
+date: 2022-01-28T16:52:09.000+00:00
 toc: true
 title: 无需本地环境，搭建一个个人博客网站
 tags:
@@ -11,8 +11,6 @@ category: 技术
 ## 前言
 
 随着互联网的进步，越来越多的操作得以在网上进行。今天我们来做一个静态博客“云玩家”。
-
-> 提升难度，这次我们在手机上弄。
 
 ## 搭建
 
@@ -32,6 +30,8 @@ category: 技术
 
 ![新工作空间](/uploads/screenshot_20220128-171250_chrome.png)
 
+### 配置仓库
+
 打开终端，输入如下内容以安装 `Node.js`：
 
 ```bash bash
@@ -49,3 +49,23 @@ npm install -g hexo
 ```
 
 输入以下内容进行初始化：
+
+```bash bash
+mkdir hexo
+cd hexo
+hexo init
+cd ..
+mv hexo/* .
+mv 
+rmdir hexo
+```
+
+以上命令新建了一个空 `hexo` 目录（`hexo` 初始化需要空目录），并在该目录执行初始化，初始化完成后将内容移回当前目录。
+
+### 更改主题
+
+我们使用 `[Icarus](https://github.com/ppoffice/hexo-theme-icarus/)` 主题。
+
+```bash bash
+npm install hexo-theme-icarus
+```
