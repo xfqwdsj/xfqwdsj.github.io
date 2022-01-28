@@ -6,8 +6,8 @@
  * @param {string} style The style of this tab, can not be set. Usable: boxed, toggle, toggle-rounded.
  * @example
  * {% tabs behavior:fullwidth size:small style:toggle-rounded %}
- *     <!-- tab info info Info -->This is info.<!-- endtab -->
- *     <!-- activetab hello Hello hello -->This is hello.<!-- endtab -->
+ *     <!-- tab info info 'Info' -->This is info.<!-- endtab -->
+ *     <!-- activetab hello 'Hello' -->This is hello.<!-- endtab -->
  * {% endmessage %}
  */
  hexo.extend.tag.register('tabs', function(args, content) {
@@ -37,7 +37,7 @@
         }
     });
 
-    var blockRegExp = /<!--\s*(active)?tab( \w+)( \w+)?( .*?)\s*-->([\s\S]*?)<!--\s*endtab\s*-->/g;
+    var blockRegExp = /<!--\s*(active)?tab( \w+)( \w+)?( '.*?')\s*-->([\s\S]*?)<!--\s*endtab\s*-->/g;
     var match;
     var tabsEl = '';
     var contentEl = '';

@@ -20,6 +20,6 @@ layout: page
 ## tabs
 
 {% tabs behavior:centered style:toggle-rounded %}
-    <!-- tab aadd AADD -->This is AADD.<!-- endtab -->
-    <!-- activetab info info Info -->This is Info.<!-- endtab -->
+    <!-- tab aadd 'AADD' -->This is AADD.<!-- endtab -->
+    <!-- activetab info info 'Info' -->This is Info.<!-- endtab -->
 {% endtabs %}
