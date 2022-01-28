@@ -47,7 +47,7 @@ index_generator:
   path: ''
   per_page: 10
   order_by: '-date'
-default_category: uncategorized
+default_category: 未分类
 category_map: 
   未分类: uncategorized
   技术: technology

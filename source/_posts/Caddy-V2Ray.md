@@ -8,6 +8,7 @@ tags:
   - 服务器
   - 代理
   - GFW
+category: 技术
 toc: true
 ---
 
