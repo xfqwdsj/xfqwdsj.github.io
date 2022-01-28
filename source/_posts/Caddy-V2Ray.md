@@ -15,7 +15,7 @@ toc: true
 
 ## 部署说明
 
-{% message info-circle, is-info %}
+{% message info-circle is-info %}
 仅用于参考，并非硬性要求，需按照实际情况自行更改。
 {% endmessage %}
 
@@ -23,13 +23,15 @@ toc: true
 - 服务器操作系统为 Ubuntu 20.04 LTS；
 - 在海外服务商购买的域名（例如 GoDaddy、Google Domain）。
 
+<!-- more -->
+
 ## 部署步骤
 
 ### 准备工作
 
 #### 创建用户
 
-{% message info-circle,提示 is-info %}
+{% message info-circle is-info %}
 除特别说明，否则文章中所有带 `[ ]` 号的文本均需连 `[ ]` 号依据其中提示替换
 {% endmessage %}
 
@@ -75,7 +77,7 @@ sudo userdel -r lighthouse
 
 #### 卸载监控组件（可选）<sup>[[文档]](https://cloud.tencent.com/document/product/248/53584#.E5.8D.B8.E8.BD.BD.E7.9B.91.E6.8E.A7.E7.BB.84.E4.BB.B6)</sup>
 
-{% message ,警告 is-warning %}
+{% message exclamation-circle is-warning %}
 本操作 **非必要** 执行，但 **建议** 执行。
 {% endmessage %}
 
