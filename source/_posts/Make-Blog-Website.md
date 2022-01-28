@@ -286,7 +286,7 @@ jobs:
 
 以下是新建的默认文章格式，供参考：
 
-```md new-post.md
+```plain new-post.md
 ---
 title: 标题
 date: YYYY-MM-DD hh:mm:ss
@@ -295,4 +295,6 @@ date: YYYY-MM-DD hh:mm:ss
 正文
 ```
 
-建议仔细阅读 [Hexo 文档](https://hexo.io/zh-cn/docs/)和 [Icarus用户指南](https://ppoffice.github.io/hexo-theme-icarus/tags/Icarus%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97/)，以便进行其他操作。
+建议仔细阅读 [Hexo 文档](https://hexo.io/zh-cn/docs/)和 [Icarus用户指南](https://ppoffice.github.io/hexo-theme-icarus/tags/Icarus%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97/)。
+
+可以使用 [`Forestry`](https://app.forestry.io/) 进行更加方便舒适的内容管理，在本文中不展开讨论。
