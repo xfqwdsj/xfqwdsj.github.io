@@ -18,11 +18,11 @@ category: 技术
 
 首先，在线上创建一个 Git 仓库。
 
+<!-- more -->
+
 ![创建仓库](/uploads/screenshot_20220128-165847_chrome.png)
 
 创建之后，复制它的 **SSH** 地址。
-
-<!-- more -->
 
 ### 注册 `CloudStudio`
 
@@ -74,7 +74,7 @@ npm uninstall hexo-theme-landscape
 npm uninstall hexo-renderer-ejs		# https://github.com/ppoffice/hexo-theme-icarus/issues/855
 ```
 
-修改[配置文件](https://ppoffice.github.io/hexo-theme-icarus/Configuration/icarus%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97-%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/)：
+修改[配置文件](https://hexo.io/zh-cn/docs/configuration)：
 
 {% codeblock "_config.yml" lang:yml >folded %}
 # Hexo Configuration
@@ -207,3 +207,7 @@ hexo server
 ### 打开 `GitHub Web Editor`
 
 打开仓库，按下 <kbd>.</kbd> 键即可打开。
+
+### 继续配置
+
+继续修改[主题配置文件](https://ppoffice.github.io/hexo-theme-icarus/Configuration/icarus%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97-%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/)（由于主题配置文件更加复杂，所以没有编写示例）。
