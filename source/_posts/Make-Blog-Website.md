@@ -281,7 +281,7 @@ jobs:
 今后想进行写作，可以直接前往 `GitHub Web Editor`，在 `source/_posts` 目录新建文章或在 `CloudStudio` 运行 `hexo new '文章名'` 新建文章。
 
 {% message exclamation-circle is-warning %}
-`CloudStudio` 有每日使用工作空间时长限额 2 小时。
+`CloudStudio` 有每日使用工作空间使用时长限额 2 小时。
 {% endmessage %}
 
 以下是新建的默认文章格式，供参考：
