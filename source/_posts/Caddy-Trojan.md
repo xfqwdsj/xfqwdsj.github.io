@@ -61,7 +61,7 @@ sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/trojan-gfw/trojan-q
 
 如果想让伪装指向其他地址，可以不用配置。
 
-### 配置 `Trojan` <sup>[文档]](https://trojan-gfw.github.io/trojan/config.html#a-valid-serverjson)</sup>
+### 配置 `Trojan` <sup>[[文档]](https://trojan-gfw.github.io/trojan/config.html#a-valid-serverjson)</sup>
 
 将配置文件修改为如下内容：
 
