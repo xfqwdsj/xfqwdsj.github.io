@@ -32,17 +32,17 @@ toc: true
 #### 创建用户
 
 {% message info-circle is-info %}
-除特别说明，否则文章中所有带 `[ ]` 号的文本均需连 `[ ]` 号依据其中提示替换
+除特别说明，否则文章中所有带 `[ ]` 号的文本均需连 `[ ]` 号依据其中提示替换。
 {% endmessage %}
 
-```bash
+```bash bash
 sudo useradd -s /bin/bash -m [用户名]
 sudo passwd [用户名]
 ```
 
 #### 配置新用户
 
-```bash
+```bash bash
 sudo visudo
 ```
 
@@ -64,13 +64,13 @@ ubuntu  ALL=(ALL:ALL) NOPASSWD: ALL
 
 按 Ctrl + D 退出登录后重新登录至新用户。参考方法（Windows、Linux、MacOS终端均可，Android需要一个终端模拟器）：
 
-```bash
+```bash bash
 ssh [用户名]@[服务器IP]
 ```
 
 #### 删除默认用户
 
-```bash
+```bash bash
 sudo userdel -r ubuntu
 sudo userdel -r lighthouse
 ```
@@ -83,30 +83,30 @@ sudo userdel -r lighthouse
 
 ##### 卸载 `BaradAgent`
 登录云服务器后，执行以下命令，进入 `BaradAgent` 安装目录。
-```bash
+```bash bash
 cd /usr/local/qcloud/monitor/barad/admin
 ```
 执行以下命令，卸载 `BaradAgent`。该命令不显示结果，如果不存在 `/usr/local/qcloud/monitor/barad` 文件夹，则说明卸载成功。
-```bash
+```bash bash
 ./uninstall.sh
 ```
 {% message info-circle is-info %}
-`BaradAgent` 上报云服务器部分指标数据，卸载 `BaradAgent` 后会停止数据上报。`Sgagent` 基本占用极少的内存，您也可以参考下列步骤卸载 `Sgagent` 。
+`BaradAgent` 上报云服务器部分指标数据，卸载 `BaradAgent` 后会停止数据上报。`Sgagent` 基本占用极少的内存，您也可以参考下列步骤卸载 `Sgagent`。
 {% endmessage %}
 
 ##### 卸载 `Sgagent`
 执行以下命令，进入 `Sgagent` 安装目录。
-```bash
+```bash bash
 cd /usr/local/qcloud/stargate/admin
 ```
 执行以下命令，卸载 `Sgagent`。该命令不显示结果，您可以执行 `crontab -l |grep stargate` 命令查看是否有计划任务，若无计划任务，则说明卸载成功。
-```bash
+```bash bash
 ./uninstall.sh
 ```
 
 #### 更新并升级所有软件包
 
-```bash
+```bash bash
 sudo apt update
 sudo apt upgrade -y
 ```
@@ -119,7 +119,7 @@ sudo apt upgrade -y
 
 ##### 安装 `Caddy` <sup>[[文档]](https://caddyserver.com/docs/install#debian-ubuntu-raspbian)</sup>
 
-```bash
+```bash bash
 sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https
 curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo tee /etc/apt/trusted.gpg.d/caddy-stable.asc
 curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-stable.list
@@ -127,9 +127,9 @@ sudo apt update
 sudo apt install caddy
 ```
 
-##### 安装 `V2Ray`
+##### 安装 `V2Ray` <sup>[[文档]](https://github.com/v2fly/fhs-install-v2ray/blob/master/README.zh-Hans-CN.md#%E5%AE%89%E8%A3%85%E5%92%8C%E6%9B%B4%E6%96%B0-v2ray)</sup>
 
-```bash
+```bash bash
 sudo bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
 ```
 
@@ -137,13 +137,13 @@ sudo bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/ma
 
 ##### 配置 `V2Ray`
 
-```bash
+```bash bash
 sudo nano /usr/local/etc/v2ray/config.json
 ```
 
-替换为以下内容（参考<https://www.v2ray.com/chapter_02/protocols/vmess.html>，UUID在线生成：<https://1024tools.com/uuid>）：
+替换为以下内容 <sup>[[文档]](https://v2fly.org/config/overview.html)</sup>：
 
-```json
+```json /usr/local/etc/v2ray/config.json
 {
   "inbound": {
     "port": [任意 0-65535 的端口，推荐避开 80 与 443],

@@ -197,7 +197,7 @@ sidebar:
     # Left sidebar configurations
     left:
         # Whether the sidebar sticks to the top when page scrolls
-        sticky: true
+        sticky: false
     # Right sidebar configurations
     right:
         # Whether the sidebar sticks to the top when page scrolls
@@ -244,9 +244,9 @@ widgets:
         # Whether to show the index of each heading
         index: true
         # Whether to collapse sub-headings when they are out-of-view
-        collapsed: false
+        collapsed: true
         # Maximum level of headings to show (1-6)
-        depth: 3
+        depth: 6
     # Recommendation links widget configurations
     # -
         # Where should the widget be placed, left sidebar or right sidebar
