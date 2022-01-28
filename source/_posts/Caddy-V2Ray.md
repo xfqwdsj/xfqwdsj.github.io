@@ -2,7 +2,7 @@
 title: 利用 Caddy 部署使用 Websocket 的 V2Ray Vmess 服务端，并搭建一个文件服务器
 date: 2022-01-27 19:09:45
 tags:
-  - techonology
+  - technology
   - caddy
   - v2ray
   - server

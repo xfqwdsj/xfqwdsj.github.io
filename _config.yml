@@ -48,8 +48,18 @@ index_generator:
   per_page: 10
   order_by: '-date'
 default_category: uncategorized
-category_map: null
-tag_map: null
+category_map: 
+  uncategorized: 未分类
+  technology: 技术
+  life: 生活
+tag_map: 
+  technology: 技术
+  caddy: Caddy
+  v2ray: V2Ray
+  trojan: Trojan
+  server: 服务器
+  proxy: 代理
+  gfw: GFW
 meta_generator: true
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss

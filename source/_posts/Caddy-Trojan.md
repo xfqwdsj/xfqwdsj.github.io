@@ -2,7 +2,7 @@
 date: 2022-01-28 01:52:55
 title: 利用 Caddy 部署 Trojan 服务端
 tags:
-  - techonology
+  - technology
   - caddy
   - trojan
   - server
@@ -16,6 +16,9 @@ toc: true
 参见[此文章](https://blog.xfqlittlefan.xyz/2022/01/27/caddy-v2ray/)。
 
 ## 开始部署
+
+<!-- more -->
+
 ### 安装 `Caddy`
 
 {% message info-circle is-info %}
