@@ -139,7 +139,7 @@ article:
     # Whether to show estimated article reading time
     readtime: true
     # Whether to show updated time. For "auto", shows article update time only when page.updated is set and it is different from page.date
-    update_time: true
+    update_time: auto
     # Article licensing block
     licenses:
         Creative Commons:
