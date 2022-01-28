@@ -179,7 +179,7 @@ sudo nano /etc/caddy/Caddyfile
 
 替换为以下内容：
 
-```
+``` /etc/caddy/Caddyfile
 [域名] {
   tls [任意电子邮箱地址]
   reverse_proxy [WebSocket 路径] localhost:[端口] {
@@ -258,7 +258,7 @@ proxy-groups:
 
 在 Caddyfile 开头加入以下内容：
 
-```
+``` /etc/caddy/Caddyfile
 *.[域名] {
   tls [邮箱]
 }
@@ -275,7 +275,7 @@ proxy-groups:
 
 修改后，我的 `Caddyfile` 是这样的：
 
-```
+``` /etc/caddy/Caddyfile
 *.[域名] {
     tls [邮箱]
 }
@@ -307,7 +307,7 @@ proxy.[域名] {
 
 其中的 [密码] 需要这样生成：
 
-```bash
+```bash bash
 caddy hash-password
 ```
 
