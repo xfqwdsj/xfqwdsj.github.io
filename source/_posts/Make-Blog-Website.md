@@ -20,33 +20,32 @@ category: 技术
 
 首先，在线上创建一个 Git 仓库。
 
-![](/uploads/screenshot_20220128-165847_chrome.png)
+![创建仓库](/uploads/screenshot_20220128-165847_chrome.png)
 
 创建之后，复制它的 **SSH** 地址。
 
 ### 注册 `CloudStudio`
 
-访问 <https://cloud studio.net> 并注册一个账号（建议使用 GitHub 方式）。
+访问 <https://cloudstudio.net> 并注册一个账号（建议使用 GitHub 方式）。
 
 新建一个 Ubuntu 的工作空间并设置仓库地址。
 
-![](/uploads/screenshot_20220128-171250_chrome.png)
+![新工作空间](/uploads/screenshot_20220128-171250_chrome.png)
 
 打开终端，输入如下内容以安装 `Node.js`：
 
-    curl -fsSL https://deb.nodesource.com/setup_17.x | bash
-    apt-get install -y nodejs
+```bash bash
+curl -fsSL https://deb.nodesource.com/setup_17.x | bash
+apt-get install -y nodejs
+```
 
-![](/uploads/screenshot_20220128-171554_chrome.png)
+![新终端](/uploads/screenshot_20220128-171554_chrome.png)
 
 安装完成后，输入以下内容以更新 `Npm` 并安装 `Hexo`：
 
-\`\`\`bash
-
+```bash bash
 npm install -g npm
-
 npm install -g hexo
-
-\`\`\`
+```
 
 输入以下内容进行初始化：
