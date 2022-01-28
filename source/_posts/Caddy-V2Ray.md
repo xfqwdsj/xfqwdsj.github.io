@@ -16,7 +16,7 @@ toc: true
 
 ## 部署说明
 
-{% message color:info 'header:{% icon fa-info-circle mr-2 %} Hello' %}
+{% message color:info icon:info-circle 'title:{% icon fa-info-circle mr-2 %} Hello' %}
 仅用于参考，并非硬性要求，需按照实际情况自行更改。
 {% endmessage %}
 
