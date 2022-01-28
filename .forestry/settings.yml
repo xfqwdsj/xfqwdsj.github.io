@@ -5,11 +5,16 @@ admin_path:
 webhook_url: 
 sections:
 - type: directory
+  path: source/_posts
+  label: Posts
+  create: all
+  match: "**/*"
+- type: directory
   path: ''
   label: Configs
   create: all
   match: "*.yml"
-  new_doc_ext: ".yml"
+  new_doc_ext: yml
 upload_dir: uploads
 public_path: "/uploads"
 front_matter_path: ''
