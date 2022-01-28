@@ -13,7 +13,7 @@ layout: page
     **You are in danger.**
 {% endmessage %}
 
-{% message color:danger icon:info-circle %}
+{% message color:primary icon:info-circle %}
     **You are in danger.**
 {% endmessage %}
 
