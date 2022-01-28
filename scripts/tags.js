@@ -2,7 +2,7 @@
  * Fontawesome icon.
  */
 hexo.extend.tag.register('icon', function(args) {
-    return `<i class="fas ${args.join(' ')}"></i>`;
+    return `<i class="fas fa-${args.join(' ')}"></i>`;
 });
 
 /**
@@ -12,7 +12,7 @@ hexo.extend.tag.register('icon', function(args) {
  * @param {string} title The header of this message, can not be set, supported Markdown.
  * @param {string} styles Additional styles of this message, can not be set. Usable: [small, medium, large].
  * @example
- * {% message color:danger icon:info-circle 'title:Very danger!' 'style:small' %}
+ * {% message color:danger icon:info-circle 'title:Very danger!' style:small %}
  *     **You are in danger.**
  * {% endmessage %}
  */
