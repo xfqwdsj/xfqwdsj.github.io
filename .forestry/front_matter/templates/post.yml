@@ -9,8 +9,8 @@ fields:
   name: date
   config:
     date_format: YYYY/MM/DD
-    export_format: YYYY-MM-DD h:mm:ss
-    time_format: h:mm:ss
+    export_format: YYYY-MM-DD hh:mm:ss
+    time_format: hh:mm:ss
   default: now
   label: Date
 - type: list
