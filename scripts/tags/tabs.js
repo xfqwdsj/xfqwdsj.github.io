@@ -37,7 +37,7 @@
         }
     });
 
-    var blockRegExp = /<!--\s*(active)?tab( \w+)( \w*)?( .+?)\s*-->([\s\S]*?)<!--\s*endtab\s*-->/g;
+    var blockRegExp = /<!--\s*(active)?tab( \w*)( \w*)?( .*?)\s*-->([\s\S]*?)<!--\s*endtab\s*-->/g;
     var match;
     var tabsEl = '';
     var contentEl = '';
