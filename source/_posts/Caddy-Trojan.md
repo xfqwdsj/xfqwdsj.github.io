@@ -2,12 +2,12 @@
 date: 2022-01-28 01:52:55
 title: 利用 Caddy 部署 Trojan 服务端
 tags:
-  - technology
-  - caddy
-  - trojan
-  - server
-  - proxy
-  - gfw
+  - 技术
+  - Caddy
+  - Trojan
+  - 服务器
+  - 代理
+  - GFW
 toc: true
 ---
 
