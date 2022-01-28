@@ -1,3 +1,6 @@
+/**
+ * Fontawesome icon.
+ */
 hexo.extend.tag.register('icon', function(args) {
     return `<i class="fas ${args.join(' ')}"></i>`;
 });
@@ -5,7 +8,7 @@ hexo.extend.tag.register('icon', function(args) {
 /**
  * Bulma Message Tag, see {@link https://bulma.io/documentation/components/message/}.
  * @param {string} color The color of this message. Usable: dark, primary, link, info, success, warning, danger.
- * @param {string} icon The icon of this message.
+ * @param {string} icon The icon of this message, can not be set.
  * @param {string} title The header of this message, can not be set, supported Markdown.
  * @example
  * {% message color:danger icon:info-circle 'title:Very danger!' %}
@@ -26,7 +29,7 @@ hexo.extend.tag.register('message', function(args, content) {
                     color = value;
                     break;
                 case 'icon':
-                    icon = `<i class="fas fa-${icon} mr-2"></i>`;
+                    icon = `<i class="fas fa-${value} mr-2"></i>`;
                     break;
                 case 'title':
                     title = value;
@@ -37,7 +40,7 @@ hexo.extend.tag.register('message', function(args, content) {
     if (icon != '' || title != '') {
         header = `
         <div class="message-header">
-            ${hexo.render.renderSync({text: icon + title, engine: 'md'})}
+            ${hexo.render.renderSync({text: icon + title, engine: 'markdown'})}
         </div>
         `
     }
