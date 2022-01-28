@@ -1,11 +1,4 @@
 /**
- * Fontawesome icon.
- */
-hexo.extend.tag.register('icon', function(args) {
-    return `<i class="fas fa-${args.join(' ')}"></i>`;
-});
-
-/**
  * Bulma Message Tag, see {@link https://bulma.io/documentation/components/message/}.
  * @param {string} color The color of this message. Usable: dark, primary, link, info, success, warning, danger.
  * @param {string} icon The icon of this message, can not be set.
