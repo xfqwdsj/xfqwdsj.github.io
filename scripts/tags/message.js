@@ -1,11 +1,11 @@
 /**
  * Bulma Message Tag, see {@link https://bulma.io/documentation/components/message/}.
- * @param {string} color The color of this message. Usable: dark, primary, link, info, success, warning, danger.
+ * @param {string} color The color of this message, can not be set. Usable: dark, primary, link, info, success, warning, danger.
  * @param {string} icon The icon of this message, can not be set.
  * @param {string} title The header of this message, can not be set, supported Markdown.
- * @param {string} styles Additional styles of this message, can not be set. Usable: [small, medium, large].
+ * @param {string} size The size of this message, can not be set. Usable: small, medium, large. The default size is between small and medium.
  * @example
- * {% message color:danger icon:info-circle 'title:Very danger!' style:small %}
+ * {% message color:danger icon:info-circle 'title:Very danger!' size:small %}
  *     **You are in danger.**
  * {% endmessage %}
  */
@@ -13,7 +13,7 @@ hexo.extend.tag.register('message', function(args, content) {
     var color = 'dark';
     var icon = '';
     var title = '';
-    var styles = '';
+    var size = '';
     var header = '';
     args.forEach(element => {
         var key = element.split(':')[0];
@@ -29,15 +29,8 @@ hexo.extend.tag.register('message', function(args, content) {
                 case 'title':
                     title = value;
                     break;
-                case 'style':
-                    var stylesArray = value.split(' ');
-                    var processed = [];
-                    stylesArray.forEach(styleElement, index => {
-                        if (styleElement != null && styleElement != undefined && styleElement != '') {
-                            processed.push(`is-${styleElement}`);
-                        }
-                    });
-                    styles = processed.join(' ');
+                case 'size':
+                    size = ` is-${value}`;
                     break;
             }
         }
@@ -50,7 +43,7 @@ hexo.extend.tag.register('message', function(args, content) {
         `
     }
     return `
-    <article class="message is-${color} ${styles}">
+    <article class="message is-${color}${size}">
         ${header}
         <div class="message-body">
         ${hexo.render.renderSync({text: content, engine: 'md'})}
