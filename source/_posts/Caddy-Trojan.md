@@ -28,7 +28,7 @@ toc: true
 
 ### 安装 `Trojan` <sup>[[文档]](https://github.com/trojan-gfw/trojan/wiki/Binary-&-Package-Distributions#quickstart-script)</sup>
 
-``` bash bash
+```bash bash
 sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/trojan-gfw/trojan-quickstart/master/trojan-quickstart.sh)"
 ```
 
@@ -44,7 +44,7 @@ sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/trojan-gfw/trojan-q
 我们需要让出 443 端口给 `Trojan`，所以在 `Caddyfile` 中显式指定了端口。
 {% endmessage %}
 
-```  /etc/caddy/Caddyfile
+```bash /etc/caddy/Caddyfile
 [域名]:80 {
   tls [邮箱]
   root * /usr/share/caddy # 可修改为其他内容
@@ -56,7 +56,7 @@ sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/trojan-gfw/trojan-q
 
 反向代理可以这样配置：
 
-```  /etc/caddy/Caddyfile
+```bash /etc/caddy/Caddyfile
 [域名]:80 {
   tls [邮箱]
   reverse_proxy [地址]
@@ -69,7 +69,7 @@ sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/trojan-gfw/trojan-q
 
 将配置文件修改为如下内容：
 
-``` json /usr/local/etc/trojan/config.json
+```json /usr/local/etc/trojan/config.json
 {
     "run_type": "server",
     "local_addr": "0.0.0.0",
@@ -127,7 +127,7 @@ sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/trojan-gfw/trojan-q
 配置后，服务均会自动启动。
 {% endmessage %}
 
-``` bash bash
+```bash bash
 sudo systemctl reload caddy
 sudo systemctl enable trojan
 sudo systemctl start trojan
