@@ -14,17 +14,22 @@ layout: page
 {% endmessage %}
 
 {% message color:primary icon:info-circle %}
-    **You are in danger.**
+    **You are not in danger.**
 {% endmessage %}
 
 ## tabs
 
 {% tabs behavior:centered style:toggle-rounded %}
-    <!-- tab aadd 'AADD' -->This is AADD.<!-- endtab -->
-    <!-- activetab info info 'Info' -->This is Info.<!-- endtab -->
+    <!-- tab aadd1 'AADD' -->This is AADD.<!-- endtab -->
+    <!-- activetab info1 info 'Info' -->This is Info.<!-- endtab -->
 {% endtabs %}
 
 {% tabs behavior:fullwidth size:small style:boxed %}
-    <!-- tab aadd 'AADD' -->This is AADD.<!-- endtab -->
-    <!-- activetab info info 'Info' -->This is Info.<!-- endtab -->
+    <!-- tab aadd2 'AADD' -->
+        - assdf
+        - aege
+    <!-- endtab -->
+    <!-- activetab info2 info 'Info' -->
+        [sad]()
+    <!-- endtab -->
 {% endtabs %}
