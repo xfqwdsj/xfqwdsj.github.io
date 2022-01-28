@@ -22,7 +22,7 @@ toc: true
 
 ### 安装 `Caddy`
 
-{% message info-circle is-info %}
+{% message color:info %}
 如果不想让伪装地址指向本机，可以不用安装。
 {% endmessage %}
 
@@ -34,13 +34,13 @@ sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/trojan-gfw/trojan-q
 
 ### 配置 `Caddy`
 
-{% message info-circle is-info %}
+{% message color:info %}
 除特别说明，否则文章中所有带 `[ ]` 号的文本均需连 `[ ]` 号依据其中提示替换。
 {% endmessage %}
 
 `Caddy` 成功安装后，修改 `Caddyfile` 为以下内容：
 
-{% message info-circle is-info %}
+{% message color:info %}
 我们需要让出 443 端口给 `Trojan`，所以在 `Caddyfile` 中显式指定了端口。
 {% endmessage %}
 
@@ -123,7 +123,7 @@ sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/trojan-gfw/trojan-q
 
 ### 启动服务
 
-{% message info-circle is-info %}
+{% message color:info %}
 配置后，服务均会自动启动。
 {% endmessage %}
 

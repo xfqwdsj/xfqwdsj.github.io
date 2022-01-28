@@ -16,7 +16,7 @@ toc: true
 
 ## 部署说明
 
-{% message info-circle is-info %}
+{% message color:info 'header:<i class="fab fa-info-circle"></i> Hello' %}
 仅用于参考，并非硬性要求，需按照实际情况自行更改。
 {% endmessage %}
 
@@ -32,7 +32,7 @@ toc: true
 
 #### 创建用户
 
-{% message info-circle is-info %}
+{% message color:info %}
 除特别说明，否则文章中所有带 `[ ]` 号的文本均需连 `[ ]` 号依据其中提示替换。
 {% endmessage %}
 
@@ -78,7 +78,7 @@ sudo userdel -r lighthouse
 
 #### 卸载监控组件（可选）<sup>[[文档]](https://cloud.tencent.com/document/product/248/53584#.E5.8D.B8.E8.BD.BD.E7.9B.91.E6.8E.A7.E7.BB.84.E4.BB.B6)</sup>
 
-{% message exclamation-circle is-warning %}
+{% message color:warning %}
 本操作 **非必要** 执行，但 **建议** 执行。
 {% endmessage %}
 
@@ -91,7 +91,7 @@ cd /usr/local/qcloud/monitor/barad/admin
 ```bash bash
 ./uninstall.sh
 ```
-{% message info-circle is-info %}
+{% message color:info %}
 `BaradAgent` 上报云服务器部分指标数据，卸载 `BaradAgent` 后会停止数据上报。`Sgagent` 基本占用极少的内存，您也可以参考下列步骤卸载 `Sgagent`。
 {% endmessage %}
 

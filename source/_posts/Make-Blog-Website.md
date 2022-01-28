@@ -280,7 +280,7 @@ jobs:
 
 今后想进行写作，可以直接前往 `GitHub Web Editor`，在 `source/_posts` 目录新建文章或在 `CloudStudio` 运行 `hexo new '文章名'` 新建文章。
 
-{% message exclamation-circle is-warning %}
+{% message color:warning %}
 `CloudStudio` 有每日工作空间使用时长限额 2 小时。
 {% endmessage %}
 
