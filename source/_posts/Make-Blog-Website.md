@@ -1,5 +1,5 @@
 ---
-date: 2022-01-28 08:52:09
+date: 2022-01-28T08:52:09.000+00:00
 toc: true
 title: 无需本地环境，搭建一个个人博客网站
 tags:
@@ -31,3 +31,22 @@ category: 技术
 新建一个 Ubuntu 的工作空间并设置仓库地址。
 
 ![](/uploads/screenshot_20220128-171250_chrome.png)
+
+打开终端，输入如下内容以安装 `Node.js`：
+
+    curl -fsSL https://deb.nodesource.com/setup_17.x | bash
+    apt-get install -y nodejs
+
+![](/uploads/screenshot_20220128-171554_chrome.png)
+
+安装完成后，输入以下内容以更新 `Npm` 并安装 `Hexo`：
+
+\`\`\`bash
+
+npm install -g npm
+
+npm install -g hexo
+
+\`\`\`
+
+输入以下内容进行初始化：
