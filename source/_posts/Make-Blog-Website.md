@@ -64,7 +64,7 @@ rmdir hexo
 
 ### 更改主题
 
-我们使用 `[Icarus](https://github.com/ppoffice/hexo-theme-icarus/)` 主题。
+我们使用 [`Icarus`](https://github.com/ppoffice/hexo-theme-icarus/) 主题。
 
 ```bash bash
 npm install hexo-theme-icarus
