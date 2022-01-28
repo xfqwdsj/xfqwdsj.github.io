@@ -22,6 +22,8 @@ category: 技术
 
 创建之后，复制它的 **SSH** 地址。
 
+<!-- more -->
+
 ### 注册 `CloudStudio`
 
 访问 [https://cloudstudio.net](https://cloudstudio.net) 并注册一个账号（建议使用 GitHub 方式）。
