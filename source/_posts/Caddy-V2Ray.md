@@ -200,7 +200,7 @@ sudo nano /etc/caddy/Caddyfile
 
 至此，代理已经配置完毕，现在重载 `Caddy` 并启动 `V2Ray`。
 
-```bash
+```bash bash
 sudo systemctl start v2ray
 sudo systemctl reload caddy
 ```
