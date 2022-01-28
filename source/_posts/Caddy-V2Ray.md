@@ -36,45 +36,45 @@ toc: true
 除特别说明，否则文章中所有带 `[ ]` 号的文本均需连 `[ ]` 号依据其中提示替换。
 {% endmessage %}
 
-```bash bash
+``` bash bash
 sudo useradd -s /bin/bash -m [用户名]
 sudo passwd [用户名]
-```
+``` 
 
 #### 配置新用户
 
-```bash bash
+``` bash bash
 sudo visudo
-```
+``` 
 
 在文件末尾找到以下内容：
 
-```
+``` 
 #includedir /etc/sudoers.d
 lighthouse ALL=(ALL) NOPASSWD: ALL
 ubuntu  ALL=(ALL:ALL) NOPASSWD: ALL
-```
+``` 
 
 修改为：
-```
+``` 
 #includedir /etc/sudoers.d
 [用户名] ALL=(ALL) NOPASSWD: ALL
-```
+``` 
 
 #### 登录到新用户
 
 按 Ctrl + D 退出登录后重新登录至新用户。参考方法（Windows、Linux、MacOS终端均可，Android需要一个终端模拟器）：
 
-```bash bash
+``` bash bash
 ssh [用户名]@[服务器IP]
-```
+``` 
 
 #### 删除默认用户
 
-```bash bash
+``` bash bash
 sudo userdel -r ubuntu
 sudo userdel -r lighthouse
-```
+``` 
 
 #### 卸载监控组件（可选）<sup>[[文档]](https://cloud.tencent.com/document/product/248/53584#.E5.8D.B8.E8.BD.BD.E7.9B.91.E6.8E.A7.E7.BB.84.E4.BB.B6)</sup>
 
@@ -84,33 +84,33 @@ sudo userdel -r lighthouse
 
 ##### 卸载 `BaradAgent`
 登录云服务器后，执行以下命令，进入 `BaradAgent` 安装目录。
-```bash bash
+``` bash bash
 cd /usr/local/qcloud/monitor/barad/admin
-```
+``` 
 执行以下命令，卸载 `BaradAgent`。该命令不显示结果，如果不存在 `/usr/local/qcloud/monitor/barad` 文件夹，则说明卸载成功。
-```bash bash
+``` bash bash
 ./uninstall.sh
-```
+``` 
 {% message info-circle is-info %}
 `BaradAgent` 上报云服务器部分指标数据，卸载 `BaradAgent` 后会停止数据上报。`Sgagent` 基本占用极少的内存，您也可以参考下列步骤卸载 `Sgagent`。
 {% endmessage %}
 
 ##### 卸载 `Sgagent`
 执行以下命令，进入 `Sgagent` 安装目录。
-```bash bash
+``` bash bash
 cd /usr/local/qcloud/stargate/admin
-```
+``` 
 执行以下命令，卸载 `Sgagent`。该命令不显示结果，您可以执行 `crontab -l |grep stargate` 命令查看是否有计划任务，若无计划任务，则说明卸载成功。
-```bash bash
+``` bash bash
 ./uninstall.sh
-```
+``` 
 
 #### 更新并升级所有软件包
 
-```bash bash
+``` bash bash
 sudo apt update
 sudo apt upgrade -y
-```
+``` 
 
 由于软件包比较多，需等待一段时间，并关注屏幕上的选项。
 
@@ -120,31 +120,31 @@ sudo apt upgrade -y
 
 ##### 安装 `Caddy` <sup>[[文档]](https://caddyserver.com/docs/install#debian-ubuntu-raspbian)</sup>
 
-```bash bash
+``` bash bash
 sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https
 curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo tee /etc/apt/trusted.gpg.d/caddy-stable.asc
 curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-stable.list
 sudo apt update
 sudo apt install caddy
-```
+``` 
 
 ##### 安装 `V2Ray` <sup>[[文档]](https://github.com/v2fly/fhs-install-v2ray/blob/master/README.zh-Hans-CN.md#%E5%AE%89%E8%A3%85%E5%92%8C%E6%9B%B4%E6%96%B0-v2ray)</sup>
 
-```bash bash
+``` bash bash
 sudo bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
-```
+``` 
 
 #### 配置
 
 ##### 配置 `V2Ray`
 
-```bash bash
+``` bash bash
 sudo nano /usr/local/etc/v2ray/config.json
-```
+``` 
 
 替换为以下内容 <sup>[[文档]](https://v2fly.org/config/overview.html)</sup>：
 
-```json /usr/local/etc/v2ray/config.json
+``` json /usr/local/etc/v2ray/config.json
 {
   "inbound": {
     "port": [任意 0-65535 的端口，推荐避开 80 与 443],
@@ -168,26 +168,26 @@ sudo nano /usr/local/etc/v2ray/config.json
     "settings": {}
   }
 }
-```
+``` 
 
 按 <kbd>Ctrl</kbd> + <kbd>X</kbd> 退出，按 <kbd>Y</kbd> 保存，按 <kbd>Enter</kbd> 确认。
 
 ##### 配置 `Caddy`
 
-```bash
+``` bash
 sudo nano /etc/caddy/Caddyfile
-```
+``` 
 
 替换为以下内容：
 
-``` /etc/caddy/Caddyfile
+```  /etc/caddy/Caddyfile
 [域名] {
   tls [任意电子邮箱地址]
   reverse_proxy [WebSocket 路径] localhost:[端口] {
     header_up -Origin
   }
 }
-```
+``` 
 
 #### 绑定域名
 
@@ -201,10 +201,10 @@ sudo nano /etc/caddy/Caddyfile
 
 至此，代理已经配置完毕，现在重载 `Caddy` 并启动 `V2Ray`。
 
-```bash bash
+``` bash bash
 sudo systemctl start v2ray
 sudo systemctl reload caddy
-```
+``` 
 
 ### 客户端配置
 
@@ -218,7 +218,7 @@ Clash 的配置文件格式为 yaml ，有严格的缩进规则。
 
 以下为范例：
 
-```yaml
+``` yaml
 port: 7890
 socks-port: 7891
 redir-port: 7892
@@ -245,7 +245,7 @@ proxy-groups:
   type: select
   proxies:
     - "代理"
-```
+``` 
 
 推荐添加一些代理规则，如：<https://github.com/Loyalsoldier/clash-rules>。
 
@@ -259,14 +259,14 @@ proxy-groups:
 
 在 Caddyfile 开头加入以下内容：
 
-``` /etc/caddy/Caddyfile
+```  /etc/caddy/Caddyfile
 *.[域名] {
   tls [邮箱]
 }
 [域名] {
   tls [邮箱]
 }
-```
+``` 
 再在你想要的任意域名下加入`file_server`。
 
 `file_server` 中加入（可选项）：
@@ -276,7 +276,7 @@ proxy-groups:
 
 修改后，我的 `Caddyfile` 是这样的：
 
-``` /etc/caddy/Caddyfile
+```  /etc/caddy/Caddyfile
 *.[域名] {
     tls [邮箱]
 }
@@ -304,13 +304,13 @@ proxy.[域名] {
         root [root2]
     }
 }
-```
+``` 
 
 其中的 [密码] 需要这样生成：
 
-```bash bash
+``` bash bash
 caddy hash-password
-```
+``` 
 
 于是我把 Clash 配置文件放到 [root2] 中并在客户端配置从 Url 导入，从 proxy.[域名] 访问；把要分享的文件放在 [root1] ，其中有两个目录：Public 和 Private ，密码限制 Private 目录。
 
