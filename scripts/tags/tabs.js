@@ -1,6 +1,6 @@
 /**
- * Bulma Message Tag, see {@link https://bulma.io/documentation/components/tabs/}.
- * The format of each tab is: <!-- <active>tab [id] [<icon>] [title] --> [content] <!-- endtab -->
+ * Bulma Tabs Tag, see {@link https://bulma.io/documentation/components/tabs/}.
+ * The format of each tab is: <!-- <active>tab [id] [<icon>] '[title]' --> [content] <!-- endtab -->
  * @param {string} behavior The behavior of this tab, can not be set. Usable: centered, right, fullwidth. The default behavior is to display on the left.
  * @param {string} size The size of this tab, can not be set. Usable: small, medium, large. The default size is between small and medium.
  * @param {string} style The style of this tab, can not be set. Usable: boxed, toggle, toggle-rounded.
@@ -53,7 +53,7 @@
         if (match[3] != undefined && match[3].substring(1) != '') icon = `<span class="icon is-small"><i class="fas fa-${match[3].substring(1)}" aria-hidden="true"></i></span>`;
         tabsEl += `
         <li${active}>
-            <a href="#${match[2].substring(1)}">${hexo.render.renderSync({text: icon + match[4].substring(1), engine: 'markdown'})}</a>
+            <a href="#${match[2].substring(1)}">${hexo.render.renderSync({text: icon + match[4].substring(2, match[4].length - 1), engine: 'markdown'})}</a>
         </li>
         `;
         contentEl += `

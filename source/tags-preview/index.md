@@ -23,3 +23,8 @@ layout: page
     <!-- tab aadd 'AADD' -->This is AADD.<!-- endtab -->
     <!-- activetab info info 'Info' -->This is Info.<!-- endtab -->
 {% endtabs %}
+
+{% tabs behavior:fullwidth size:small style:boxed %}
+    <!-- tab aadd 'AADD' -->This is AADD.<!-- endtab -->
+    <!-- activetab info info 'Info' -->This is Info.<!-- endtab -->
+{% endtabs %}
