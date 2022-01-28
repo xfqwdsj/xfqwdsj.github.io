@@ -3,7 +3,7 @@
  * @param {string} color The color of this message. Usable: dark, primary, link, info, success, warning, danger.
  * @param {string} header The header of this message, can not be set, supported Markdown.
  * @example
- * {% message color:danger header:Danger! %}
+ * {% message color:danger 'header:Very anger!' %}
  *     **You are in danger.**
  * {% endmessage %}
  */
@@ -37,3 +37,7 @@ hexo.extend.tag.register('message', function(args, content) {
     </article>
     `;
 }, { ends: true });
+
+hexo.extend.tag.register('icon', function(args) {
+    return `<i class="fas ${args.join(' ')}"></i>`;
+});
