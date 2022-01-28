@@ -26,5 +26,3 @@ fields:
   hidden: false
   default: true
   label: Toc Enabled
-pages:
-- source/_posts/无需本地环境-搭建一个个人博客网站.md
