@@ -107,6 +107,5 @@ hexo.extend.injector.register(
       })();
       </script>
       `;
-    },
-    "post"
+    }
   );
