@@ -15,7 +15,7 @@ sections:
   create: all
   match: "*.yml"
   new_doc_ext: yml
-upload_dir: uploads
+upload_dir: source/uploads
 public_path: "/uploads"
 front_matter_path: ''
 use_front_matter_path: false
