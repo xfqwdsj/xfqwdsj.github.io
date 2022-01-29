@@ -83,8 +83,6 @@
         <div>
             ${contentEl}
         </div>
-        <div>${match[5].replace(/^[ \n\t]*|[ \n\t]*$/g, '')}</div>
-        <div>${match[5]}</div>
     </div>
     `;
 }, { ends: true });
