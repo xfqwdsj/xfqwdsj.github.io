@@ -68,9 +68,7 @@
         `;
         contentEl += `
         <div id="${match[2].substring(1)}" class="tab-content${hidden}">
-            ${hexo.render.renderSync({text: match[5].replace(/^[ \n\t]*|[ \n\t]*$/g, '').replace(/\n {1,4}|\n\t{1}/g, '\n'), engine: 'markdown'})}
-            <div>${match[5].replace(/^[ \n\t]*|[ \n\t]*$/g, '').replace(/\n {1,4}|\n\t{1}/g, '\n')}</div>
-            <div>${match[5]}</div>
+            ${hexo.render.renderSync({text: match[5].replace(/^[ \n\t]*|[ \n\t]*$/g, '').replace(/\n {4}|\n\t{1}/g, '\n'), engine: 'markdown'})}
         </div>
         `;
     }
