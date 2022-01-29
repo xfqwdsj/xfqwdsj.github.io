@@ -14,7 +14,7 @@ layout: page
 {% endmessage %}
 
 {% message color:primary icon:info-circle %}
-    **You are not in danger.**
+        **You are not in danger.**
 {% endmessage %}
 
 ## tabs

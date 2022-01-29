@@ -68,7 +68,7 @@
         `;
         contentEl += `
         <div id="${match[2].substring(1)}" class="tab-content${hidden}">
-            ${hexo.render.renderSync({text: match[5], engine: 'markdown'})}
+            ${hexo.render.renderSync({text: match[5].replace(/^\s|\s$/g), engine: 'markdown'})}
         </div>
         `;
     }
