@@ -27,7 +27,7 @@ layout: page
 {% tabs behavior:fullwidth size:small style:boxed %}
     <!-- tab aadd2 'AADD' -->
         - assdf
-         - asd
+          - asd
         - aege
           - sasd
     <!-- endtab -->
@@ -35,7 +35,7 @@ layout: page
         [sad]()
     <!-- endtab -->
     <!-- tab sb 'hl' -->
-            asd
-            sdf
+                asd
+                sdf
     <!-- endtab -->
 {% endtabs %}
