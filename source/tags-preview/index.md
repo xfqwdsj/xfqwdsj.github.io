@@ -26,10 +26,10 @@ layout: page
 
 {% tabs behavior:fullwidth size:small style:boxed %}
     <!-- tab aadd2 'AADD' -->
-    - assdf
-    - aege
+        - assdf
+        - aege
     <!-- endtab -->
     <!-- activetab info2 info 'Info' -->
-    [sad]()
+        [sad]()
     <!-- endtab -->
 {% endtabs %}
