@@ -61,6 +61,8 @@
         }
         var icon = '';
         if (match[3] != undefined && match[3].substring(1) != '') icon = `<span class="icon is-small"><i class="fas fa-${match[3].substring(1)}" aria-hidden="true"></i></span>`;
+        var contentString = match[5].replace(/^\n?|[ \n\t]*$/g, '');
+        if (contentString.match(/^ {4}|^\t{1}/gm).length == contentString.split('\n').length) contentString = contentString.replace(/^ {4}|^\t{1}/g, '').replace(/\n {4}|\n\t{1}/g, '\n');
         tabsEl += `
         <li id="${match[2].substring(1)}"${active}">
             <a onclick="switchTab(this)">${hexo.render.renderSync({text: icon + match[4].substring(2, match[4].length - 1), engine: 'markdown'})}</a>
@@ -68,9 +70,7 @@
         `;
         contentEl += `
         <div id="${match[2].substring(1)}" class="tab-content${hidden}">
-            ${hexo.render.renderSync({text: match[5].replace(/^[ \n\t]*|[ \n\t]*$/g, '').replace(/\n {4}|\n\t{1}/g, '\n'), engine: 'markdown'})}
-            <div><span>${match[5]}</span></div>
-            <div><span>${match[5].replace(/^[ \n\t]*|[ \n\t]*$/g, '').replace(/\n {4}|\n\t{1}/g, '\n')}</span></div>
+            ${hexo.render.renderSync({text: contentString, engine: 'markdown'})}
         </div>
         `;
     }
