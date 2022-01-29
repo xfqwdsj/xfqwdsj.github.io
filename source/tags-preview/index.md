@@ -17,6 +17,10 @@ layout: page
     **You are not in danger.**
 {% endmessage %}
 
+{% message color:primary %}
+    **You are not in danger.**
+{% endmessage %}
+
 ## tabs
 
 {% tabs behavior:centered style:toggle-rounded %}
