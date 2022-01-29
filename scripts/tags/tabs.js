@@ -1,9 +1,10 @@
 /**
  * Bulma Tabs Tag, see {@link https://bulma.io/documentation/components/tabs/}.
  * The format of each tab is: <!-- <active>tab [id] [<icon>] '[title]' --> [content] <!-- endtab -->
- * @param {string} behavior The behavior of this tab, can not be set. Usable: centered, right, fullwidth. The default behavior is to display on the left.
- * @param {string} size The size of this tab, can not be set. Usable: small, medium, large. The default size is between small and medium.
- * @param {string} style The style of this tab, can not be set. Usable: boxed, toggle, toggle-rounded.
+ * @param {string} id           The unique id of this tab, should match \w.
+ * @param {string} behavior     The behavior of this tab, can not be set. Usable: centered, right, fullwidth. The default behavior is to display on the left.
+ * @param {string} size         The size of this tab, can not be set. Usable: small, medium, large. The default size is between small and medium.
+ * @param {string} style        The style of this tab, can not be set. Usable: boxed, toggle, toggle-rounded.
  * @example
  * {% tabs behavior:fullwidth size:small style:toggle-rounded %}
  *     <!-- tab info info 'Info' -->This is info.<!-- endtab -->
@@ -11,15 +12,19 @@
  * {% endmessage %}
  */
  hexo.extend.tag.register('tabs', function(args, content) {
+    var id = '';
     var behavior = '';
     var size = '';
     var style = '';
     var contentEl = content;
     args.forEach(element => {
-        var key = element.split(':')[0];
-        var value = element.split(':')[1];
+        var key = element.split(':')[0].trim();
+        var value = element.split(':')[1].trim();
         if (value != null && value != undefined && value != '') {
             switch (key) {
+                case 'id':
+                    id = value;
+                    break;
                 case 'behavior':
                     behavior = ` is-${value}`;
                     break;
@@ -52,8 +57,8 @@
         var icon = '';
         if (match[3] != undefined && match[3].substring(1) != '') icon = `<span class="icon is-small"><i class="fas fa-${match[3].substring(1)}" aria-hidden="true"></i></span>`;
         tabsEl += `
-        <li${active}>
-            <a href="#${match[2].substring(1)}">${hexo.render.renderSync({text: icon + match[4].substring(2, match[4].length - 1), engine: 'markdown'})}</a>
+        <li id="${match[2].substring(1)}"${active}">
+            <a onclick="switchTab(this)">${hexo.render.renderSync({text: icon + match[4].substring(2, match[4].length - 1), engine: 'markdown'})}</a>
         </li>
         `;
         contentEl += `
@@ -64,48 +69,42 @@
     }
     
     return `
-    <div class="tabs my-3${behavior}${size}${style}">
-        <ul class="mx-0 my-0">
-            ${tabsEl}
-        </ul>
+    <div>
+        <div class="tabs my-3${behavior}${size}${style}">
+            <ul class="mx-0 my-0">
+                ${tabsEl}
+            </ul>
+        </div>
+        <div>
+            ${contentEl}
+        </div>
     </div>
-    ${contentEl}
     `;
 }, { ends: true });
 
 hexo.extend.injector.register(
-    "body_end",
-    () => {
-      return `
-      <script>
-      (() => {
-          function switchTab() {
-              if (!location.hash) {
-                return;
-              }
-              Array
-                  .from(document.querySelectorAll('.tab-content'))
-                  .forEach($tab => {
-                      $tab.classList.add('is-hidden');
-                  });
-              Array
-                  .from(document.querySelectorAll('.tabs li'))
-                  .forEach($tab => {
-                      $tab.classList.remove('is-active');
-                  });
-              const $activeTab = document.querySelector(location.hash);
-              if ($activeTab) {
-                  $activeTab.classList.remove('is-hidden');
-              }
-              const $tabMenu = document.querySelector(\`a[href="\${location.hash}"]\`);
-              if ($tabMenu) {
-                  $tabMenu.parentElement.classList.add('is-active');
-              }
-          }
-          switchTab();
-          window.addEventListener('hashchange', switchTab, false);
-      })();
-      </script>
-      `;
-    }
+    "head_end",
+    `
+    <script>
+        function switchTab(element) {
+            var id = element.parentElement.id;
+            var tabElements = element.parentElement.parentElement.children;
+            var contentElements = element.parentElement.parentElement.parentElement.parentElement.children[1].children;
+            tabElements.forEach($tab => {
+               if ($tab.id == id) {
+                    $tab.classList.add('is-active');
+                } else {
+                    $tab.classList.remove('is-active');
+                }
+            });
+            contentElements.forEach($content => {
+                if ($content.id == id) {
+                    $content.classList.remove('is-hidden');
+                } else {
+                    $content.classList.add('is-hidden');
+                }
+            });
+        }
+    </script>
+    `
   );
