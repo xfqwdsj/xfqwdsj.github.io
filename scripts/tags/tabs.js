@@ -1,10 +1,15 @@
 /**
  * Bulma Tabs Tag, see {@link https://bulma.io/documentation/components/tabs/}.
+ * 
  * The format of each tab is: <!-- <active>tab [id] [<icon>] '[title]' --> [content] <!-- endtab -->
- * @param {string} id           The unique id of this tab, should match \w.
- * @param {string} behavior     The behavior of this tab, can not be set. Usable: centered, right, fullwidth. The default behavior is to display on the left.
- * @param {string} size         The size of this tab, can not be set. Usable: small, medium, large. The default size is between small and medium.
+ * 
+ * @param {string} id           The unique id of this tab, should match: /\w/.
+ * @param {string} behavior     The behavior of this tab, can not be set. Usable: centered, right, fullwidth. The
+ *                              default behavior is to display on the left.
+ * @param {string} size         The size of this tab, can not be set. Usable: small, medium, large. The default
+ *                              size is between small and medium.
  * @param {string} style        The style of this tab, can not be set. Usable: boxed, toggle, toggle-rounded.
+ * 
  * @example
  * {% tabs behavior:fullwidth size:small style:toggle-rounded %}
  *     <!-- tab info info 'Info' -->This is info.<!-- endtab -->
@@ -90,20 +95,20 @@ hexo.extend.injector.register(
             var id = element.parentElement.id;
             var tabElements = element.parentElement.parentElement.children;
             var contentElements = element.parentElement.parentElement.parentElement.parentElement.children[1].children;
-            tabElements.forEach($tab => {
-               if ($tab.id == id) {
+            for (var i = 0; i < tabElements.length; i++) {
+                var $tab = tabElements[i];
+                var $content = contentElements[i];
+                if ($tab.id == id) {
                     $tab.classList.add('is-active');
                 } else {
                     $tab.classList.remove('is-active');
                 }
-            });
-            contentElements.forEach($content => {
                 if ($content.id == id) {
                     $content.classList.remove('is-hidden');
                 } else {
                     $content.classList.add('is-hidden');
                 }
-            });
+            }
         }
     </script>
     `

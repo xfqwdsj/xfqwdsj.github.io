@@ -1,9 +1,13 @@
 /**
  * Bulma Message Tag, see {@link https://bulma.io/documentation/components/message/}.
- * @param {string} color The color of this message, can not be set. Usable: dark, primary, link, info, success, warning, danger.
- * @param {string} icon The icon of this message, can not be set.
- * @param {string} title The header of this message, can not be set, supported Markdown.
- * @param {string} size The size of this message, can not be set. Usable: small, medium, large. The default size is between small and medium.
+ * 
+ * @param {string} color    The color of this message, can not be set. Usable: dark, primary, link, info, success,
+ *                          warning, danger.
+ * @param {string} icon     The icon of this message, can not be set.
+ * @param {string} title    The header of this message, can not be set, supported Markdown.
+ * @param {string} size     The size of this message, can not be set. Usable: small, medium, large. The default
+ *                          size is between small and medium.
+ * 
  * @example
  * {% message color:danger icon:info-circle 'title:Very danger!' size:small %}
  *     **You are in danger.**
@@ -16,8 +20,8 @@ hexo.extend.tag.register('message', function(args, content) {
     var size = '';
     var header = '';
     args.forEach(element => {
-        var key = element.split(':')[0];
-        var value = element.split(':')[1];
+        var key = element.split(':')[0].trim();
+        var value = element.split(':')[1].trim();
         if (value != null && value != undefined && value != '') {
             switch (key) {
                 case 'color':
