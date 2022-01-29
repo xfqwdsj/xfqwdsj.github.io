@@ -1,7 +1,8 @@
 /**
  * Bulma Tabs Tag, see {@link https://bulma.io/documentation/components/tabs/}.
  * 
- * The format of each tab is: <!-- <active>tab [id] [<icon>] '[title]' --> [content] <!-- endtab -->
+ * The format of each item is: <!-- <active>item [id] [<icon>] '[title]' --> [content] <!-- enditem -->.
+ * If each item's content is indented with four spaces or one tab, these indents will be ignored.
  * 
  * @param {string} id           The unique id of this tab, should match: /\w/.
  * @param {string} behavior     The behavior of this tab, can not be set. Usable: centered, right, fullwidth. The
@@ -12,8 +13,8 @@
  * 
  * @example
  * {% tabs behavior:fullwidth size:small style:toggle-rounded %}
- *     <!-- tab info info 'Info' -->This is info.<!-- endtab -->
- *     <!-- activetab hello 'Hello' -->This is hello.<!-- endtab -->
+ *     <!-- item info info 'Info' -->This is info.<!-- enditem -->
+ *     <!-- activeitem hello 'Hello' -->This is hello.<!-- enditem -->
  * {% endmessage %}
  */
  hexo.extend.tag.register('tabs', function(args, content) {
@@ -47,7 +48,7 @@
         }
     });
 
-    var blockRegExp = /<!--\s*(active)?tab( \w+)( \w+)?( '.*?')\s*-->([\s\S]*?)<!--\s*endtab\s*-->/g;
+    var blockRegExp = /<!--\s*(active)?item( \w+)( \w+)?( '.*?')\s*-->([\s\S]*?)<!--\s*enditem\s*-->/g;
     var match;
     var tabsEl = '';
     var contentEl = '';

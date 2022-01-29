@@ -20,26 +20,26 @@ layout: page
 ## tabs
 
 {% tabs behavior:centered style:toggle-rounded %}
-    <!-- tab aadd1 'AADD' -->This is AADD.<!-- endtab -->
-    <!-- activetab info1 info 'Info' -->This is Info.<!-- endtab -->
+    <!-- item aadd1 'AADD' -->This is AADD.<!-- enditem -->
+    <!-- activeitem info1 info 'Info' -->This is Info.<!-- enditem -->
 {% endtabs %}
 
 {% tabs behavior:fullwidth size:small style:boxed %}
-    <!-- tab aadd2 'AADD' -->
+    <!-- item aadd2 'AADD' -->
         - assdf
           - asd
         - aege
           - sasd
-    <!-- endtab -->
-    <!-- activetab info2 info 'Info' -->
+    <!-- enditem -->
+    <!-- activeitem info2 info 'Info' -->
         [sad]()
-    <!-- endtab -->
-    <!-- tab sb 'hl' -->
+    <!-- enditem -->
+    <!-- item sb 'hl' -->
             asd
             sdf
-    <!-- endtab -->
-    <!-- tab qwr 'asd' -->
+    <!-- enditem -->
+    <!-- item qwr 'asd' -->
     - aa
         - ff
-        <!-- endtab -->
+        <!-- enditem -->
 {% endtabs %}
