@@ -34,7 +34,7 @@ category: 技术
 
 ### 配置仓库
 
-打开终端，输入如下内容以安装 `Node.js`：
+打开终端，输入如下内容以安装 `Node.js` <sup>[[文档]](https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions)</sup>：
 
 ```bash bash
 curl -fsSL https://deb.nodesource.com/setup_17.x | bash
