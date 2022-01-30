@@ -59,7 +59,7 @@ hexo.extend.tag.register('tabs', (args, content) => {
             active = ' class="is-active"';
             hidden = '';
         }
-        if (match[3] !== null && match[3].substring(1) !== '') icon = `<span class="icon is-small"><i class="fas fa-${match[3].substring(1)}" aria-hidden="true"></i></span>`;
+        if (match[3] !== undefined && match[3].substring(1) !== '') icon = `<span class="icon is-small"><i class="fas fa-${match[3].substring(1)}" aria-hidden="true"></i></span>`;
         if (contentString.match(/^ {4}|^\t{1}/gm) !== null && contentString.match(/^ {4}|^\t{1}/gm).length === contentString.split('\n').length) contentString = contentString.replace(/^ {4}|^\t{1}/g, '').replace(/\n {4}|\n\t{1}/g, '\n');
 
         tabsEl += `
