@@ -105,3 +105,89 @@ sudo ln -s /snap/bin/certbot /usr/bin/certbot
 我开始到处学习 Nginx 的配置文件，最后我是这么做的：
 
 首先删除一个默认的配置文件：`/etc/nginx/conf.d/default.conf`
+
+然后编辑配置文件：
+
+```conf /etc/nginx/nginx.conf
+user  nginx;
+worker_processes  auto;
+
+error_log  /var/log/nginx/error.log notice;
+pid        /var/run/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+# 这部分是原文中复制过来的
+stream {
+    # 这里就是 SNI 识别，将域名映射成一个配置名
+    map $ssl_preread_server_name $backend_name {
+        [Trojan 与伪装服务器共用的域名] trojan;
+    # 域名都不匹配情况下的默认值
+        default web;
+    }
+
+    # web，配置转发详情
+    upstream web {
+        server 127.0.0.1:80;
+    }
+
+    # trojan，配置转发详情
+    upstream trojan {
+        server 127.0.0.1:[Trojan 端口];
+    }
+
+    # 监听 443 并开启 ssl_preread
+    server {
+        listen 443 reuseport;
+        listen [::]:443 reuseport;
+        proxy_pass  $backend_name;
+        ssl_preread on;
+    }
+}
+
+http {
+    include       /etc/nginx/mime.types;
+    default_type  application/octet-stream;
+
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+
+    access_log  /var/log/nginx/access.log  main;
+
+    sendfile        on;
+
+    keepalive_timeout  65;
+
+    include /etc/nginx/conf.d/*.conf;
+
+    server {
+        server_name [Trojan 与伪装服务器共用的域名];
+
+        location / {
+            root /usr/share/nginx/html/;
+            index index.html index.htm;
+        }
+
+        listen 80;
+    }
+}
+```
+
+编辑 Trojan 的配置文件 `/usr/local/etc/trojan/config.json` ，把 `local_port` 修改一下，重启。
+
+```bash bash
+sudo systemctl restart trojan
+```
+
+注册系统服务，启动 Nginx：
+
+```bash bash
+sudo nginx -s stop
+sudo systemctl enable nginx
+sudo systemctl start nginx
+```
+
