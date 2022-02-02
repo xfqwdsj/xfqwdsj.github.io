@@ -20,6 +20,8 @@ toc: true
 
 <!-- more -->
 
+部署 Trojan 的教程可以查看[这篇文章](https://blog.xfqlittlefan.xyz/2022/01/27/Caddy-Trojan/)。
+
 {% message color:warning %}
 由于部署过程中有很多坑，为引导读者避坑，本文将以我的操作顺序以及问题的解决过程来记录，所以如果你只是想知道部署方法，请先通读文章。
 {% endmessage %}
@@ -62,20 +64,26 @@ uid                      nginx signing key <signing-key@nginx.com>
 {% endmessage %}
 
 {% tabs %}
+
 <!-- item stable '稳定版' -->
+
 ```bash bash
 echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] \
 http://nginx.org/packages/ubuntu `lsb_release -cs` nginx" \
     | sudo tee /etc/apt/sources.list.d/nginx.list
 ```
+
 <!-- enditem -->
 <!-- activeitem main '主要版' -->
+
 ```bash bash
 echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] \
 http://nginx.org/packages/mainline/ubuntu `lsb_release -cs` nginx" \
     | sudo tee /etc/apt/sources.list.d/nginx.list
 ```
+
 <!-- enditem -->
+
 {% endtabs %}
 
 ```bash bash
@@ -191,3 +199,156 @@ sudo systemctl enable nginx
 sudo systemctl start nginx
 ```
 
+申请证书：
+
+```bash bash
+sudo certbot --nginx
+```
+
+Certbot 会从配置文件中发现你配置的域名并自动修改配置文件，配置 SSL 。
+
+配置完成后，再次修改配置文件：
+
+```conf /etc/nginx/nginx.conf
+server {
+    server_name [域名];
+
+    location / {
+        root /usr/share/nginx/html/;
+        index index.html index.htm;
+    }
+
+    listen 80 ssl;
+    ssl_certificate /etc/letsencrypt/live/[域名]/fullchain.pem;   # 记下这两个路径
+    ssl_certificate_key /etc/letsencrypt/live/[域名]/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+}
+```
+
+```bash bash
+sudo nginx -s reload
+```
+
+编辑 Trojan 的配置文件 `/usr/local/etc/trojan/config.json` ，把证书路径修改一下，重启。
+
+```bash bash
+sudo systemctl restart trojan
+```
+
+这时我们就可以用原来的客户端配置连接到代理了。
+
+作为一个合格的~~懒狗~~自动化玩家，我们肯定是要测试一下自动更新 SSL 的可靠程度。~~（怕自己配置出错）~~
+
+```bash bash
+sudo certbot renew --dry-run
+```
+
+但我们竟收到了 400 错误！
+
+打开浏览器：
+
+![浏览器](/uploads/2022-02-03-010519.png)
+
+按照我们配置 Caddy 的经验，这样配置应该没有错。
+
+上网搜索，怎么配怎么不对：有说 `ssl` 后加 `default` 的，有说端口 443 加 `ssl` 而 80 不加的，可行的就第一种，但也失败了。（说是失败，不如说是不适合我们的需求）
+
+到这里，我们就止步不前了，我也尝试过搜索 Nginx 取消这个功能的办法，无奈没有搜到。
+
+于是我开始翻看我看过的各种文章，果然还是最开始给我灵感的文章又给了我灵感。文章中的转发设置中并没有转到 80 端口，而这个问题产生的原因是使用 HTTP 协议访问了启用了 SSL 的 80 端口，我们再新开一个端口，用于 SSL 连接不就行了吗？
+
+开干：
+
+```conf /etc/nginx/nginx.conf
+user  nginx;
+worker_processes  auto;
+
+error_log  /var/log/nginx/error.log notice;
+pid        /var/run/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+stream {
+    map $ssl_preread_server_name $backend_name {
+        [Trojan 及伪装域名] trojan;
+        default web;
+    }
+
+    upstream web {
+        server 127.0.0.1:[Web SSL 端口];
+    }
+
+    upstream trojan {
+        server 127.0.0.1:8580;
+    }
+
+    # 监听 443 并开启 ssl_preread
+    server {
+        listen 443 reuseport;
+        listen [::]:443 reuseport;
+        proxy_pass  $backend_name;
+        ssl_preread on;
+    }
+}
+
+http {
+    include       /etc/nginx/mime.types;
+    default_type  application/octet-stream;
+
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+
+    access_log  /var/log/nginx/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    keepalive_timeout  65;
+
+    #gzip  on;
+
+    include /etc/nginx/conf.d/*.conf;
+
+    server {
+        server_name xfqlittlefan.xyz;
+
+        location / {
+            root /usr/share/nginx/html/-/;
+            index index.html index.htm;
+        }
+
+        listen 8581 ssl;
+        listen 80;
+        ssl_certificate /etc/letsencrypt/live/xfqlittlefan.xyz/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/xfqlittlefan.xyz/privkey.pem;
+        include /etc/letsencrypt/options-ssl-nginx.conf;
+        ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+    }
+
+    server {
+        server_name nps.xfqlittlefan.xyz;
+
+        location /.well-known {
+            root /usr/share/nginx/html/nps/;
+            index index.html index.htm;
+        }
+
+        location / {
+            proxy_pass http://localhost:8025;
+        }
+    
+        listen 8581 ssl;
+        listen 80;
+        ssl_certificate /etc/letsencrypt/live/nps.xfqlittlefan.xyz/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/nps.xfqlittlefan.xyz/privkey.pem;
+        include /etc/letsencrypt/options-ssl-nginx.conf;
+        ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+    }
+}
+
+```
