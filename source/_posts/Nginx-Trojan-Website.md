@@ -69,7 +69,7 @@ http://nginx.org/packages/ubuntu `lsb_release -cs` nginx" \
     | sudo tee /etc/apt/sources.list.d/nginx.list
 ```
 <!-- enditem -->
-<!-- item stable '主要版' -->
+<!-- activeitem main '主要版' -->
 ```bash bash
 echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] \
 http://nginx.org/packages/mainline/ubuntu `lsb_release -cs` nginx" \
