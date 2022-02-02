@@ -283,10 +283,9 @@ stream {
     }
 
     upstream trojan {
-        server 127.0.0.1:8580;
+        server 127.0.0.1:[Trojan 端口];
     }
 
-    # 监听 443 并开启 ssl_preread
     server {
         listen 443 reuseport;
         listen [::]:443 reuseport;
@@ -315,40 +314,43 @@ http {
     include /etc/nginx/conf.d/*.conf;
 
     server {
-        server_name xfqlittlefan.xyz;
+        server_name [Trojan 及伪装域名];
 
         location / {
-            root /usr/share/nginx/html/-/;
+            root /usr/share/nginx/html/;
             index index.html index.htm;
         }
 
-        listen 8581 ssl;
+        listen [Web SSL 端口] ssl;
         listen 80;
-        ssl_certificate /etc/letsencrypt/live/xfqlittlefan.xyz/fullchain.pem;
-        ssl_certificate_key /etc/letsencrypt/live/xfqlittlefan.xyz/privkey.pem;
+        ssl_certificate /etc/letsencrypt/live/[*]/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/[*]/privkey.pem;
         include /etc/letsencrypt/options-ssl-nginx.conf;
         ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
     }
 
     server {
-        server_name nps.xfqlittlefan.xyz;
-
-        location /.well-known {
-            root /usr/share/nginx/html/nps/;
-            index index.html index.htm;
-        }
-
-        location / {
-            proxy_pass http://localhost:8025;
-        }
+        server_name [其他服务域名];
     
-        listen 8581 ssl;
+        listen [Web SSL 端口] ssl;
         listen 80;
-        ssl_certificate /etc/letsencrypt/live/nps.xfqlittlefan.xyz/fullchain.pem;
-        ssl_certificate_key /etc/letsencrypt/live/nps.xfqlittlefan.xyz/privkey.pem;
+        ssl_certificate /etc/letsencrypt/live/[*]/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/[*]/privkey.pem;
         include /etc/letsencrypt/options-ssl-nginx.conf;
         ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
     }
 }
 
 ```
+
+重载 Nginx ，大功告成：
+
+```bash bash
+sudo nginx -s reload
+```
+
+## 后记
+
+折腾这个花了我一个下午的光阴，这次折腾给我一个启示：思维不能僵化。HTTP 端口不一定是 80 ，HTTPS 端口也不一定是 443 。折腾完后我再次蹦了起来：NB ！并马上打开电脑记录。
+
+本文内容可能与实际情况有些出入（文件内容、实现效果等），但最终结果部分不会错，因为我正这么用着呢！
