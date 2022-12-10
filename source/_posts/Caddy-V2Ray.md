@@ -1,17 +1,18 @@
 ---
 title: 利用 Caddy 部署使用 Websocket 的 V2Ray Vmess 服务端，并搭建一个文件服务器
-date: 2022-01-27 19:09:45
+date: 2022-01-28T03:09:45+08:00
 tags:
-  - 技术
-  - Caddy
-  - V2Ray
-  - 服务器
-  - 代理
-  - GFW
+- 技术
+- Caddy
+- V2Ray
+- 服务器
+- 代理
+- GFW
 category: 技术
 toc: true
----
+updated: 2022-01-28T03:09:45+08:00
 
+---
 > 灵感源自 <https://blog.kallydev.com/docs/technical-notes/server/deploy-v2ray-with-docker/>，有修改。
 
 ## 部署说明

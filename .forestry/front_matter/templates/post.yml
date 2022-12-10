@@ -1,5 +1,5 @@
 ---
-label: Posts
+label: Post
 hide_body: false
 fields:
 - type: text
@@ -11,8 +11,8 @@ fields:
   name: date
   config:
     date_format: YYYY/MM/DD
-    export_format: YYYY-MM-DD hh:mm:ss
-    time_format: hh:mm:ss
+    export_format: ''
+    time_format: h:mm:ss A
     display_utc: false
     required: true
   default: now
@@ -37,9 +37,12 @@ fields:
   config:
     required: true
     date_format: YYYY/MM/DD
-    time_format: hh:mm:ss
+    time_format: h:mm:ss A
     display_utc: false
-    export_format: YYYY-MM-DD hh:mm:ss
+    export_format: ''
   default: now
 pages:
+- source/_posts/Caddy-Trojan.md
+- source/_posts/Caddy-V2Ray.md
 - source/_posts/Make-Blog-Website.md
+- source/_posts/Nginx-Trojan-Website.md
