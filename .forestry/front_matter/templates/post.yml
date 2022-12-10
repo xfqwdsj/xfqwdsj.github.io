@@ -26,3 +26,13 @@ fields:
   hidden: false
   default: true
   label: Toc Enabled
+- name: updated
+  type: datetime
+  label: Updated
+  description: ''
+  config:
+    required: false
+    date_format: 
+    time_format: 
+    display_utc: false
+  default: now
