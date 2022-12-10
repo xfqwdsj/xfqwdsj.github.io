@@ -41,3 +41,5 @@ fields:
     display_utc: false
     export_format: YYYY-MM-DD hh:mm:ss
   default: now
+pages:
+- source/_posts/Make-Blog-Website.md
