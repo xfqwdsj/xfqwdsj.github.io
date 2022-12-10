@@ -65,7 +65,7 @@ uid                      nginx signing key <signing-key@nginx.com>
 
 {% tabs %}
 
-<!-- item stable '稳定版' -->
+<!-- tab id:stable title:稳定版 -->
 
 ```bash bash
 echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] \
@@ -73,8 +73,8 @@ http://nginx.org/packages/ubuntu `lsb_release -cs` nginx" \
     | sudo tee /etc/apt/sources.list.d/nginx.list
 ```
 
-<!-- enditem -->
-<!-- activeitem main '主要版' -->
+<!-- endtab -->
+<!-- tab id:main active title:主要版 -->
 
 ```bash bash
 echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] \
@@ -82,7 +82,7 @@ http://nginx.org/packages/mainline/ubuntu `lsb_release -cs` nginx" \
     | sudo tee /etc/apt/sources.list.d/nginx.list
 ```
 
-<!-- enditem -->
+<!-- endtab -->
 
 {% endtabs %}
 
@@ -353,4 +353,4 @@ sudo nginx -s reload
 
 折腾这个花了我一个下午的光阴，这次折腾给我一个启示：思维不能僵化。HTTP 端口不一定是 80 ，HTTPS 端口也不一定是 443 。折腾完后我再次蹦了起来：NB ！并马上打开电脑记录。
 
-本文内容可能与实际情况有些出入（文件内容、实现效果等），但最终结果部分不会错，因为我正这么用着呢！
+本文内容可能与实际情况有些出入（文件内容、实现效果等），但最终结果部分应该不会错。

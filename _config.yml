@@ -48,11 +48,11 @@ index_generator:
   per_page: 10
   order_by: '-date'
 default_category: 未分类
-category_map: 
+category_map:
   未分类: uncategorized
   技术: technology
   生活: life
-tag_map: 
+tag_map:
   技术: technology
   Caddy: caddy
   V2Ray: v2ray
