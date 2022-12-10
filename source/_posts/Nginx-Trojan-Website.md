@@ -1,17 +1,18 @@
 ---
 title: 利用 Nginx 部署支持 SNI 转发的 Trojan 服务端以及踩坑记录
-date: 2022-02-02 18:23:58
+date: 2022-02-02T18:23:58.000+00:00
 tags:
-  - 技术
-  - Nginx
-  - Trojan
-  - 服务器
-  - 代理
-  - GFW
+- 技术
+- Nginx
+- Trojan
+- 服务器
+- 代理
+- GFW
 category: 技术
 toc: true
----
+updated: 2022-12-11T00:01:59+08:00
 
+---
 ## 前言
 
 之前使用 Caddy 部署的服务端，到现在出现了一个问题：不具备部署多个网络服务的能力。

@@ -43,3 +43,4 @@ fields:
   default: now
 pages:
 - source/_posts/Make-Blog-Website.md
+- source/_posts/Nginx-Trojan-Website.md
