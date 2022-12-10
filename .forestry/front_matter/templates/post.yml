@@ -42,5 +42,6 @@ fields:
     export_format: ''
   default: now
 pages:
+- source/_posts/Caddy-V2Ray.md
 - source/_posts/Make-Blog-Website.md
 - source/_posts/Nginx-Trojan-Website.md
