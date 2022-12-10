@@ -61,6 +61,7 @@ tag_map:
   代理: proxy
   GFW: gfw
   博客: blog
+  网络: network
 meta_generator: true
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
