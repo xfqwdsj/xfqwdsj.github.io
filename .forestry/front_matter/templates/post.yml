@@ -5,12 +5,16 @@ fields:
 - type: text
   name: title
   label: Title
+  config:
+    required: true
 - type: datetime
   name: date
   config:
     date_format: YYYY/MM/DD
     export_format: YYYY-MM-DD hh:mm:ss
     time_format: hh:mm:ss
+    display_utc: false
+    required: true
   default: now
   label: Date
 - type: list
@@ -31,7 +35,7 @@ fields:
   label: Updated
   description: ''
   config:
-    required: false
+    required: true
     date_format: 
     time_format: 
     display_utc: false
