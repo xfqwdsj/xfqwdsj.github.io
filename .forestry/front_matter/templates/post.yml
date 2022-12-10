@@ -12,7 +12,7 @@ fields:
   config:
     date_format: YYYY/MM/DD
     export_format: ''
-    time_format: h:mm:ss ZZ
+    time_format: h:mm:ss A
     display_utc: false
     required: true
   default: now
@@ -37,7 +37,7 @@ fields:
   config:
     required: true
     date_format: YYYY/MM/DD
-    time_format: h:mm:ss ZZ
+    time_format: h:mm:ss A
     display_utc: false
     export_format: ''
   default: now
