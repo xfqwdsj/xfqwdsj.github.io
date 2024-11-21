@@ -6,7 +6,7 @@ head:
     manifest:
         name: 
         short_name: LTFan
-        start_url: https://blog.xfqlittlefan.xyz
+        start_url: https://blog.ltfan.top
         theme_color: 
         background_color: 
         display: standalone
