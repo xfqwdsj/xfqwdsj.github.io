@@ -10,7 +10,7 @@ tags:
 - GFW
 category: 技术
 toc: true
-updated: 2022-12-11T00:01:59+08:00
+updated: 2024-11-21T19:40:00+08:00
 
 ---
 ## 前言
@@ -21,7 +21,7 @@ updated: 2022-12-11T00:01:59+08:00
 
 <!-- more -->
 
-部署 Trojan 的教程可以查看[这篇文章](https://blog.xfqlittlefan.xyz/2022/01/27/Caddy-Trojan/)。
+部署 Trojan 的教程可以查看[这篇文章](/2022/01/27/Caddy-Trojan/)。
 
 {% message color:warning %}
 由于部署过程中有很多坑，为引导读者避坑，本文将以我的操作顺序以及问题的解决过程来记录，所以如果你只是想知道部署方法，请先通读文章。

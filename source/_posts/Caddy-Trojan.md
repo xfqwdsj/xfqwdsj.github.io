@@ -10,12 +10,12 @@ tags:
 - GFW
 category: 技术
 toc: true
-updated: 2022-01-28T09:52:55+08:00
+updated: 2024-11-21T19:40:00+08:00
 
 ---
 ## 准备工作
 
-参见[此文章](https://blog.xfqlittlefan.xyz/2022/01/27/caddy-v2ray/)。
+参见[此文章](/2022/01/27/caddy-v2ray/)。
 
 ## 开始部署
 
